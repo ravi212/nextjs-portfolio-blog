@@ -1,9 +1,16 @@
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { lazy } from "react";
+const SocialIcons = lazy(() => import("@/components/molecules/SocialIcons")) 
 
 export default function Home() {
   return (
-    <main className="bg-background flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="relative">
+      <div >
 
-    </main>
+      </div>
+      <div id="social-icons" className=" bottom-5">
+        <SocialIcons />
+      </div>
+    </div>
   );
 }

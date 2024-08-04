@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "rgba(var(--background-color))"
+        background: "rgba(var(--background-color))",
+        primaryTextColor: "rgba(var(--primary-text-color))",
+        secondaryTextColor: "rgba(var(--secondary-text-color))"
       },
     },
   },
