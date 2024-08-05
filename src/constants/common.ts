@@ -5,17 +5,17 @@ export const NAV_ITEMS = [
         link: '/'
     },
     {
-        id: 0,
+        id: 1,
         title: 'About',
         link: '/about'
     },
     {
-        id: 0,
+        id: 2,
         title: 'Projects',
         link: '/projects'
     },
     {
-        id: 0,
+        id: 3,
         title: 'Contact',
         link: '/contact'
     }
@@ -29,7 +29,7 @@ export const SOCIAL_ITEMS = [
         link: 'https://github.com/ravi212'
     },
     {
-        id: 0,
+        id: 1,
         title: 'Mail',
         type: 'mail',
         link: 'mailto:raviraina212@gmail.com',

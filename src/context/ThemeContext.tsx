@@ -3,11 +3,11 @@ export const ThemeContext = createContext(
     {} as ThemeContextProps
 );
 
-// A Context provider that
+// A Context provider for theme
 const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState("light");
 
-  // fucntion to switch theme to light
+  // fucntion to switch theme to light or dark
   const switchThemeTo = (theme: string) => {
     setTheme(theme);
   };
