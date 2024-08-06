@@ -13,8 +13,8 @@ const Navbar = () => {
   return (
     <div className='flex flex-row items-center justify-between py-10'>
         <ThemeSwitch />
-        <div className='flex flex-row items-center'>
-          <nav>
+        <div className='flex flex-row items-center uppercase'>
+          <nav className='flex gap-7'>
             {
               NAV_ITEMS.map((item, index) => (
                 <NavItem key={index} title={item.title} link={item.link} />

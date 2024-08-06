@@ -22,11 +22,11 @@ const ThemeSwitch = () => {
   }, [])
 
   return (
-    <div>
+    <div className='flex justify-center items-center'>
         {
            theme == 'dark' 
-           ? <IoSunnyOutline className='text-white w-10 h-10 cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
-           : <BsMoonStarsFill className='text-primaryText w-10 h-10 cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
+           ? <IoSunnyOutline className='text-white w-8 h-8 cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
+           : <BsMoonStarsFill className='text-primaryText w-6 h-6 cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
         }
     </div>
   )

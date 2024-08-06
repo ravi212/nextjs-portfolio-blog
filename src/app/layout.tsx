@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <main className={`${inter.className} bg-background flex min-h-screen flex-col justify-between px-16`}>
+        <main className={`${inter.className} bg-background min-h-screen px-16`}>
           <Navbar />
           {children}
         </main>

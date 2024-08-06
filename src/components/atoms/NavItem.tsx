@@ -6,8 +6,8 @@ const NavItem = ({ title, link }: NavItemProps) => {
   return (
     <Link
       className={`${
-        pathName == link ? "text-secondaryTextColor" : ""
-      } text-primaryTextColor hover:text-secondaryTextColor p-4`}
+        pathName == link ? "text-secondaryTextColor font-semibold text-md" : ""
+      } text-primaryTextColor hover:text-secondaryTextColor text-md`}
       href={link}
     >
       {title}

@@ -30,8 +30,15 @@ export const SOCIAL_ITEMS = [
     },
     {
         id: 1,
+        title: 'LinkedIn',
+        type: 'linkedIn',
+        link: 'https://linkedin.com/in/ravir212',
+    },
+    {
+        id: 2,
         title: 'Mail',
         type: 'mail',
         link: 'mailto:raviraina212@gmail.com',
     },
+
 ]
