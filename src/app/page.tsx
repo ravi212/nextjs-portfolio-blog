@@ -9,9 +9,7 @@ export default function Home() {
         <h4 className="text-xl sm:text-2xl md:text-3xl ">Hi my name is</h4>
         <h1 className="text-5xl sm:text-6xl md:text-8xl">Ravi Raina.</h1>
         <h3 className="text-2xl sm:text-3xl md:text-4xl">I am a Software Developer focusing on building and designing digital experiences.</h3>
-      </div>
-      <div id="social-icons" className="absolute bottom-20">
-        <SocialIcons />
+        <button></button>
       </div>
     </div>
   );

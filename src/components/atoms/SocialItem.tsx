@@ -25,7 +25,7 @@ const SocialItem = ({ title, link, type }: SocialItemProps) => {
   }
 
   return (
-    <Link target="_blank" className="justify-center align-center w-8 h-8 pb-5" href={link}>
+    <Link target="_blank" className="justify-center align-center w-8 h-8 pb-5 data-twe-ripple-init" href={link}>
         {renderIcon(type)}
     </Link>
   );
