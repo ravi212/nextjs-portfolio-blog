@@ -16,11 +16,11 @@ const SocialItem = ({ title, link, type }: SocialItemProps) => {
   const renderIcon = (type: string) => {
     switch (type) {
       case 'github':
-        return theme == Theme.DARK ? <ImGithub className="w-7 h-7 text-white" /> : <VscGithub className="w-7 h-7 text-primaryTextColor" />
+        return theme == Theme.DARK ? <ImGithub className="w-7 h-7 text-white hover:text-secondaryTextColor" /> : <VscGithub className="w-7 h-7 text-primaryTextColor hover:text-secondaryTextColor" />
       case 'mail':
-        return theme == Theme.DARK ? <MdEmail className="w-7 h-7 text-white" /> : <MdOutlineEmail className="w-7 h-7 text-primaryTextColor" />
+        return theme == Theme.DARK ? <MdEmail className="w-7 h-7 text-white hover:text-secondaryTextColor" /> : <MdOutlineEmail className="w-7 h-7 text-primaryTextColor hover:text-secondaryTextColor" />
       case 'linkedIn':
-        return theme == Theme.DARK ? <FaLinkedin className="w-7 h-7 text-white" /> : <RiLinkedinBoxLine className="w-7 h-7 text-primaryTextColor" />
+        return theme == Theme.DARK ? <FaLinkedin className="w-7 h-7 text-white hover:text-secondaryTextColor" /> : <RiLinkedinBoxLine className="w-7 h-7 text-primaryTextColor hover:text-secondaryTextColor" />
     }
   }
 

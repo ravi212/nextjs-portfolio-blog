@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body * {
-  @apply transition-colors duration-200;
+  @apply transition-colors duration-100;
+  font-family: var(--font-poppins);
 }
 
 .light {
@@ -12,7 +13,7 @@ body * {
   --secondary-color: ;
   --border-color: ;
   --primary-text-color: 14, 31, 57;
-  --secondary-text-color: 255, 49, 173;
+  --secondary-text-color: 249 ,115, 22;
 }
 
 .dark {
@@ -21,7 +22,7 @@ body * {
   --secondary-color: ;
   --border-color: ;
   --primary-text-color: 255, 249, 243;
-  --secondary-text-color: 255, 49, 173;
+  --secondary-text-color: 249, 115, 22;
 }
 
 @media (prefers-color-scheme: dark) {
