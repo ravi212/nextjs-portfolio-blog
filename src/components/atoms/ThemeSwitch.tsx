@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { IoSunnyOutline } from "react-icons/io5";
-import { BsMoonStarsFill } from "react-icons/bs";
+import NightsStaySharpIcon from '@mui/icons-material/NightsStaySharp';
+import LightModeSharpIcon from '@mui/icons-material/LightModeSharp';
 import { Theme } from '@/enum/Theme';
 import useTheme from '@/hooks/useTheme';
 
@@ -25,8 +25,8 @@ const ThemeSwitch = () => {
     <div className='flex justify-center items-center'>
         {
            theme == 'dark' 
-           ? <IoSunnyOutline className='text-white w-8 h-8 cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
-           : <BsMoonStarsFill className='text-primaryText w-6 h-6 cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
+           ? <LightModeSharpIcon className='text-primaryTextColor w-7 h-7 cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
+           : <NightsStaySharpIcon className='text-primaryTextColor w-7 h-7 cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
         }
     </div>
   )

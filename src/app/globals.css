@@ -4,13 +4,13 @@
 
 body * {
   @apply transition-colors duration-100;
-  font-family: var(--font-poppins);
+  font-family: var(--font-poppins) !important;
 }
 
 .light {
   --background-color: 245, 245, 245;
-  --primary-color: ;
-  --secondary-color: ;
+  --primary-color: 14, 31, 57;
+  --secondary-color: 255, 249, 243;
   --border-color: ;
   --primary-text-color: 14, 31, 57;
   --secondary-text-color: 249 ,115, 22;
@@ -18,8 +18,8 @@ body * {
 
 .dark {
   --background-color: 14, 31, 57;
-  --primary-color: ;
-  --secondary-color: ;
+  --primary-color: 255, 249, 243;
+  --secondary-color: 14, 31, 57;
   --border-color: ;
   --primary-text-color: 255, 249, 243;
   --secondary-text-color: 249, 115, 22;
@@ -65,4 +65,9 @@ body * {
     z-index: 997;
     background-color: #001131;
   }
+
+}
+
+.rs-drawer-header{
+  border-bottom: unset !important
 }

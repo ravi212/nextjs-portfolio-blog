@@ -12,20 +12,23 @@ const ThemeSwitcher = dynamic(() => import("@/components/atoms/ThemeSwitch"), {
 import { MdMenuOpen } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 
-const Navbar = () => {
+const Navbar = ({openDrawer}: {openDrawer: (isOpen: boolean) => void}) => {
   const [openNav, setOpenNav] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", () =>
-      window.innerWidth >= 960 ? setOpenNav(false) : setOpenNav(true)
+      window.innerWidth >= 960 && openDrawer(false)
     );
   }, []);
 
+  useEffect(() => {
+    openDrawer(open)
+  }, [open])
+
   return (
     <>
-      {!openNav ? (
-        <div className="flex flex-row items-center justify-between py-10">
+        <div className="hidden md:flex flex-row items-center justify-between py-10 ">
           <ThemeSwitch />
           <div className="flex flex-row items-center uppercase">
             <nav className="flex gap-7">
@@ -38,8 +41,9 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-      ) : (
-        <div className="flex flex-row items-center justify-between py-10">
+
+
+        <div className="flex flex-row items-center justify-between py-10 visible md:hidden">
           <ThemeSwitch />
           {open ? (
             <IoClose
@@ -53,7 +57,7 @@ const Navbar = () => {
             />
           )}
         </div>
-      )}
+
     </>
   );
 };

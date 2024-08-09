@@ -1,3 +1,4 @@
+import Drawer from "@/components/molecules/DrawerMenu";
 import { RESUME_NAV_ITEMS } from "@/constants/common";
 import { Metadata } from "next";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-      <div className="w-[70%] flex flex-col md:flex-row text-primaryTextColor gap-5">
+      <div className="w-[70%] flex flex-col xl:flex-row text-primaryTextColor gap-5">
 
         <div className="w-[40%] flex flex-col">
           <h3>Why Hire me?</h3>
@@ -34,7 +35,6 @@ export default function About() {
           }
           </div>
         </div>
-      
       </div>
     );
   }

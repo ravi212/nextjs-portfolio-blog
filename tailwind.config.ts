@@ -10,11 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         background: "rgba(var(--background-color))",
+        primaryColor: "rgba(var(--primary-color))",
+        secondaryColor: "rgba(var(--secondary-color))",
         primaryTextColor: "rgba(var(--primary-text-color))",
         secondaryTextColor: "rgba(var(--secondary-text-color))"
       },
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 export default config;

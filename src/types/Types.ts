@@ -23,3 +23,9 @@ type SocialItemProps = {
     link: string;
     type: string
 }
+
+// Drawer Menu Props
+type DrawerMenuProps = {
+    open: boolean;
+    onClose: () => void
+}
