@@ -6,8 +6,8 @@ export const NAV_ITEMS = [
     },
     {
         id: 1,
-        title: 'About',
-        link: '/about'
+        title: 'Resume',
+        link: '/resume'
     },
     {
         id: 2,
@@ -41,4 +41,23 @@ export const SOCIAL_ITEMS = [
         link: 'mailto:raviraina212@gmail.com',
     },
 
+]
+
+export const RESUME_NAV_ITEMS =  [
+    {
+        id: 0,
+        title: 'Experience',
+    },
+    {
+        id: 1,
+        title: 'Education',
+    },
+    {
+        id: 2,
+        title: 'Skills',
+    },
+    {
+        id: 3,
+        title: 'About me',
+    }
 ]

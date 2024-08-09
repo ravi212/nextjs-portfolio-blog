@@ -1,17 +1,23 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {motion} from 'framer-motion'
 const NavItem = ({ title, link }: NavItemProps) => {
   const pathName = usePathname();
   return (
-    <Link
-      className={`${
-        pathName == link ? "text-secondaryTextColor font-semibold text-md" : ""
-      } text-primaryTextColor hover:text-secondaryTextColor text-md`}
-      href={link}
+    <motion.span 
+      className={`hover:border-b p-2 ${pathName == link ? 'border-b' : ''}`}
     >
-      {title}
-    </Link>
+      <Link
+        className={`${
+          pathName == link ? "text-secondaryTextColor font-semibold text-md" : ""
+        } text-primaryTextColor shadow-2xl hover:text-secondaryTextColor text-md`}
+        href={link}
+      >
+        {title}
+      </Link>
+    </motion.span>
+
   );
 };
 

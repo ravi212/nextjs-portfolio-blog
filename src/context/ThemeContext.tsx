@@ -14,7 +14,7 @@ const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
 
   return (
     <ThemeContext.Provider value={{ theme, switchThemeTo }}>
-      <body className={`${theme} anim`}>{children}</body>
+      {children}
     </ThemeContext.Provider>
   );
 };
