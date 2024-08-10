@@ -11,9 +11,15 @@ type ThemeContextProps = {
 }
 
 // Navbar Props
+type NavBarProps = {
+    openDrawer: boolean; 
+    toggleDrawer: () => void
+}
+
 type NavItemProps = {
     title: string;
-    link: string
+    link: string;
+    type: string
 }
 
 
@@ -27,5 +33,6 @@ type SocialItemProps = {
 // Drawer Menu Props
 type DrawerMenuProps = {
     open: boolean;
-    onClose: () => void
+    onClose: () => void,
+    breakPoint: number
 }

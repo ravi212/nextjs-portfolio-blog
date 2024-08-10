@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { CiHeart } from "react-icons/ci";
 
 const Footer = () => {
   return (

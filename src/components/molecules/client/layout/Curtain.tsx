@@ -37,7 +37,6 @@ const colorVariant = {
 
 const Curtain = () => {
   const pathName = usePathname();
-    console.log(pathName)
   return (
     <AnimatePresence mode="wait" >
       <motion.div

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import NightsStaySharpIcon from '@mui/icons-material/NightsStaySharp';
 import LightModeSharpIcon from '@mui/icons-material/LightModeSharp';
-import { Theme } from '@/enum/Theme';
+import { Theme } from '@/enum/enum';
 import useTheme from '@/hooks/useTheme';
 
 // A theme switcher component
@@ -9,17 +9,17 @@ const ThemeSwitch = () => {
   const {theme, switchThemeTo} = useTheme();
   
   // check theme on first render and switch according to users browser preference or stored user theme
-  useEffect(() => {
-    const userTheme = localStorage.getItem(Theme.TEXT);
-    const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches;
+  // useEffect(() => {
+  //   const userTheme = localStorage.getItem(Theme.TEXT);
+  //   const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (userTheme) {
-        switchThemeTo(userTheme)
-    } else {
-        localStorage.setItem(Theme.TEXT, systemTheme ? Theme.DARK : Theme.LIGHT)
-        systemTheme ? switchThemeTo(Theme.DARK) : switchThemeTo(Theme.LIGHT)
-    }
-  }, [])
+  //   if (userTheme) {
+  //       switchThemeTo(userTheme)
+  //   } else {
+  //       localStorage.setItem(Theme.TEXT, systemTheme ? Theme.DARK : Theme.LIGHT)
+  //       systemTheme ? switchThemeTo(Theme.DARK) : switchThemeTo(Theme.LIGHT)
+  //   }
+  // }, [])
 
   return (
     <div className='flex justify-center items-center'>

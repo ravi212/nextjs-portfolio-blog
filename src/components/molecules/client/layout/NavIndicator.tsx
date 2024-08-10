@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { NAV_ITEMS, SOCIAL_ITEMS } from "@/constants/common";
-import SocialItem from "../atoms/SocialItem";
+import SocialItem from "../../../atoms/client/layout/SocialItem";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 const NavIndicator = () => {
@@ -9,13 +9,8 @@ const NavIndicator = () => {
 
   return (
     <div
-      className={`items-center flex flex-col fixed  gap-6 right-14 
-        ${
-          NAV_ITEMS.findIndex((item) => item.link == path) % 2 == 0
-            ? "justify-end top-0"
-            : "justify-start bottom-0"
-        } 
-         h-[70%]`}
+      className={`items-center flex flex-col fixed  gap-6 right-8 md:right-14 
+         h-[70%] justify-end top-0`}
     >
       {/* vertical navigation line */}
       <motion.div
@@ -49,3 +44,11 @@ const NavIndicator = () => {
 };
 
 export default NavIndicator;
+
+
+
+// ${
+//   NAV_ITEMS.findIndex((item) => item.link == path) % 2 == 0
+//     ? "justify-end top-0"
+//     : "justify-start bottom-0"
+// } 

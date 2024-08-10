@@ -1,11 +1,10 @@
+"use client"
 import React, { createContext, useState } from "react";
-export const ThemeContext = createContext(
-    {} as ThemeContextProps
-);
+export const ThemeContext = createContext({} as ThemeContextProps);
 
 // A Context provider for theme
 const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   // fucntion to switch theme to light or dark
   const switchThemeTo = (theme: string) => {
@@ -14,7 +13,11 @@ const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
 
   return (
     <ThemeContext.Provider value={{ theme, switchThemeTo }}>
-      {children}
+      <body
+        className={`${theme} anim `}
+      >
+        {children}
+      </body>
     </ThemeContext.Provider>
   );
 };

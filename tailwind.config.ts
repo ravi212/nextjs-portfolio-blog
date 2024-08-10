@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,6 +15,9 @@ const config: Config = {
         secondaryTextColor: "rgba(var(--secondary-text-color))"
       },
     },
+    fontFamily: {
+      sans: ['var(--font-poppins)']
+    }
   },
   plugins: [
     
