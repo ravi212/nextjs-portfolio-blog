@@ -36,3 +36,24 @@ type DrawerMenuProps = {
     onClose: () => void,
     breakPoint: number
 }
+
+
+//RESUME SECTIONS
+interface ResumeItems  {
+    id: number;
+    title: string;
+    role?: string;
+    period?: string;
+    description?: string[];
+    isDesc?: boolean;
+    skills?:  string[];
+}
+
+type ResumeSectionProps = 
+    {
+        id: number;
+        title: string;
+        description: string ;
+        handle: string;
+        items: ResumeItems[];
+    }

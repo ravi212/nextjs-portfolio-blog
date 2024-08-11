@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Personal Portfolio Web app of and by Ravi Raina",
 };
 
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
       <ThemeProvider>
