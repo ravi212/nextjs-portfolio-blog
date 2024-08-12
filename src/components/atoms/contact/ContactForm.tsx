@@ -2,13 +2,13 @@ import React from 'react'
 
 const ContactForm = () => {
   return (
-    <div className="w-full max-w-lg mx-auto p-4">
-    <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-    <form className="space-y-4">
+    <div className="flex flex-col w-full max-w-lg mx-auto p-12 bg-primaryColor rounded-3xl gap-7">
+    <h2 className="text-3xl text-secondaryColor font-semibold mb-4">Let's Work Together</h2>
+    <form className="space-y-9">
       <div>
-        <label className="block text-lg font-medium text-primaryText" htmlFor="name">
+        {/* <label className="block text-lg font-medium text-secondaryColor" htmlFor="name">
           Name
-        </label>
+        </label> */}
         <input
           id="name"
           type="text"
@@ -17,9 +17,9 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label className="block text-lg font-medium text-primaryText" htmlFor="email">
+        {/* <label className="block text-lg font-medium text-primaryText" htmlFor="email">
           Email
-        </label>
+        </label> */}
         <input
           id="email"
           type="email"
@@ -28,9 +28,9 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label className="block text-lg font-medium text-primaryText" htmlFor="message">
+        {/* <label className="block text-lg font-medium text-primaryText" htmlFor="message">
           Message
-        </label>
+        </label> */}
         <textarea
           id="message"
           placeholder="Your Message"
@@ -40,7 +40,7 @@ const ContactForm = () => {
       </div>
       <button
         type="submit"
-        className="w-full px-4 py-4 bg-primaryColor text-secondaryColor font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="w-full px-4 py-4 bg-secondaryColor text-primaryColor font-semibold rounded-md shadow-sm hover:bg-secondaryTextColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Send
       </button>
