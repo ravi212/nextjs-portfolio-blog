@@ -12,7 +12,8 @@ const config: Config = {
         primaryColor: "rgba(var(--primary-color))",
         secondaryColor: "rgba(var(--secondary-color))",
         primaryTextColor: "rgba(var(--primary-text-color))",
-        secondaryTextColor: "rgba(var(--secondary-text-color))"
+        secondaryTextColor: "rgba(var(--secondary-text-color))",
+        darkColor: "rgba(var(--dark-color))"
       },
     },
     fontFamily: {

@@ -23,9 +23,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <main className={`${inter.className} ${poppins.className} flex flex-col min-h-screen px-20 bg-background`}>
+    <main className={`${inter.className} ${poppins.className} flex flex-col min-h-screen p-5 bg-background`}>
         {children}
-        <Footer />
     </main>
 
 

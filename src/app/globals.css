@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body * {
-  @apply transition-colors duration-100;
+  @apply transition-colors duration-150;
 }
 
 .light {
@@ -13,6 +13,7 @@ body * {
   --border-color: ;
   --primary-text-color: 14, 31, 57;
   --secondary-text-color: 249 ,115, 22;
+  --dark-color: 14, 31, 57;
 }
 
 .dark {
@@ -22,9 +23,10 @@ body * {
   --border-color: ;
   --primary-text-color: 255, 249, 243;
   --secondary-text-color: 249, 115, 22;
+  --dark-color: 14, 31, 57;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background-color: 14, 31, 57;
     --primary-color: 255, 249, 243;

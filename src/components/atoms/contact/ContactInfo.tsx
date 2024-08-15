@@ -9,7 +9,7 @@ const ContactInfo = () => {
     {/* <h2 className="text-2xl font-bold mb-4">Contact Information</h2> */}
     <div className="space-y-6 flex flex-col gap-6">
       <div className='flex flex-row gap-4 items-center'>
-      <div className='flex justify-center items-center p-4 bg-primaryColor rounded-xl'>
+      <div className='flex justify-center items-center shadow-xl p-4 bg-primaryColor rounded-xl'>
         <AttachEmailIcon className='w-8 h-8 text-secondaryColor' />
       </div>
       
@@ -19,7 +19,7 @@ const ContactInfo = () => {
       </div>
       </div>
       <div className='flex flex-row gap-4 items-center '>
-        <div className='flex justify-center items-center p-4 bg-primaryColor rounded-xl'>
+        <div className='flex justify-center items-center shadow-xl p-4 bg-primaryColor rounded-xl'>
         <PhoneIcon className='w-8 h-8 text-secondaryColor' />
         </div>
       
@@ -29,7 +29,7 @@ const ContactInfo = () => {
       </div>
       </div>
       <div className='flex flex-row gap-4 items-center'>
-        <div className='flex justify-center items-center p-4 bg-primaryColor rounded-xl'>
+        <div className='flex justify-center items-center shadow-xl p-4 bg-primaryColor rounded-xl'>
         <LocationOnIcon className='w-8 h-8 text-secondaryColor' />
         </div>
         
