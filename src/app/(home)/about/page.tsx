@@ -1,4 +1,4 @@
-import ResumeSection from "@/components/molecules/client/resume/ResumeSection";
+import AboutSection from "@/components/molecules/client/about/AboutSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   description: "Personal Portfolio Web app of and by Ravi Raina",
 };
 
-export default function Resume() {
+export default function About() {
     return (
-      <ResumeSection />
+      <AboutSection />
     );
   }
   

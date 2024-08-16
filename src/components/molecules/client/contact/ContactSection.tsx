@@ -1,5 +1,5 @@
-import ContactForm from '@/components/atoms/contact/ContactForm'
-import ContactInfo from '@/components/atoms/contact/ContactInfo'
+import ContactForm from '@/components/atoms/client/contact/ContactForm'
+import ContactInfo from '@/components/atoms/client/contact/ContactInfo'
 import React from 'react'
 
 const ContactSection = () => {

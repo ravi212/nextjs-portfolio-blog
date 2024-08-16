@@ -1,3 +1,7 @@
+import ProjectImageOne from '../../public/images/1.jpg'
+import ProjectImageTwo from '../../public/images/2.jpg'
+import ProjectImageThree from '../../public/images/3.jpg'
+
 export const NAV_ITEMS = [
     {
         id: 0,
@@ -6,8 +10,8 @@ export const NAV_ITEMS = [
     },
     {
         id: 1,
-        title: 'Resume',
-        link: '/resume'
+        title: 'About Me',
+        link: '/about'
     },
     {
         id: 2,
@@ -154,4 +158,64 @@ export const RESUME_SECTIONS = [
             },
         ]
     },
+]
+
+export const PROJECTS = [
+    {
+        id: 0,
+        title: 'Project 1',
+        description: 'desc',
+        technologies: ['Next',' React'],
+        images: [ProjectImageOne, ProjectImageTwo, ProjectImageThree],
+        links: [
+            {
+                id: 0,
+                site: 'github',
+                icon: '',
+            },
+            {
+                id: 0,
+                site: 'live',
+                icon: '',
+            }
+        ]
+    },
+    {
+        id: 1,
+        title: 'Project 2',
+        description: 'desc',
+        technologies: ['React',' Next'],
+        images: [ProjectImageTwo, ProjectImageOne, , ProjectImageThree],
+        links: [
+            {
+                id: 0,
+                site: 'github',
+                icon: '',
+            },
+            {
+                id: 0,
+                site: 'live',
+                icon: '',
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: 'Project 3',
+        description: 'desc', 
+        technologies: ['Node',' Express'],
+        images: [ProjectImageThree ,ProjectImageTwo, ProjectImageOne],
+        links: [
+            {
+                id: 0,
+                site: 'github',
+                icon: '',
+            },
+            {
+                id: 0,
+                site: 'live',
+                icon: '',
+            }
+        ]
+    }
 ]
