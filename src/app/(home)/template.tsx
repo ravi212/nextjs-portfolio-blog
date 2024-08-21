@@ -1,11 +1,9 @@
 "use client";
-
-import Curtain from "@/components/molecules/client/layout/Curtain";
 import DrawerMenu from "@/components/molecules/client/layout/DrawerMenu";
 import Footer from "@/components/molecules/client/layout/Footer";
 import Navbar from "@/components/molecules/client/layout/Navbar";
 import NavIndicator from "@/components/molecules/client/layout/NavIndicator";
-import SocialIcons from "@/components/molecules/client/layout/SocialIcons";
+import SideBar from "@/components/molecules/client/layout/SideBar";
 import { ScreenSizes } from "@/enum/enum";
 import useTheme from "@/hooks/useTheme";
 import useToggle from "@/hooks/useToggle";
@@ -17,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  display: 'swap'
+  display: "swap",
 });
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -26,14 +24,18 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const [open, toggle] = useToggle(false);
 
   useEffect(() => {
-    window.addEventListener("resize", () => setBreakPoint(window.innerWidth),)
-  }, [])
+    window.addEventListener("resize", () => setBreakPoint(window.innerWidth));
+  }, []);
 
   return (
-    <main className={`${inter.className} ${poppins.className} flex flex-col min-h-screen px-10 md:px-20 bg-background`}>
-    <Navbar openDrawer={open} toggleDrawer={toggle} />
-      <div className={`flex-1`}>
-
+    <main
+      className={`${inter.className} ${poppins.className} flex-1 flex-col gap-12 min-h-screen px-10 bg-background`}
+    >
+      <Navbar openDrawer={open} toggleDrawer={toggle} />
+      {/* <Navbar openDrawer={open} toggleDrawer={toggle} /> */}
+      <div className={`flex flex-row`}>
+        {/* <SideBar openDrawer={open} toggleDrawer={toggle} /> */}
+        <div className="flex-1">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -42,22 +44,15 @@ export default function Template({ children }: { children: React.ReactNode }) {
           {children}
         </motion.div>
 
-        {/* Social Icons */}
-        <div className={`fixed bottom-24 ${breakPoint < ScreenSizes.MEDIUM ? 'right-4': ''} `}>
-          <SocialIcons />
+          {/* footer */}
+          <Footer />
         </div>
-
-        {/* Navigation indicator */}
-        <NavIndicator />  
       </div>
 
-      {/* footer */}
-      <Footer />
+      <DrawerMenu breakPoint={breakPoint} open={open} onClose={toggle} />
 
-      <DrawerMenu breakPoint={breakPoint} open={open} onClose={toggle}/>
-    
+      {/* Navigation indicator */}
+      <NavIndicator />
     </main>
-
-
   );
 }

@@ -13,7 +13,7 @@ type ThemeContextProps = {
 // Navbar Props
 type NavBarProps = {
     openDrawer: boolean; 
-    toggleDrawer: () => void
+    toggleDrawer: () => void,
 }
 
 type NavItemProps = {

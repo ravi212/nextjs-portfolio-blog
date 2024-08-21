@@ -10,7 +10,7 @@ const NavIndicator = () => {
   return (
     <div
       className={`items-center flex flex-col fixed  gap-6 right-8 md:right-14 
-         h-[70%] justify-end top-0`}
+         h-[70%] justify-end bottom-0`}
     >
       {/* vertical navigation line */}
       <motion.div
@@ -26,7 +26,7 @@ const NavIndicator = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 0.5 }}
-        className="flex flex-col gap-6 absolute"
+        className="flex flex-col gap-6 absolute top-0"
       >
         {NAV_ITEMS.map((item) => (
           <div

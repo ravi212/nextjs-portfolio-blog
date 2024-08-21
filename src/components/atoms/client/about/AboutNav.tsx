@@ -3,7 +3,7 @@ import React from 'react'
 
 const ResumeNav = ({handle, onButtonClick}: {handle: string; onButtonClick: (index: number) => void}) => {
   return (
-    <div className="w-[100%] lg:w-[40%] flex flex-col">
+    <div className="w-[100%] lg:w-[50%] flex flex-col rounded-3xl ">
     <h3 className='text-2xl font-semibold pb-4'>Why Hire me?</h3>
     <p className='text-base'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero

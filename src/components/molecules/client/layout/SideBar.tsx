@@ -12,33 +12,22 @@ const ThemeSwitcher = dynamic(() => import("@/components/atoms/client/layout/The
 import { MdMenuOpen } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { MenuType } from "@/enum/enum";
-import SocialIcons from "./SocialIcons";
 
-const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
+const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {
 
   return (
     <>
-        <div className="hidden md:flex flex-row items-start justify-between py-10 ">
-          
-          <div className="flex flex-col gap-3">
-            <div>
-            <p className="text-3xl font-medium text-primaryColor">Ravi</p>
-            <p className="text-2xl font-normal text-primaryColor">Raina.</p>
-            </div>
-
-            {/* Social Icons */}
-            <div className={``}>
-              <SocialIcons />
-            </div>
+        <div className="w-[15%] hidden md:flex flex-col items-start justify-between py-10 ">
+          <div className="flex flex-col items-start uppercase">
+            <nav className="flex gap-7 flex-col">
+              {NAV_ITEMS.map((item, index) => (
+                <NavItem type={MenuType.TOP} key={index} title={item.title} link={item.link} />
+              ))}
+            </nav>
           </div>
-          
-          <ThemeSwitch />
-        
         </div>
 
-
-        <div className="flex flex-row items-center justify-between gap-4 py-10 visible md:hidden">
-          <ThemeSwitch />
+        <div className="flex flex-row items-center justify-between py-10 visible md:hidden">
           {openDrawer ? (
             <IoClose
               onClick={toggleDrawer}
@@ -56,4 +45,4 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
   );
 };
 
-export default Navbar;
+export default SideBar;
