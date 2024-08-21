@@ -17,8 +17,8 @@ const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {
 
   return (
     <>
-        <div className="w-[15%] hidden md:flex flex-col items-start justify-between py-10 ">
-          <div className="flex flex-col items-start uppercase">
+        <div className="w-[15%] hidden md:flex flex-col  items-start justify-between py-10 ">
+          <div className="flex flex-col items-start">
             <nav className="flex gap-7 flex-col">
               {NAV_ITEMS.map((item, index) => (
                 <NavItem type={MenuType.TOP} key={index} title={item.title} link={item.link} />

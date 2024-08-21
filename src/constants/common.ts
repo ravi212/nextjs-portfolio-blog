@@ -5,23 +5,38 @@ import ProjectImageThree from '../../public/images/3.jpg'
 export const NAV_ITEMS = [
     {
         id: 0,
-        title: 'Home',
+        title: '#take me home',
         link: '/'
     },
     {
         id: 1,
-        title: 'About Me',
+        title: '#I can help you with',
         link: '/about'
     },
     {
         id: 2,
-        title: 'Projects',
+        title: '#my journey',
         link: '/projects'
     },
     {
         id: 3,
-        title: 'Contact',
+        title: "#ping me",
         link: '/contact'
+    }
+]
+
+export const EXPERTISE = [
+    {
+        title: 'Web Development',
+        description: 'Bringing visuals to life through developing highly functional and scalable web solutions with strong backend support.'
+    },
+    {
+        title: 'Mobile Development',
+        description: 'Dynamic Hybrid Mobile Application Developer with Expertise in Cross-Platform Solutions.'
+    },
+    {
+        title: 'Full Package',
+        description: 'Get the best of both worlds for your website/mobile app, capture your brand identity and get fully functional features.'
     }
 ]
 

@@ -29,13 +29,13 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <main
-      className={`${inter.className} ${poppins.className} flex-1 flex-col gap-12 min-h-screen px-10 bg-background`}
+      className={`w-full flex flex-row gap-16 min-h-screen px-10 bg-background`}
     >
-      <Navbar openDrawer={open} toggleDrawer={toggle} />
-      {/* <Navbar openDrawer={open} toggleDrawer={toggle} /> */}
-      <div className={`flex flex-row`}>
-        {/* <SideBar openDrawer={open} toggleDrawer={toggle} /> */}
-        <div className="flex-1">
+      <SideBar openDrawer={open} toggleDrawer={toggle} />
+      
+      <div className={`flex flex-1 flex-col `}>
+        <Navbar openDrawer={open} toggleDrawer={toggle} />
+        <div className="flex flex-col flex-1">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -43,10 +43,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
         >
           {children}
         </motion.div>
-
-          {/* footer */}
-          <Footer />
         </div>
+        
       </div>
 
       <DrawerMenu breakPoint={breakPoint} open={open} onClose={toggle} />

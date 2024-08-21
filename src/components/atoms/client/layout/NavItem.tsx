@@ -7,7 +7,7 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
   const pathName = usePathname();
   return type == MenuType.SIDE ? (
     <motion.span
-      className={`hover:border-b p-3 ${pathName == link ? "" : ""} shadow-md text-center rounded-3xl bg-secondaryColor`}
+      className={`p-3 ${pathName == link ? "" : ""} shadow-md text-center rounded-3xl bg-secondaryColor`}
     >
       <Link
         className={`${
@@ -22,7 +22,7 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
     </motion.span>
   ) : (
     <motion.span
-      className={`hover:border-b p-2 ${pathName == link ? "border-b" : ""}`}
+      className={` p-2 ${pathName == link ? "" : ""}`}
     >
       <Link
         className={`${

@@ -2,6 +2,15 @@
 import React, { createContext, useState } from "react";
 export const ThemeContext = createContext({} as ThemeContextProps);
 
+import { Inter, Poppins } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
 // A Context provider for theme
 const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState("light");
@@ -14,7 +23,7 @@ const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
   return (
     <ThemeContext.Provider value={{ theme, switchThemeTo }}>
       <body
-        className={`${theme} anim `}
+        className={`${theme} ${inter.className} ${poppins.className} flex-1 anim min-h-screen bg-background`}
       >
         {children}
       </body>

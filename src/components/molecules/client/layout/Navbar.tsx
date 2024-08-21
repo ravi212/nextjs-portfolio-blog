@@ -20,7 +20,7 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
     <>
         <div className="hidden md:flex flex-row items-start justify-between py-10 ">
           
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <div>
             <p className="text-3xl font-medium text-primaryColor">Ravi</p>
             <p className="text-2xl font-normal text-primaryColor">Raina.</p>
