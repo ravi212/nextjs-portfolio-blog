@@ -9,7 +9,13 @@ export const metadata: Metadata = {
 
 export default function Contact() {
     return (
-      <ContactSection />
+      <section>
+        <p className="text-4xl text-primaryColor font-medium py-6 md:w-[70%] w-[90%] leading-snug">
+          Let’s talk about a project, collaboration or an idea you may have
+        </p>
+        <ContactSection />
+      </section>
+      
     );
   }
   

@@ -7,14 +7,14 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
   const pathName = usePathname();
   return type == MenuType.SIDE ? (
     <motion.span
-      className={`p-3 ${pathName == link ? "" : ""} shadow-md text-center rounded-3xl bg-secondaryColor`}
+      className={`p-3 ${pathName == link ? "" : ""} text-center`}
     >
       <Link
         className={`${
           pathName == link
-            ? "text-secondaryTextColor font-semibold text-md"
+            ? "text-secondaryTextColor font-semibold "
             : ""
-        } text-primaryColor shadow-2xl hover:text-secondaryTextColor text-md`}
+        } text-secondaryColor shadow-2xl hover:text-secondaryTextColor text-lg hover:text-xl`}
         href={link}
       >
         {title}

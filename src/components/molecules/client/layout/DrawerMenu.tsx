@@ -36,7 +36,7 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
                 <NavItem type={MenuType.SIDE} key={index} title={item.title} link={item.link} />
               ))}
       </nav>
-      <div></div>
+      {/* <div></div> */}
     </div>
 
   </Drawer>

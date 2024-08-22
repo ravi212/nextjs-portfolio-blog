@@ -11,14 +11,13 @@ const ThemeSwitcher = dynamic(() => import("@/components/atoms/client/layout/The
 });
 import { MdMenuOpen } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-import { MenuType } from "@/enum/enum";
 import SocialIcons from "./SocialIcons";
 
 const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
 
   return (
     <>
-        <div className="hidden md:flex flex-row items-start justify-between py-10 ">
+        <div className="hidden lg:flex flex-row items-start justify-between pt-10 pb-5">
           
           <div className="flex flex-col gap-4">
             <div>
@@ -37,7 +36,21 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
         </div>
 
 
-        <div className="flex flex-row items-center justify-between gap-4 py-10 visible md:hidden">
+        <div className="flex flex-row items-start justify-between gap-4 pt-10 pb-5 visible lg:hidden">
+
+        <div className="flex flex-col gap-4">
+            <div>
+            <p className="text-3xl font-medium text-primaryColor">Ravi</p>
+            <p className="text-2xl font-normal text-primaryColor">Raina.</p>
+            </div>
+
+            {/* Social Icons */}
+            <div className={``}>
+              <SocialIcons />
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-5">
           <ThemeSwitch />
           {openDrawer ? (
             <IoClose
@@ -50,6 +63,8 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
               className="text-primaryTextColor w-8 h-8 cursor-pointer"
             />
           )}
+          </div>
+
         </div>
 
     </>

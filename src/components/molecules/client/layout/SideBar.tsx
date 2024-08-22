@@ -17,7 +17,7 @@ const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {
 
   return (
     <>
-        <div className="w-[15%] hidden md:flex flex-col  items-start justify-between py-10 ">
+        <div className="w-[15%] hidden lg:flex flex-col items-start justify-between py-10 ">
           <div className="flex flex-col items-start">
             <nav className="flex gap-7 flex-col">
               {NAV_ITEMS.map((item, index) => (
@@ -27,7 +27,7 @@ const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center justify-between py-10 visible md:hidden">
+        {/* <div className="flex flex-row items-center justify-between py-10 visible md:hidden">
           {openDrawer ? (
             <IoClose
               onClick={toggleDrawer}
@@ -39,7 +39,7 @@ const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {
               className="text-primaryTextColor w-8 h-8 cursor-pointer"
             />
           )}
-        </div>
+        </div> */}
 
     </>
   );
