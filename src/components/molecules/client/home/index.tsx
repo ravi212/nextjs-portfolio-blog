@@ -9,7 +9,7 @@ const HomeSection = () => {
         <h3 className="text-2xl sm:text-3xl md:text-4xl text-primaryColor">focusing on building and designing digital experiences.</h3>
 
         <h4 className='py-6 mt-3 text-xl sm:text-2xl md:text-3xl font-medium text-primaryColor'>My Expertise</h4>
-        <div className='flex flex-col md:flex-row gap-1'>
+        <div className='flex flex-col lg:flex-row gap-10 lg:gap-1'>
             {
                 EXPERTISE.map((item, index) => (
                     <div key={index} className='flex border-l-gray-300 border-l min-w-[33%] p-8 flex-col gap-3'>
