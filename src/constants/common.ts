@@ -85,6 +85,156 @@ export const RESUME_NAV_ITEMS =  [
     }
 ]
 
+
+export const JOURNEY_MILESTONES = [
+    {
+        id: 0,
+        checkpointId: 1,
+        isExpand: true,
+        milestones: [
+            {
+                id: 0,
+                order: 1,
+                title: 'The begining of the phase of confusion and frustration',
+                description: 'After my B.tech i was confused and have no guidance. So, as a regular Indian graduate i started preparing for government jobs.',
+                date: '2014-2016'
+            },
+            {
+                id: 1,
+                order: 2,
+                title: 'The begining of the phase of confusion and frustration',
+                description: 'While i was preparing for govt. jobs. I started working part-time as a broadcast assistant in All India Radio.',
+                date: '2016 - 2017'
+            },
+            {
+                id: 2,
+                order: 3,
+                title:'',
+                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (on the basis of as and when required)',
+                date: '2017 - present'
+            },
+            {
+                id: 2,
+                order: 4,
+                title:'',
+                description: 'A long time has passedI got no luck With govt. jobs',
+                date: '2019 - 2021'
+            }
+        ],
+    },
+    {
+        id: 1,
+        checkpointId: 2,
+        isExpand: true,
+        milestones: [
+            {
+                id: 0,
+                order: 1,
+                title: 'The begining of the phase of confusion and frustration',
+                description: 'The begining of the phase of confusion and frustration. So, as a regular Indian graduate i started preparing for government jobs.',
+                date: '2014-2016'
+            },
+            {
+                id: 1,
+                order: 2,
+                title: 'The begining of the phase of confusion and frustration',
+                description: 'While i was preparing for govt. jobs. I started working part-time as a broadcast assistant in All India Radio.',
+                date: '2016 - 2017'
+            },
+            {
+                id: 2,
+                order: 3,
+                title:'',
+                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (on the basis of as and when required)',
+                date: '2017 - present'
+            },
+            {
+                id: 2,
+                order: 4,
+                title:'',
+                description: 'A long time has passedI got no luck With govt. jobs',
+                date: '2019 - 2021'
+            }
+        ],
+    },
+    {
+        id: 2,
+        checkpointId: 3,
+        isExpand: false,
+        milestones: [
+            {
+                id: 0,
+                order: 1,
+                title: '',
+                description: 'After my B.tech a phase of confusion and frustration started for me. I was having no clarity of future at this point. So, as a regular Indian graduate i started preparing for government jobs.',
+                date: '2014-2016'
+            },
+            {
+                id: 1,
+                order: 2,
+                title: 'Part time Job',
+                description: 'During my preprations for govt. jobs I started working part-time as a broadcast assistant in All India Radio. While working in this role i managed the office work and assisted announcers in and out of studios.',
+                date: '2016 - 2017'
+            },
+            {
+                id: 2,
+                order: 3,
+                title: 'Working as an Announcer',
+                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (working on the basis of as and when required)',
+                date: '2017 - present'
+            },
+            {
+                id: 2,
+                order: 4,
+                title: 'Working as Technician',
+                description: 'A long period of time had passed since i graduated and with a tough competition I got no luck with govt. jobs but based on my technical degree i got an opportunity to work as a technician in a Private Radio station.',
+                date: '2019 - 2021'
+            },
+            {
+                id: 2,
+                order: 5,
+                title:'Pursuit for govt. job ends',
+                description: 'Its been 7 years since i got my degree and during these 7 years i explored and tried different kind of jobs and options but during these years i kept on learning new software technologies and made projects based on which my first opportunity as a frontend developer awaits me. Its when i realised i always wanted to do this.',
+                date: '2021'
+            }
+        ],
+    },
+]
+
+
+export const JOURNEY = [
+    {
+        id: 0,
+        checkpoint: 'I am here',
+        date: 'Today',
+        title: 'Journey in Progress...',
+        description: '',
+    },
+    {
+        id: 1,
+        checkpoint: 'Started working in current company',
+        date: '2022',
+        title: 'Codeferns Technologies Pvt. Ltd.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime',
+    },
+    {
+        id: 2,
+        checkpoint: 'Started working in a startup',
+        role: 'Frontend developer', 
+        date: '2021',
+        title: 'Appitech Pvt. Ltd.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime',
+    },
+    {
+        id: 3,
+        checkpoint: 'Graduated',
+        date: '2014',
+        title: 'Bachelor of Technology',
+        description: 'Computer Science & Engineering',
+    },
+]
+
+
 export const RESUME_SECTIONS = [
     {
         id: 0,
