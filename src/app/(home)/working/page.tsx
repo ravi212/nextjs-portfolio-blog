@@ -1,4 +1,5 @@
 import ProjectSection from "@/components/molecules/client/project/ProjectSection";
+import WorkingSection from "@/components/molecules/client/working/WorkingSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Projects() {
     return (
-        <ProjectSection />
+        <WorkingSection />
     );
   }
   

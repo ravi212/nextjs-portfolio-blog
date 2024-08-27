@@ -14,9 +14,14 @@ export const NAV_ITEMS = [
         link: '/about'
     },
     {
-        id: 2,
+        id: 3,
         title: '#I can help you with',
         link: '/projects'
+    },
+    {
+        id: 4,
+        title: '#my way of working',
+        link: '/working'
     },
     {
         id: 3,
@@ -82,7 +87,7 @@ export const RESUME_NAV_ITEMS =  [
         id: 3,
         title: 'About me',
         handle: 'about'
-    }
+    },
 ]
 
 
@@ -231,6 +236,45 @@ export const JOURNEY = [
         date: '2014',
         title: 'Bachelor of Technology',
         description: 'Computer Science & Engineering',
+    },
+]
+
+
+export const SKILLS = [
+    {
+        id: 0,
+        title: 'Web',
+        skills: ['Angular', 'Next', 'React', 'Api Integration'],
+    },
+    {
+        id: 1,
+        title: 'Mobile',
+        skills: ['React-Native', 'IONIC', 'Flutter'],
+    },
+    {
+        id: 1,
+        title: 'Desktop',
+        skills: ['Electron', 'Angular', 'React'],
+    },
+    {
+        id: 1,
+        title: 'Design',
+        skills: ['Tailwind CSS', 'Material UI', 'Ant Design', 'Bootstrap'],
+    },
+    {
+        id: 2,
+        title: 'Backend',
+        skills: ['Javascript', 'Typescript', 'Node', 'Express', 'MongoDB', 'Api'] ,
+    },
+    {
+        id: 3,
+        title: 'Tools',
+        skills: ['Android Studio', 'XCode', 'VirtualBox', 'Firebase Console', 'MongoDB Compass', 'Git', 'Jira', 'Trello', 'VS Code'],
+    },
+    {
+        id: 4,
+        title: 'Soft Skills',
+        skills: ['Diligent', 'Attention to Details', 'Team Work', 'Problem Solving', 'Adaptability'],
     },
 ]
 
