@@ -25,10 +25,10 @@ const Milestones = () => {
           {/* journey checkpoint title for large screens*/}
           <div className="w-[20%] lg:w-[15%] lg:flex hidden flex-col justify-end">
             <div className="">
-              <p className="text-md text-primaryColor/70">
+              <p className="text-md text-primaryColor/70 pb-1">
                 {item.checkpoint}
               </p>
-              <p className="text-lg">{item.date}</p>
+              <p className="text-lg text-primaryColor">{item.date}</p>
             </div>
           </div>
 
@@ -63,13 +63,13 @@ const Milestones = () => {
                               <BiSolidUpArrow className="w-4 h-4 fill-primaryColor"/>
                             </div>
                             <div>
-                              <p className="font-medium text-lg">
+                              <p className="font-medium text-lg text-primaryColor">
                                 {ele.date}
                               </p>
-                              <p className="font-medium text-normal py-1">
+                              <p className="font-medium text-normal py-1 text-primaryColor">
                                 {ele.title}
                               </p>
-                              <p className="text-sm">{ele.description}</p>
+                              <p className="text-sm text-primaryColor">{ele.description}</p>
                             </div>
                           </div>
                         </div>
@@ -105,18 +105,20 @@ const Milestones = () => {
             </div>
 
             {/* Journey checkpoint description */}
-            <div className="relative mt-6 rounded-lg">
+            <div className="relative mt-4 rounded-lg">
               {/* <div className="absolute h-[2px] w-7 left-[-30px] bg-primaryColor/30 bottom-[10px]">
 
               </div> */}
-              <p>{item.description}</p>
-              <p className="text-lg font-medium">{item.title}</p>
+              <p className='text-lg py-1 font-medium'>{item?.role}</p>
+              <p className='text-base pb-1 text-primaryColor'>{item.description}</p>
+              
+              <p className="text-lg font-medium text-primaryColor">{item.title}</p>
             </div>
 
             {/* journey checkpoint title for small screens*/}
             <div className="lg:hidden flex flex-col pt-2 ">
               <div className="">
-                <p className="text-md text-primaryColor/70">
+                <p className="text-md text-primaryColor/70 pb-1">
                   {item.checkpoint}
                 </p>
                 <p className="text-xl text-primaryColor">{item.date}</p>

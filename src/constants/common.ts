@@ -118,30 +118,23 @@ export const JOURNEY_MILESTONES = [
             {
                 id: 0,
                 order: 1,
-                title: 'The begining of the phase of confusion and frustration',
-                description: 'After my B.tech i was confused and have no guidance. So, as a regular Indian graduate i started preparing for government jobs.',
-                date: '2014-2016'
+                title: 'As a Frontend Developer',
+                description: "Starting as a frontend developer i developed chat, notification & subscription modules and integrated REST Api's and payment gateways to the applications.",
+                date: '2022'
             },
             {
                 id: 1,
                 order: 2,
-                title: 'The begining of the phase of confusion and frustration',
-                description: 'While i was preparing for govt. jobs. I started working part-time as a broadcast assistant in All India Radio.',
-                date: '2016 - 2017'
+                title: 'Got the opportunity to work as Fullstack developer',
+                description: "I had developed backend for my personal projects, but now is the time for me to excel in it and build it for client's oversea's. As a fullstack developer i developed REST Api's, chat, notifications, Custom map solutions, Admin Panel and Web scrapping, social media management modules.",
+                date: '2023'
             },
             {
                 id: 2,
                 order: 3,
-                title:'',
-                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (on the basis of as and when required)',
-                date: '2017 - present'
-            },
-            {
-                id: 2,
-                order: 4,
-                title:'',
-                description: 'A long time has passedI got no luck With govt. jobs',
-                date: '2019 - 2021'
+                title:"Leading project's for Mobile & Web as a Software developer",
+                description: "Working as a Software devleoper changed my perspective about many things and it changed me as a person. Today i am more confident and result driven individual, with unquenchable thirst to explore, learn, upskill and grow.",
+                date: '2024'
             }
         ],
     },
@@ -153,16 +146,16 @@ export const JOURNEY_MILESTONES = [
             {
                 id: 0,
                 order: 1,
-                title: 'The begining of the phase of confusion and frustration',
-                description: 'The begining of the phase of confusion and frustration. So, as a regular Indian graduate i started preparing for government jobs.',
-                date: '2014-2016'
+                title: 'Started working as Angular Developer',
+                description: '.',
+                date: ''
             },
             {
                 id: 1,
                 order: 2,
-                title: 'The begining of the phase of confusion and frustration',
+                title: '',
                 description: 'While i was preparing for govt. jobs. I started working part-time as a broadcast assistant in All India Radio.',
-                date: '2016 - 2017'
+                date: ''
             },
             {
                 id: 2,
@@ -174,9 +167,9 @@ export const JOURNEY_MILESTONES = [
             {
                 id: 2,
                 order: 4,
-                title:'',
+                title:'Leading Projects for Mobile and Web',
                 description: 'A long time has passedI got no luck With govt. jobs',
-                date: '2019 - 2021'
+                date: ''
             }
         ],
     },
@@ -237,8 +230,9 @@ export const JOURNEY = [
         id: 1,
         checkpoint: 'Started working in current company',
         date: '2022',
+        role: 'Software developer', 
         title: 'Codeferns Technologies Pvt. Ltd.',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime',
+        description: "My eternal hunger to learn, upskill and grow pushed me to join my current company. Here i am transforming client's vision into real life working solutions.",
     },
     {
         id: 2,
@@ -246,7 +240,7 @@ export const JOURNEY = [
         role: 'Frontend developer', 
         date: '2021',
         title: 'Appitech Pvt. Ltd.',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime',
+        description: 'My Professional journey in the field of software starts from here. I contributed to projects like ecommerce, payment wallets etc. and also learned technical as well as interpersonal skills.',
     },
     {
         id: 3,
