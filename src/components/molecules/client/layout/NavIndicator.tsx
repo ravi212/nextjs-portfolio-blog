@@ -28,9 +28,9 @@ const NavIndicator = () => {
         transition={{ ease: "easeInOut", duration: 1, delay: 0.5 }}
         className="flex flex-col gap-6 absolute top-0"
       >
-        {NAV_ITEMS.map((item) => (
+        {NAV_ITEMS.map((item, index) => (
           <div
-            key={item.id}
+            key={index}
             className={`${
               item.link == path
                 ? "bg-secondaryTextColor"

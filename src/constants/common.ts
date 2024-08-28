@@ -30,6 +30,24 @@ export const NAV_ITEMS = [
     }
 ]
 
+export const EXPERT_SECTION = [
+    {
+        id: 0,
+        title: 'Bringing Your Online Vision to Life',
+        description: ' I transform your ideas into vibrant, interactive websites that captivate your audience and drive results. I create stunning and user-friendly experiences. My backend work with Node.js and Express ensures your site is smooth, reliable, and secure.'
+    },
+    {
+        id: 1,
+        title: 'Crafting Engaging Mobile Journeys',
+        description: 'I bring your mobile app ideas to life with intuitive and engaging experiences for both iOS and Android. With React Native and Flutter, I design apps that are visually appealing and perform seamlessly. My backend solutions keep your app responsive and reliable.'
+    },
+    {
+        id: 2,
+        title: 'Revolutionizing Desktop Applications',
+        description: ' I design cross-platform desktop applications that blend functionality with elegance, offering a smooth and productive experience. Using Electron, I develop apps that fit perfectly into the desktop environment. My backend solutions ensure efficient performance and effortless data management.'
+    }
+]
+
 export const EXPERTISE = [
     {
         title: 'Web Development',

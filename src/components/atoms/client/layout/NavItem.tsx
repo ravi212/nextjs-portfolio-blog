@@ -12,9 +12,9 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
       <Link
         className={`${
           pathName == link
-            ? "text-secondaryTextColor font-semibold "
-            : ""
-        } text-secondaryColor shadow-2xl hover:text-secondaryTextColor text-lg hover:text-xl`}
+            ? "text-secondaryTextColor font-medium text-xl"
+            : "font-normal text-base hover:text-lg"
+        } text-secondaryColor hover:font-medium duration-150 shadow-2xl hover:text-secondaryTextColor `}
         href={link}
       >
         {title}
@@ -27,9 +27,9 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
       <Link
         className={`${
           pathName == link
-            ? "text-secondaryTextColor font-semibold text-md"
-            : ""
-        } text-primaryTextColor shadow-2xl hover:text-secondaryTextColor text-md`}
+            ? "text-secondaryTextColor font-medium text-lg pl-1"
+            : "font-normal text-base hover:text-lg"
+        } text-primaryColor hover:pl-1 hover:font-medium transition-all duration-100 shadow-2xl hover:text-secondaryTextColor `}
         href={link}
       >
         {title}
