@@ -14,7 +14,7 @@ const ContactInfo = () => {
       </div>
       
       <div>
-        <h3 className="text-lg font-medium ">Email</h3>
+        <h3 className="text-lg font-medium text-primaryColor">Email</h3>
         <p className="text-primaryColor">raviraina212@gmail.com</p>
       </div>
       </div>
@@ -24,7 +24,7 @@ const ContactInfo = () => {
         </div>
       
       <div>
-        <h3 className="text-lg font-medium ">Phone</h3>
+        <h3 className="text-lg font-medium text-primaryColor">Phone</h3>
         <p className="text-primaryColor">+91-9796259181</p>
       </div>
       </div>
@@ -34,7 +34,7 @@ const ContactInfo = () => {
         </div>
         
       <div>
-        <h3 className="text-lg font-medium ">Address</h3>
+        <h3 className="text-lg font-medium text-primaryColor">Address</h3>
         <p className="text-primaryColor">Punjab, India</p>
       </div>
       </div>

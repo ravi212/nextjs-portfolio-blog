@@ -7,7 +7,7 @@ import Milestones from "@/components/atoms/client/about/Milestones";
 const Journey = () => {
 
   return (
-    <div className="w-[100%] relative lg:w-[100%] overflow-hidden py-12 flex flex-col rounded-3xl ">
+    <div className="w-full relative overflow-hidden py-12 flex flex-col rounded-3xl ">
       
       {/* vertical navigation line */}
       <motion.div

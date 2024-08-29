@@ -18,13 +18,13 @@ export const NAV_ITEMS = [
         title: '#I can help you with',
         link: '/projects'
     },
+    // {
+    //     id: 4,
+    //     title: '#my way of working',
+    //     link: '/working'
+    // },
     {
-        id: 4,
-        title: '#my way of working',
-        link: '/working'
-    },
-    {
-        id: 3,
+        id: 5,
         title: "#ping me",
         link: '/contact'
     }
@@ -85,29 +85,6 @@ export const SOCIAL_ITEMS = [
 
 ]
 
-export const RESUME_NAV_ITEMS =  [
-    {
-        id: 0,
-        title: 'Experience',
-        handle: 'experience'
-    },
-    // {
-    //     id: 1,
-    //     title: 'Education',
-    //     handle: 'education'
-    // },
-    {
-        id: 2,
-        title: 'Skills',
-        handle: 'skills'
-    },
-    {
-        id: 3,
-        title: 'About me',
-        handle: 'about'
-    },
-]
-
 
 export const JOURNEY_MILESTONES = [
     {
@@ -119,21 +96,28 @@ export const JOURNEY_MILESTONES = [
                 id: 0,
                 order: 1,
                 title: 'As a Frontend Developer',
-                description: "Starting as a frontend developer i developed chat, notification & subscription modules and integrated REST Api's and payment gateways to the applications.",
+                description: "Starting as a Frontend Developer, I designed and implemented chat, notification, and subscription modules, integrated REST APIs and payment gateways, and led the development of a time activity tracking application and a video editor module for cross-platform desktop applications.",
                 date: '2022'
             },
             {
                 id: 1,
                 order: 2,
-                title: 'Got the opportunity to work as Fullstack developer',
-                description: "I had developed backend for my personal projects, but now is the time for me to excel in it and build it for client's oversea's. As a fullstack developer i developed REST Api's, chat, notifications, Custom map solutions, Admin Panel and Web scrapping, social media management modules.",
+                title: 'Got the opportunity to work as a Fullstack developer',
+                description: "I had developed backend for my personal projects, but now is the time for me to excel and build it for client's oversea's.",
+                date: '2023'
+            },
+            {
+                id: 1,
+                order: 3,
+                title: 'Working as a Fullstack developer',
+                description: "As a Fullstack Developer I have successfully developed and deployed cutting-edge solutions, including real-time APIs, engaging chat systems, custom maps with MapBox and Google Maps, robust admin panels, and dynamic ecommerce platforms using Medusa JS.",
                 date: '2023'
             },
             {
                 id: 2,
-                order: 3,
+                order: 4,
                 title:"Leading project's for Mobile & Web as a Software developer",
-                description: "Working as a Software devleoper changed my perspective about many things and it changed me as a person. Today i am more confident and result driven individual, with unquenchable thirst to explore, learn, upskill and grow.",
+                description: "Working as a software developer has profoundly changed my perspective and personal growth. Today, I’m more confident and results-driven, with an unquenchable thirst to explore, learn, upskill, and continuously grow.",
                 date: '2024'
             }
         ],
@@ -146,31 +130,17 @@ export const JOURNEY_MILESTONES = [
             {
                 id: 0,
                 order: 1,
-                title: 'Started working as Angular Developer',
-                description: '.',
-                date: ''
+                title: 'My experience with a startup',
+                description: "The beauty of working in a startup lies in the opportunity to explore and engage with various modules and processes of software development, exactly what I was seeking at the start of my career.",
+                date: '2021'
             },
             {
                 id: 1,
                 order: 2,
-                title: '',
-                description: 'While i was preparing for govt. jobs. I started working part-time as a broadcast assistant in All India Radio.',
-                date: ''
+                title: 'As a Mobile Application Developer (Frontend/Hybrid)',
+                description: "While working here, I built and deployed mobile apps for both Android and iOS using Ionic + Angular, Cordova, and React Native. I also implemented real-time chat with Socket.io, integrated notifications with Google Firebase, and developed a payment wallet system.",
+                date: '2021'
             },
-            {
-                id: 2,
-                order: 3,
-                title:'',
-                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (on the basis of as and when required)',
-                date: '2017 - present'
-            },
-            {
-                id: 2,
-                order: 4,
-                title:'Leading Projects for Mobile and Web',
-                description: 'A long time has passedI got no luck With govt. jobs',
-                date: ''
-            }
         ],
     },
     {
@@ -181,36 +151,36 @@ export const JOURNEY_MILESTONES = [
             {
                 id: 0,
                 order: 1,
-                title: '',
-                description: 'After my B.tech a phase of confusion and frustration started for me. I was having no clarity of future at this point. So, as a regular Indian graduate i started preparing for government jobs.',
+                title: 'Career Dilemma',
+                description: 'After completing my B.Tech, I faced a period of career uncertainty and began preparing for government job exams, only to realize my true passion lay elsewhere.',
                 date: '2014-2016'
             },
             {
                 id: 1,
                 order: 2,
                 title: 'Part time Job',
-                description: 'During my preprations for govt. jobs I started working part-time as a broadcast assistant in All India Radio. While working in this role i managed the office work and assisted announcers in and out of studios.',
+                description: "While preparing for government job exams, I took on a part-time role as a Broadcast Assistant at All India Radio, where I handled office operations and supported announcers both in and out of the studio. This experience not only honed my management and interpersonal skills but also fueled my passion for dynamic, people-centric roles.",
                 date: '2016 - 2017'
             },
             {
                 id: 2,
                 order: 3,
                 title: 'Working as an Announcer',
-                description: 'At this point i auditioned for the position of Announcer in All India Radio and got selected. (working on the basis of as and when required)',
+                description: "At this stage, I auditioned for and secured a role as an Announcer at All India Radio, where I’ve developed the crucial skill of punctuality through a flexible 'as and when required' schedule. I continue to thrive in this dynamic, on-call role, mastering the demands of live broadcasting. (working on the basis of as and when required)",
                 date: '2017 - present'
             },
             {
                 id: 2,
                 order: 4,
                 title: 'Working as Technician',
-                description: 'A long period of time had passed since i graduated and with a tough competition I got no luck with govt. jobs but based on my technical degree i got an opportunity to work as a technician in a Private Radio station.',
+                description: "After graduation, facing stiff competition for government jobs, I leveraged my technical background to join a private radio station as a technician. There, I supported the technical team in installing radio transmitters and handled diagnostics, reporting, and troubleshooting of technical issues.",
                 date: '2019 - 2021'
             },
             {
                 id: 2,
                 order: 5,
-                title:'Pursuit for govt. job ends',
-                description: 'Its been 7 years since i got my degree and during these 7 years i explored and tried different kind of jobs and options but during these years i kept on learning new software technologies and made projects based on which my first opportunity as a frontend developer awaits me. Its when i realised i always wanted to do this.',
+                title:'Pursuit for government job ends',
+                description: 'Over the past seven years since earning my degree, I explored various career paths while consistently working on projects and staying connected to my technical background. This dedication led me to my first role as a Frontend Developer, where I discovered that this is where my true passion truly lies.',
                 date: '2021'
             }
         ],
@@ -230,14 +200,14 @@ export const JOURNEY = [
         id: 1,
         checkpoint: 'Started working in current company',
         date: '2022',
-        role: 'Software developer', 
+        role: '', 
         title: 'Codeferns Technologies Pvt. Ltd.',
-        description: "My eternal hunger to learn, upskill and grow pushed me to join my current company. Here i am transforming client's vision into real life working solutions.",
+        description: "My eternal hunger to learn, upskill and grow drived me to join my current company. Here i am transforming client's vision into real life working solutions.",
     },
     {
         id: 2,
         checkpoint: 'Started working in a startup',
-        role: 'Frontend developer', 
+        role: '', 
         date: '2021',
         title: 'Appitech Pvt. Ltd.',
         description: 'My Professional journey in the field of software starts from here. I contributed to projects like ecommerce, payment wallets etc. and also learned technical as well as interpersonal skills.',
@@ -287,97 +257,6 @@ export const SKILLS = [
         id: 4,
         title: 'Soft Skills',
         skills: ['Diligent', 'Attention to Details', 'Team Work', 'Problem Solving', 'Adaptability'],
-    },
-]
-
-
-export const RESUME_SECTIONS = [
-    {
-        id: 0,
-        title: 'My Experience',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime', 
-        handle: 'experience',
-        items: [
-            {
-                id: 0,
-                title: 'Codeferns Technologies Pvt. Ltd.',
-                role: 'Software Engineer',
-                period: '2022 - Present',
-                description: ['Orchestrated a cutting-edge mobile application with custom maps capabilities, boosting user engagement by 20% and enhancing navigation accuracy by 30%.', 'Engineered a web application that aggregates financial news from multiple reputable sources, increasing user engagement by 40% and improving user satisfaction by 25%.'],
-                isDesc: false
-            },
-            {
-                id: 1,
-                title: 'Appitech Pvt. Ltd.',
-                role: 'Mobile Developer',
-                period: '2021 - 2022',
-                description: ['Spearheaded the development of e-commerce and e-wallet features, yielding a 25% surge in user engagement and positive app reviews.', 'Partnered with product managers to translate conceptual ideas into technically feasible solutions.'],
-                isDesc: false
-            },
-        ]
-    },
-    {
-        id: 2,
-        title: 'My Skills',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime', 
-        handle: 'skills',
-        items: [
-            {
-                id: 0,
-                title: 'Web',
-                skills: ['Angular', 'Next', 'React', 'Api Integration'],
-            },
-            {
-                id: 1,
-                title: 'Mobile',
-                skills: ['React-Native', 'IONIC', 'Flutter'],
-            },
-            {
-                id: 1,
-                title: 'Desktop',
-                skills: ['Electron', 'Angular', 'React'],
-            },
-            {
-                id: 1,
-                title: 'Design',
-                skills: ['Tailwind CSS', 'Material UI', 'Ant Design', 'Bootstrap'],
-            },
-            {
-                id: 2,
-                title: 'Backend',
-                skills: ['Javascript', 'Typescript', 'Node', 'Express', 'MongoDB', 'Api'] ,
-            },
-            {
-                id: 3,
-                title: 'Tools',
-                skills: ['Android Studio', 'XCode', 'VirtualBox', 'Firebase Console', 'MongoDB Compass', 'Git', 'Jira', 'Trello', 'VS Code'],
-            },
-            {
-                id: 4,
-                title: 'Soft Skills',
-                skills: ['Diligent', 'Attention to Details', 'Team Work', 'Problem Solving', 'Adaptability'],
-            },
-        ]
-    },
-    {
-        id: 0,
-        title: 'About me',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero facilis impedit cum minima maxime! Libero repellat consequatur culpa magni, maxime', 
-        handle: 'about',
-        items: [
-            {
-                id: 0,
-                title: 'Codeferns Technologies Pvt. Ltd.',
-                role: 'Software Engineer',
-                period: '2022 - Present'
-            },
-            {
-                id: 1,
-                title: 'Appitech Pvt. Ltd.',
-                role: 'Frontend Developer',
-                period: '2021 - 2022'
-            },
-        ]
     },
 ]
 

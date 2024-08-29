@@ -59,17 +59,19 @@ const Milestones = () => {
                       .map((ele, ind) => (
                         <div className="transition-all duration-100"  key={"mil" + ind}>
                           <div className="relative flex py-2 items-start">
-                            <div className="z-20 absolute justify-center items-center bg-secondaryColor top-3 left-[-44px]">
+                            <div className="z-20 absolute justify-center items-center bg-secondaryColor bottom-4 left-[-44px]">
                               <BiSolidUpArrow className="w-4 h-4 fill-primaryColor"/>
                             </div>
                             <div>
+                            <p className="text-base text-primaryColor">{ele.description}</p>
+                            <p className="font-medium text-base py-2 text-primaryColor">
+                                {ele.title}
+                              </p>
                               <p className="font-medium text-lg text-primaryColor">
                                 {ele.date}
                               </p>
-                              <p className="font-medium text-normal py-1 text-primaryColor">
-                                {ele.title}
-                              </p>
-                              <p className="text-sm text-primaryColor">{ele.description}</p>
+
+                              
                             </div>
                           </div>
                         </div>
@@ -106,9 +108,7 @@ const Milestones = () => {
 
             {/* Journey checkpoint description */}
             <div className="relative mt-4 rounded-lg">
-              {/* <div className="absolute h-[2px] w-7 left-[-30px] bg-primaryColor/30 bottom-[10px]">
 
-              </div> */}
               <p className='text-lg py-1 font-medium'>{item?.role}</p>
               <p className='text-base pb-1 text-primaryColor'>{item.description}</p>
               
