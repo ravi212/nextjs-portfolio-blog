@@ -16,3 +16,8 @@ export enum ScreenSizes {
     LARGE = 1024,
     XLARGE = 1280,
 }
+
+export enum AdminMenuType {
+    SIDER = 'sider',
+    DRAWER = 'drawer',
+} 

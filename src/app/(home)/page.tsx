@@ -1,7 +1,6 @@
 import HomeSection from "@/components/molecules/client/home";
-import { lazy } from "react";
 
-export default function Home() {
+export default function Page() {
   return (
       <section >
         <HomeSection />

@@ -1,5 +1,5 @@
 "use client"
-import { EXPERT_SECTION, EXPERTISE, PROJECTS, SKILLS } from '@/constants/common'
+import { EXPERT_SECTION, EXPERTISE, PROJECTS, SKILLS } from '@/constants/client.const'
 import { Card } from 'antd'
 import React from 'react'
 
@@ -19,8 +19,9 @@ const ProjectSection = () => {
             }
         </div>
 
+        
+        <div className='flex flex-col gap-10 lg:gap-1'>
         <h4 className='py-6 mt-3 text-2xl sm:text-3xl md:text-4xl font-medium text-primaryColor'>Skills i offer...</h4>
-        <div className='flex flex-col lg:flex-row gap-10 lg:gap-1'>
         <div className="w-[90%] grid grid-col-1 lg:grid-cols-1 xl:grid-cols-1 gap-4">
           {SKILLS.map((item: any, index: number) => (
             <div

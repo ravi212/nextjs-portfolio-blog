@@ -1,5 +1,5 @@
 "use client"
-import { EXPERTISE, PROJECTS, SKILLS } from '@/constants/common'
+import { EXPERTISE, PROJECTS, SKILLS } from '@/constants/client.const'
 import { Card } from 'antd'
 import React from 'react'
 

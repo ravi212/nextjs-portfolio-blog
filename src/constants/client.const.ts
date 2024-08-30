@@ -26,7 +26,7 @@ export const NAV_ITEMS = [
     {
         id: 5,
         title: "#ping me",
-        link: '/contact'
+        link: '/contact',
     }
 ]
 

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { NAV_ITEMS, SOCIAL_ITEMS } from "@/constants/common";
+import { NAV_ITEMS, SOCIAL_ITEMS } from "@/constants/client.const";
 import SocialItem from "../../../atoms/client/layout/SocialItem";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { BiSolidUpArrow } from "react-icons/bi";
-import { JOURNEY, JOURNEY_MILESTONES } from '@/constants/common';
+import { JOURNEY, JOURNEY_MILESTONES } from '@/constants/client.const';
 
 const Milestones = () => {
     const [journey, setJourney] = useState(JOURNEY);

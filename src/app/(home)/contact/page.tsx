@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Personal Portfolio Web app of and by Ravi Raina",
 };
 
-export default function Contact() {
+export default function Page() {
     return (
       <section>
         <p className="text-4xl text-primaryColor font-medium py-6 md:w-[70%] w-[90%] leading-snug">
