@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-
 const posts = [
   { id: '1', title: 'First Blog Post', content: 'This is the content of the first blog post. It’s a detailed description of the blog topic.', date: 'August 30, 2024' },
   { id: '2', title: 'Second Blog Post', content: 'This is the content of the second blog post. Here, we discuss another topic in detail.', date: 'August 31, 2024' },

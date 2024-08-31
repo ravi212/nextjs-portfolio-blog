@@ -1,27 +1,19 @@
-export const NAV_ITEMS = [
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+
+const base = '/admin'
+
+export const ADMIN_NAV_ITEMS = [
     {
         id: 0,
-        title: '#take me home',
-        link: '/'
+        title: 'Dashboard',
+        link: `${base}`,
+        icon: SpaceDashboardIcon
     },
     {
         id: 1,
-        title: '#my journey',
-        link: '/about'
+        title: 'Blog',
+        link: `${base}/blog`,
+        icon: TextSnippetIcon
     },
-    {
-        id: 3,
-        title: '#I can help you with',
-        link: '/projects'
-    },
-    // {
-    //     id: 4,
-    //     title: '#my way of working',
-    //     link: '/working'
-    // },
-    {
-        id: 5,
-        title: "#ping me",
-        link: '/contact'
-    }
 ]
