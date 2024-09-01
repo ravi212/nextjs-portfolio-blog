@@ -47,7 +47,7 @@ const AdLayout: React.FC<Props> = ({ children }) => {
             />
           )}
         </Navbar>
-        <Content style={{ margin: "0 16px" }}>{children}</Content>
+        <Content style={{ margin: "0 16px", padding: "30px 10px" }}>{children}</Content>
       </Layout>
 
       <SideDrawer

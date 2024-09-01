@@ -13,7 +13,7 @@ export const ADMIN_NAV_ITEMS = [
     {
         id: 1,
         title: 'Blog',
-        link: `${base}/blog`,
+        link: `${base}/posts/list`,
         icon: TextSnippetIcon
     },
 ]

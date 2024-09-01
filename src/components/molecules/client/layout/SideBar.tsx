@@ -1,13 +1,8 @@
 "use client";
-import dynamic from "next/dynamic";
 import React from "react";
 import NavItem from "../../../atoms/client/layout/NavItem";
 import { NAV_ITEMS } from "@/constants/client.const";
-// const ThemeSwitcher = lazy(() => import("@/components/molecules/ThemeSwitch"));
-// or
-const ThemeSwitcher = dynamic(() => import("@/components/atoms/client/layout/ThemeSwitch"), {
-  ssr: false,
-});
+
 import { MenuType } from "@/enum/enum";
 
 const SideBar = ({openDrawer, toggleDrawer}: NavBarProps) => {

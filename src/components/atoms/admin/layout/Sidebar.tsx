@@ -11,6 +11,10 @@ const SideBar = ({collapsed}: {collapsed: boolean}) => {
   
   const pathName = usePathname();
 
+  const isActive = () => {
+    
+  }
+
   return (
     <Sider width={250} trigger={null} collapsible collapsed={collapsed} className="w-full bg-secondaryColor">
         <div className='px-3'>

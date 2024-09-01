@@ -1,8 +1,7 @@
 
 import type { Metadata } from "next";
 import "../globals.css";
-import dynamic from "next/dynamic";
-const AdLayout = dynamic(() => import ("@/components/molecules/admin/layout"), {ssr: false}) ;
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Admin",
@@ -12,10 +11,11 @@ export const metadata: Metadata = {
 export default function AdminLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
-      <body>
-        <AdLayout>
+        <body>
+          <SessionProvider>
           {children}
-        </AdLayout>
+          </SessionProvider>
+         
         </body>
     </html>
   );
