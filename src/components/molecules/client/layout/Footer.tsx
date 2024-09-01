@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-[100%] self-end text-center items-center justify-center py-5">
+    <div className="w-[100%] self-end text-center items-center justify-center py-8">
         <span className="text-primaryTextColor">Made by Ravi Raina</span>
     </div>
   );

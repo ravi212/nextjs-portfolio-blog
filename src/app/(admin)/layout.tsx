@@ -1,25 +1,22 @@
+
 import type { Metadata } from "next";
-import ThemeProvider from "@/components/providers/ThemeProvider";
-import Curtain from "@/components/molecules/client/layout/Curtain";
-const AdLayout = lazy(() => import ("@/components/molecules/admin/layout")) ;
-import { lazy, Suspense } from "react";
 import "../globals.css";
-import Spinner from "@/components/atoms/common/Spinner";
+import { SessionProvider } from "next-auth/react";
+
 export const metadata: Metadata = {
   title: "Admin",
-  description: "Personal Portfolio Web app of and by Ravi Raina",
+  description: "Admin Panel to Manage Personal Portfolio/blog Web app of and by Ravi Raina",
 };
 
 export default function AdminLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
-      <body>
-      <Curtain />
-        <AdLayout>
+        <body>
+          <SessionProvider>
           {children}
-        </AdLayout>
+          </SessionProvider>
+         
         </body>
-    
     </html>
   );
 }

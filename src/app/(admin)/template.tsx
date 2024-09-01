@@ -1,11 +1,8 @@
-"use client";
-import Footer from "@/components/molecules/client/layout/Footer";
-import { ScreenSizes } from "@/enum/enum";
-import useTheme from "@/hooks/useTheme";
-import useToggle from "@/hooks/useToggle";
-import { motion } from "framer-motion";
 import { Inter, Poppins } from "next/font/google";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { auth } from "@/config/auth";
+import AuthGuard from "@/components/guards/AuthGuard";
+const AdLayout = dynamic(() => import ("@/components/molecules/admin/layout"), {ssr: false}) ;
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -13,20 +10,15 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
-export default function Template({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-  const [breakPoint, setBreakPoint] = useState(ScreenSizes.MEDIUM);
-  const [open, toggle] = useToggle(false);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setBreakPoint(window.innerWidth),)
-  }, [])
+export default async function Template({ children }: { children: React.ReactNode }) {
 
   return (
-    <main className={`${inter.className} ${poppins.className} flex flex-col min-h-screen p-5 bg-background`}>
-        {children}
+    <main className={`${inter.className} ${poppins.className} flex flex-col min-h-screenp bg-background`}>
+          <AuthGuard>
+            <AdLayout>
+              {children}
+            </AdLayout>
+          </AuthGuard>
     </main>
-
-
   );
 }

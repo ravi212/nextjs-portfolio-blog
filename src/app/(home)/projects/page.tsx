@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Personal Portfolio Web app of and by Ravi Raina",
 };
 
-export default function Projects() {
+export default function Page() {
     return (
         <ProjectSection />
     );

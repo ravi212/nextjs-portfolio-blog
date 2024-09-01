@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { SOCIAL_ITEMS } from "@/constants/common";
+import { SOCIAL_ITEMS } from "@/constants/client.const";
 import SocialItem from "../../../atoms/client/layout/SocialItem";
 
 const SocialIcons = () => {

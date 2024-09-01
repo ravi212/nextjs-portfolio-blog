@@ -2,7 +2,7 @@
 import React from "react";
 import { Drawer } from 'antd';
 import CloseIcon from '@mui/icons-material/Close';
-import { NAV_ITEMS } from "@/constants/common";
+import { NAV_ITEMS } from "@/constants/client.const";
 import NavItem from "../../../atoms/client/layout/NavItem";
 import { MenuType, ScreenSizes } from "@/enum/enum";
 

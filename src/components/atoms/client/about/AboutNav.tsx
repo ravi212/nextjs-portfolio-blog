@@ -1,4 +1,4 @@
-import { RESUME_NAV_ITEMS } from '@/constants/common'
+import { RESUME_NAV_ITEMS } from '@/constants/client.const'
 import React from 'react'
 
 const ResumeNav = ({handle, onButtonClick}: {handle: string; onButtonClick: (index: number) => void}) => {
