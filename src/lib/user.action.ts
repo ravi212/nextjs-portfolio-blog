@@ -2,7 +2,7 @@
 import { compareSync } from "bcrypt-ts";
 import User from "@/models/user.model";
 
- 
+// User and Auth
 export const getUser = async (payload: any) => {
     const {username, password} = payload;
 
