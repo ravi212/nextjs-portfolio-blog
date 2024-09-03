@@ -8,14 +8,13 @@ export const metadata: Metadata = {
   description: "Admin Panel to Manage Personal Portfolio/blog Web app of and by Ravi Raina",
 };
 
-export default function BlogLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function BlogLayout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en">
       <body>
         <BgLayout>
           {children}
-        </BgLayout>
-          
+        </BgLayout> 
         </body>
     </html>
   );

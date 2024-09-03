@@ -13,9 +13,9 @@ const Page = () => {
   }, [])
 
   const getPosts = async () => {
-    const data = await getAllPosts();
-    if (data?.posts) {
-      setPosts(data?.posts)
+    const result = await getAllPosts();
+    if (result?.success) {
+      setPosts(result?.posts)
     }
   }
 

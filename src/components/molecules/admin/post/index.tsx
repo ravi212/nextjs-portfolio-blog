@@ -62,9 +62,9 @@ const PostEdit = ({ postId }: { postId?: string }) => {
 
   //get post by id when in edit mode
   const getPostToEdit = async () => {
-    const data = await getPostById(postId);
-    if (data?.post) {
-      const post = data?.post;
+    const result = await getPostById(postId);
+    if (result?.success) {
+      const post = result?.post;
       formik.setValues(post);
     }
   };

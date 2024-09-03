@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 const protectedRoutes = [
   '/admin',
 ];
-const unprotectedRoutes = ['/', '/login'];
+const unprotectedRoutes = ['/', '/signin'];
 
 
 export default async function middleware(request: NextRequest) {

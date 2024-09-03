@@ -1,4 +1,5 @@
-import LoginForm from "@/components/molecules/admin/login";
+import dynamic from "next/dynamic";
+const LoginForm = dynamic(() => import("@/components/molecules/admin/signin"), {ssr: false})
 
 export default function LoginPage() {
   return (

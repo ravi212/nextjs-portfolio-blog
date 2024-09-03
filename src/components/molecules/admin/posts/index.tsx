@@ -4,7 +4,6 @@ import { Popconfirm, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 import Link from 'next/link';
 import { deletePost } from '@/lib/post.action';
-import { revalidatePath } from 'next/cache';
 
 interface DataType {
   _id: string;

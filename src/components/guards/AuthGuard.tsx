@@ -15,7 +15,7 @@ const AuthGuard = props => {
     () => {
       if (session.status == 'unauthenticated') {
         if (pathName !== '/') {
-          router.replace('/login')
+          router.replace('/signin')
         } else {
           router.replace('/admin')
         }

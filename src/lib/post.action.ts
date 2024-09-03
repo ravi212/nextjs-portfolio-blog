@@ -5,65 +5,110 @@ import Post from "@/models/post.model"
 // Create post
 export const createPost = async (payload: PostType) => {
     const post = new Post(payload);
-    const res = await post.save();
-    
-    if (res) {
-        return {status: 'success', post, message: "Post created successfully"}
-    } 
 
-    return {status: 'error', post: null, message: "Error Creating Post!"}
+    try {
+        const res = await post.save();
+    
+        if (res) {
+            return {success: 'ok', post, message: "Post created successfully"}
+        } 
+    
+        return {error: "Error Creating Post!"}
+    } catch (e) {
+        console.log(e)
+        return {error: "Server Error!"}
+    }
+
 }
 
 // edit post
 export const editPost = async (id: string, payload: PostType) => {
-    const post = await Post.findByIdAndUpdate(id, payload);
 
-    if (post) {
-        return {status: 'success', post, message: "Post updated successfully"}
-    } 
+    try {
 
-    return {status: 'error', post: null, message: "Error Updating Post!"}
+        const post = await Post.findByIdAndUpdate(id, payload);
+
+        if (post) {
+            return {success: 'ok', post , message: "Post updated successfully"}
+        } 
+    
+        return {error: "Error Updating Post!"}
+
+    } catch (e) {
+        return {error: "Server Error!"}
+    }
+
 }
 
 // get list of posts
 export const getAllPosts = async () => {
-    const posts = await Post.find({}, '_id title slug content createdAt')
 
-    if (posts) {
-        return {status: 'success', posts, message: "Post Fetched successfully"}
-    } 
+    try {
+        const posts = await Post.find({}, '_id title slug content createdAt')
 
-    return {status: 'error', posts: null, message: "Error Fetching Post!"}
+        if (posts) {
+            return { success:'ok', posts }
+        } 
+    
+        return {error: "Not Found!"}
+
+    } catch (e) {
+        return {error: "Server Error!"}
+    }
+
 }
 
 // get post by id
 export const getPostById = async (_id: string | undefined) => {
-    const post = await Post.findOne({_id})
 
-    if (post) {
-        return {status: 'success', post, message: "Post created successfully"}
-    } 
+    try {
+        const post = await Post.findOne({_id})
 
-    return {status: 'error', post: null, message: "Error Creating Post!"}
+        if (post) {
+            return {success: 'ok', post}
+        } 
+    
+        return {error: "Not Found!"}
+
+    } catch (e) {
+        return {error: "Server Error!"}
+    }
+
 }
 
-// delete post
+// get post by slug
 export const getPostBySlug = async (slug: string) => {
-    const post = await Post.findOne({slug})
-    if (post) {
-        return {status: 'success', post,  message: "Post deleted successfully"}
-    } 
+    
+    try {
 
-    return {status: 'error', post: null, message: "Error Creating Post!"}
+        const post = await Post.findOne({slug})
+
+        if (post) {
+            return {success: 'ok', post}
+        } 
+    
+        return {error: "Not Found!"}
+
+    } catch (e) {
+        return {error: "Server Error!"}
+    }
+
 }
 
 // delete post
 export const deletePost = async (_id: string) => {
-    const res = await Post.findByIdAndDelete(_id)
 
-    if (res) {
-        return {status: 'success',  message: "Post deleted successfully"}
-    } 
+    try {
+        const res = await Post.findByIdAndDelete(_id)
 
-    return {status: 'error', post: null, message: "Error Creating Post!"}
+        if (res) {
+            return {success: 'ok', message: "Post deleted successfully"}
+        } 
+    
+        return {error: "Error deleting Post!"}
+
+    } catch (e) {
+        return {error: "Server Error!"}
+    }
+
 }
