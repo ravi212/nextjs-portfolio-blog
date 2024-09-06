@@ -5,6 +5,11 @@ const Page = async () => {
 
   const data = await getAllPosts();
   const posts: any = data?.posts;
+
+  if (!posts) {
+    return
+  }
+
   return (
     <Posts posts={posts} />
   );
