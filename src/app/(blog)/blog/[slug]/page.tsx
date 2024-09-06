@@ -10,7 +10,7 @@ const Page = ({
   }) => {
   return (
     <div>
-      <Post id={params.slug}/>
+      <Post slug={params?.slug}/>
     </div>
   )
 }

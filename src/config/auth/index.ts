@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './config';
-import { getUser } from '@/lib/actions';
+import { getUser } from '@/lib/user.action';
  
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
@@ -9,10 +9,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Credentials({
       async authorize(credentials) {
         
-        const res = await getUser(credentials);
+        const result = await getUser(credentials);
 
-        if(res?.user) {
-          return res?.user;
+        if(result?.success) {
+          return result?.user;
         }
 
         return null;

@@ -2,8 +2,14 @@
 import React from 'react'
 import { Drawer } from 'antd'
 import CloseIcon from '@mui/icons-material/Close';
+import { ADMIN_NAV_ITEMS } from '@/constants/admin.const';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const SideDrawer = ({isOpen, onClose}: SideMenuProps) => {
+
+    const pathName = usePathname()
+
   return (
     <Drawer
         placement="left"
@@ -23,9 +29,20 @@ const SideDrawer = ({isOpen, onClose}: SideMenuProps) => {
                 <CloseIcon className='cursor-pointer text-white' onClick={onClose} />
             </div>
 
-            <ul className='py-10 flex flex-col items-center'>
-                <li className='p-2 w-full rounded-lg text-center text-lg font-normal text-white hover:text-white hover:bg-red-400 bg-red-500 cursor-pointer transition-all duration-100'>Dashboard</li>
-            </ul>
+            <div className='py-6 flex flex-col gap-3 items-center'>
+              {
+                ADMIN_NAV_ITEMS.map((item: AdminNavItems, index: number) => (
+                  <Link href={item.link} key={index} className={`p-2 w-full flex gap-3 items-center justify-start rounded-md text-center text-lg font-normal text-white hover:text-white hover:bg-red-400 cursor-pointer transition-all duration-100 ${pathName == item.link? 'bg-red-500' : ''}`}>
+                    <item.icon />
+                    {
+                     <p className='text-white'>{item.title}</p>
+                    }
+                    
+                  </Link>
+                ))
+              }
+               
+            </div>
         </div>
 
 

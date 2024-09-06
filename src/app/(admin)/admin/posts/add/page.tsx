@@ -5,7 +5,7 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div>
+    <div className='px-10 '>
     <div className='py-6 flex gap-4 items-center'>
      <Link href={`/admin/posts/list`}>
         <ArrowBackIcon className='cursor-pointer' />

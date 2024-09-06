@@ -16,6 +16,7 @@
     "@types/mongoose": "^5.11.97",
     "antd": "^5.20.0",
     "bcrypt-ts": "^5.0.2",
+    "formik": "^2.4.6",
     "framer-motion": "^11.3.22",
     "mongoose": "^8.5.2",
     "next": "14.2.5",
@@ -23,7 +24,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "suneditor-react": "^3.6.1"
+    "react-toastify": "^10.0.5",
+    "suneditor-react": "^3.6.1",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

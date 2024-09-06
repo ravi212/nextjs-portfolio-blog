@@ -1,10 +1,23 @@
-
+"use client"
+import { getAllPosts } from '@/lib/post.action'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 const Posts = dynamic(() => import('@/components/molecules/admin/posts'), {ssr: false}) 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Page = () => {
+  const [posts, setPosts] = useState<PostType[]>([]);
+
+  useEffect(() => {
+    getPosts()
+  }, [])
+
+  const getPosts = async () => {
+    const result = await getAllPosts();
+    if (result?.success) {
+      setPosts(result?.posts)
+    }
+  }
 
   return (
     <div>
@@ -14,7 +27,7 @@ const Page = () => {
             Add New
         </Link>
       </div>
-      <Posts />
+      <Posts posts={posts} reGetPosts={getPosts}/>
     </div>
   )
 }

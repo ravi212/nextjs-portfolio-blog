@@ -1,5 +1,4 @@
 
-
 // Theme Props
 type ThemeProviderProps = {
     children: React.ReactNode
