@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import BgLayout from "@/components/molecules/blog/layout";
-
 
 export const metadata: Metadata = {
   title: "Admin",
@@ -12,9 +10,7 @@ export default function BlogLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body>
-        <BgLayout>
           {children}
-        </BgLayout> 
         </body>
     </html>
   );

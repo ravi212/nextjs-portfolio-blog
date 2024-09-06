@@ -16,8 +16,8 @@ const Post = async ({slug}: {slug: string}) => {
         <title>{post.title}</title>
         <meta name="description" content={post.content.substring(0, 150)} />
       </Head>
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      <div className="p-6 mb-6">
+        <h1 className="text-3xl font-semibold mb-4">{post.title}</h1>
         <p className="text-gray-600 text-sm mb-4">{new Date(post.createdAt).toLocaleDateString()}</p>
         <div dangerouslySetInnerHTML={{ __html: post.content }} className="text-gray-800"></div>
       </div>
