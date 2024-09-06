@@ -8,6 +8,7 @@ const Page = ({
     params: { slug: string };
     searchParams?: { [key: string]: string | string[] | undefined };
   }) => {
+    
   return (
     <div>
       <Post slug={params?.slug}/>
