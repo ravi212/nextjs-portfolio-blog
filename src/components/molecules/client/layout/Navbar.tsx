@@ -24,7 +24,7 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
           
           <div className="flex flex-col gap-6">
             <div onClick={() => router.push('/')}>
-              <p className="text-3xl font-medium text-primaryColor">Ravi <span className="font-light">R.</span></p>
+              <p className="text-3xl font-medium text-primaryColor">Ravi <span className="font-light">Raina.</span></p>
               {/* <p className="text-2xl font-normal text-primaryColor">Raina.</p> */}
             </div>
 
@@ -43,8 +43,9 @@ const Navbar = ({openDrawer, toggleDrawer}: NavBarProps) => {
 
         <div className="flex flex-col gap-4">
             <div>
-            <p className="text-3xl font-medium text-primaryColor">Ravi</p>
-            <p className="text-2xl font-normal text-primaryColor">Raina.</p>
+            <p className="text-3xl font-medium text-primaryColor">Ravi <span className="font-light">R.</span></p>
+            {/* <p className="text-3xl font-medium text-primaryColor">Ravi</p>
+            <p className="text-2xl font-normal text-primaryColor">Raina.</p> */}
             </div>
 
             {/* Social Icons */}
