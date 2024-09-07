@@ -6,6 +6,8 @@ const Page = async () => {
   const data = await getAllPosts();
   const posts: any = data?.posts;
 
+  console.log(posts)
+
   if (!posts) {
     return
   }
