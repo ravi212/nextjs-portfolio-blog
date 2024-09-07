@@ -4,7 +4,7 @@ export const authConfig = {
   pages: {
     signIn: '/signin',
   },
-
+  trustHost: true,
   session: {
     strategy: 'jwt',
     // ** Seconds - How long until an idle session expires and is no longer valid
