@@ -1,5 +1,5 @@
 "use client"
-import { getAllPosts } from '@/lib/post.action'
+import { getAllPosts } from '@/lib/actions/post.action'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 const Posts = dynamic(() => import('@/components/molecules/admin/posts'), {ssr: false}) 

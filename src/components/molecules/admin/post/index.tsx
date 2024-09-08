@@ -1,5 +1,5 @@
 "use client";
-import { createPost, editPost, getPostById } from "@/lib/post.action";
+import { createPost, editPost, getPostById } from "@/lib/actions/post.action";
 import { generateSlug } from "@/utils/common";
 import { Input } from "antd";
 import React, { useEffect, useState } from "react";

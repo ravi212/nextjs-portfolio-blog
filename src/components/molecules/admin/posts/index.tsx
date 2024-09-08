@@ -3,7 +3,7 @@ import React from 'react';
 import { Popconfirm, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 import Link from 'next/link';
-import { deletePost } from '@/lib/post.action';
+import { deletePost } from '@/lib/actions/post.action';
 
 interface DataType {
   _id: string;

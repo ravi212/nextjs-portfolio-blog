@@ -1,4 +1,4 @@
-import { getPostBySlug } from '@/lib/post.action';
+import { getPostBySlug } from '@/lib/actions/post.action';
 import Head from 'next/head';
 
 const Post = async ({slug}: {slug: string}) => {
