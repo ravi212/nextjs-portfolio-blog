@@ -1,5 +1,6 @@
 "use server"
 
+import connectToDatabase from "@/config/db";
 import Post from "@/models/post.model"
 
 // Create post
@@ -44,6 +45,7 @@ export const editPost = async (id: string, payload: PostType) => {
 export const getAllPosts = async () => {
 
     try {
+        await connectToDatabase();
         const posts = await Post.find({}, '_id title slug content createdAt')
 
         if (posts) {

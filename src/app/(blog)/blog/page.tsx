@@ -1,5 +1,5 @@
 import Posts from "@/components/molecules/blog/posts";
-import { getAllPosts } from "@/lib/post.action";
+import { getAllPosts } from "@/lib/actions/post.action";
 
 const Page = async () => {
 
