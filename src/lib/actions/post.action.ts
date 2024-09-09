@@ -67,6 +67,62 @@ export const getAllPosts = async () => {
 
 }
 
+// Toggle pinned post checkbox to update on database
+export const toggleFeatured = async (_id: string | undefined) => {
+
+    try {
+        
+        const featuredPost = await Post.find({featured: true});
+
+        if (featuredPost.length > 0) {
+          await Post.findOneAndUpdate({ _id: featuredPost[0]._id }, {featured: false});
+        }
+
+        const postFeatured = await Post.findById(_id, "featured");
+        const isFeatured = postFeatured?.featured
+
+        const post = await Post.findOneAndUpdate({ _id }, {featured: !isFeatured});
+
+        if (post) {
+            return { success:'ok', message: "Updated Post!" }
+        }
+
+        return {error: "Not Found!"}
+
+    } catch (err) {
+        return {error: "Server Error!", err}
+    }
+
+}
+
+// Toggle pinned post checkbox to update on database
+export const togglePinned = async (_id: string | undefined) => {
+
+    try {
+        
+        const pinnedPost = await Post.find({pinned: true});
+
+        if (pinnedPost.length > 0) {
+          await Post.findOneAndUpdate({ _id: pinnedPost[0]._id }, {pinned: false});
+        }
+
+        const postPinned = await Post.findById(_id, "pinned");
+        const isPinned = postPinned?.pinned
+
+        const post = await Post.findOneAndUpdate({ _id }, {pinned: !isPinned});
+
+        if (post) {
+            return { success:'ok', message: "Updated Post!" }
+        }
+
+        return {error: "Not Found!"}
+
+    } catch (err) {
+        return {error: "Server Error!", err}
+    }
+
+}
+
 // get post by id
 export const getPostById = async (_id: string | undefined) => {
 
