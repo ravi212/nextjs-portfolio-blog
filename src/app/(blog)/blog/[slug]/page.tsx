@@ -1,5 +1,6 @@
-import Post from '@/components/molecules/blog/post';
-import React from 'react'
+
+import React, { lazy } from 'react'
+const Post = lazy(() => import('@/components/molecules/blog/post'))
 
 const Page = ({
     params,

@@ -3,5 +3,9 @@ type PostType = {
     title: string;
     slug: string;
     content: string;
-    createdAt?: any ;
+    imageUrl: string;
+    featured: boolean;
+    pinned: boolean;
+    tags: string[];
+    createdAt?: any;
 }

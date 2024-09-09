@@ -1,5 +1,7 @@
-import BlogPost from '@/components/atoms/blog/post'
-import React from 'react'
+
+import { formatDate } from '@/utils/common'
+import React, { lazy } from 'react'
+const BlogPost = lazy(() => import('@/components/atoms/blog/post'))
 
 const Posts = ({posts}: {posts: PostType[]}) => {
 
@@ -10,8 +12,9 @@ const Posts = ({posts}: {posts: PostType[]}) => {
           key={post._id}
           title={post.title}
           content={post.content}
-          date={new Date(post.createdAt).toLocaleDateString()}
+          date={formatDate(new Date(post.createdAt))}
           slug={post?.slug}
+          imageUrl={post?.imageUrl}
         />
       ))}
     </div>

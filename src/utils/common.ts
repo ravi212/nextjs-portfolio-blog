@@ -24,3 +24,12 @@ export const htmlToPlainText = (html: string) => {
 
   return result.join("\n");
 };
+
+export function formatDate(date: Date) {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthName = months[date.getMonth()];
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day} ${monthName} ${year}`;
+}

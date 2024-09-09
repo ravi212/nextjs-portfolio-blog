@@ -5,19 +5,26 @@ import Post from "@/models/post.model"
 
 // Create post
 export const createPost = async (payload: PostType) => {
-    const post = new Post(payload);
 
     try {
-        const res = await post.save();
+
+        const isPost = await Post.findOne({slug: payload?.slug})
     
-        if (res) {
-            return {success: 'ok', post, message: "Post created successfully"}
+        if (isPost) {
+            return {error: "Post already exists!"}
+        }
+    
+        const newPost = new Post(payload);
+
+        const post = await newPost.save();
+
+        if (post) {
+            return  {success: 'ok', message: "Post created successfully"}
         } 
     
         return {error: "Error Creating Post!"}
-    } catch (e) {
-        console.log(e)
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }
@@ -35,8 +42,8 @@ export const editPost = async (id: string, payload: PostType) => {
     
         return {error: "Error Updating Post!"}
 
-    } catch (e) {
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }
@@ -46,7 +53,7 @@ export const getAllPosts = async () => {
 
     try {
         await connectToDatabase();
-        const posts = await Post.find({}, '_id title slug content createdAt')
+        const posts = await Post.find({}, '_id title slug content createdAt imageUrl tags featured pinned')
 
         if (posts) {
             return { success:'ok', posts }
@@ -54,8 +61,8 @@ export const getAllPosts = async () => {
     
         return {error: "Not Found!"}
 
-    } catch (e) {
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }
@@ -72,8 +79,8 @@ export const getPostById = async (_id: string | undefined) => {
     
         return {error: "Not Found!"}
 
-    } catch (e) {
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }
@@ -91,8 +98,8 @@ export const getPostBySlug = async (slug: string) => {
     
         return {error: "Not Found!"}
 
-    } catch (e) {
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }
@@ -109,8 +116,8 @@ export const deletePost = async (_id: string) => {
     
         return {error: "Error deleting Post!"}
 
-    } catch (e) {
-        return {error: "Server Error!"}
+    } catch (err) {
+        return {error: "Server Error!", err}
     }
 
 }

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Admin",
-  description: "Admin Panel to Manage Personal Portfolio/blog Web app of and by Ravi Raina",
+  title: "Personal Blog - Ravi Raina",
+  description: "Ravi's - Personal Blog",
 };
 
 export default function BlogLayout({children}: Readonly<{children: React.ReactNode;}>) {
