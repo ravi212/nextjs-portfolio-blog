@@ -15,6 +15,9 @@ const Posts = ({posts}: {posts: PostType[]}) => {
           date={formatDate(new Date(post.createdAt))}
           slug={post?.slug}
           imageUrl={post?.imageUrl}
+          pinned={post?.pinned}
+          featured={post?.featured}
+          hashTags={post?.tags}
         />
       ))}
     </div>
