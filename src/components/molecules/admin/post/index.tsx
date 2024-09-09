@@ -1,13 +1,17 @@
 "use client";
 import { createPost, editPost, getPostById } from "@/lib/actions/post.action";
 import { generateSlug } from "@/utils/common";
-import { Input } from "antd";
+import { Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import SunEditor from "suneditor-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "suneditor/dist/css/suneditor.min.css";
 import Spinner from "@/components/atoms/common/Spinner";
+import { upload } from "@/lib/actions/common.action";
+import Image from "next/image";
+import { redirect } from "next/navigation";
+const { Option } = Select;
 
 // Validation schema with Yup
 const validationSchema = Yup.object({
@@ -23,28 +27,56 @@ const validationSchema = Yup.object({
   content: Yup.string()
     .required("Contents are required")
     .min(10, "Contents must be at least 10 characters long"),
+  imageUrl: Yup.string()
+    .required("Image is required"),
+  tags: Yup.array().of(Yup.string()).required('Tags are required'),
 });
 
 const PostEdit = ({ postId }: { postId?: string }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [imageError, setImageError] = useState('');
+  const [imageSuccess, setImageSuccess] = useState('');
+  const [postError, setPostError] = useState('');
+  const [postSuccess, setPostSuccess] = useState('');
 
   // Initialize Formik with useFormik hook
   const formik = useFormik({
     initialValues: {
       title: "",
       slug: "",
+      imageUrl: '',
       content: "",
+      featured: false,
+      pinned: false,
+      tags: [] 
     },
     validationSchema,
     onSubmit: async (values) => {
+      setPostSuccess('');
+      setPostError('')
       setIsLoading(true);
       let res;
       if (postId) {
         res = await editPost(postId, values);
+        if (res?.success) {
+          setIsLoading(false);  
+          setPostSuccess('Post Updated SucccessFully!')
+          redirect('/admin')
+        } else {
+          setIsLoading(false);
+          setPostError(res?.error)
+        }
       } else {
         res = await createPost(values);
+        if (res?.success) {
+          setIsLoading(false);
+          setPostSuccess('Post Added SucccessFully!')
+          redirect(`/admin/posts/list`)
+        } else {
+          setIsLoading(false);
+          setPostError(res?.error)
+        }
       }
-      setIsLoading(false);
     },
   });
 
@@ -68,6 +100,35 @@ const PostEdit = ({ postId }: { postId?: string }) => {
       formik.setValues(post);
     }
   };
+
+  const handleFileUpload = async (event) => {
+
+    setImageError('')
+    setImageSuccess('')
+
+    const file = event.currentTarget.files[0];
+
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      const response = await upload(formData)
+      
+      if (response.success) {
+          formik.setFieldValue('imageUrl', response?.imageUrl);
+          setImageSuccess('Image Uploaded SuccessFully!')
+      } else {
+          setImageError('Error Uploading Image!')
+      }
+    }
+
+
+  };
+
+  // Handle change of Select component
+  const handleSelectChange = (value) => {
+    formik.setFieldValue('tags', value);
+  };
+  
 
   return (
     <form onSubmit={formik.handleSubmit} className="h-full gap-4 flex flex-col">
@@ -108,7 +169,34 @@ const PostEdit = ({ postId }: { postId?: string }) => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.slug && formik.errors.slug ? (
-          <p>{formik.errors.slug}</p>
+          <p className="text-red-500 text-base font-normal">{formik.errors.slug}</p>
+        ) : null}
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-lg font-normal" htmlFor="title">
+          Tags
+        </label>
+
+        <Select
+        id="tags"
+        mode="tags"
+        placeholder="Add Tags"
+        value={formik.values.tags}
+        onChange={handleSelectChange}
+        onBlur={formik.handleBlur}
+        size="large"
+      >
+
+        {formik.values?.tags?.map((tag, index) => (
+            <Option key={index} value={tag}>
+              {tag}
+            </Option>
+          ))}
+          </Select>
+
+        {formik.touched.tags && formik.errors.tags ? (
+          <p className="text-red-500 text-base font-normal">{formik.errors.tags}</p>
         ) : null}
       </div>
 
@@ -139,10 +227,40 @@ const PostEdit = ({ postId }: { postId?: string }) => {
           placeholder="Enter post content here..."
         />
         {formik.touched.content && formik.errors.content ? (
-          <p>{formik.errors.content}</p>
+          <p className="text-red-500 text-base font-normal">{formik.errors.content}</p>
         ) : null}
       </div>
-      <div className="flex justify-end">
+
+      <div className="flex flex-col gap-2">
+        <label className="text-lg font-normal" htmlFor="title">
+          Cover Image
+        </label>
+        <Input
+                    type="file"
+                    name="file"
+                    accept="image/*"
+                    onChange={handleFileUpload}
+                />
+                {formik.errors.imageUrl && formik.touched.imageUrl ? (
+                    <div>{formik.errors.imageUrl}</div>
+                ) : null}
+                {/* <button type="submit" disabled={uploading}>
+                    {uploading ? 'Uploading...' : 'Upload'}
+                </button> */}
+                {imageError && <p className="text-red-500">{imageError}</p>}
+                {imageSuccess && <p className="text-green-500">{imageSuccess}</p>}
+      </div>
+
+
+      {formik.values.imageUrl && (
+                <div className="relative w-[100%] md:w-[100%] h-[auto] overflow-hidden">
+                    <Image width={900} height={900} src={formik.values.imageUrl} alt="Image preview" className="w-[100%] object-cover" />
+                </div>
+            )}
+
+      <div className="flex justify-end items-center gap-4">
+      {postError && <p className="text-red-500 text-base">{postError}</p>}
+      {postSuccess && <p className="text-green-500 text-lg">{postSuccess}</p>}
         <button
           type="submit"
           className="bg-red-500 rounded-lg px-6 py-3 cursor-pointer text-base font-medium text-white shadow-lg"

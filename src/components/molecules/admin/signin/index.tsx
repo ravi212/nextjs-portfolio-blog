@@ -100,7 +100,7 @@ export default function LoginForm() {
             type="submit"
             className="w-full bg-red-500 flex justify-center items-center text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-400 "
           >
-                     {isLoading &&  <Spinner />}
+                     {isLoading &&  <Spinner  />}
 
                     {!isLoading && <p>Sign In</p>}
           </button>

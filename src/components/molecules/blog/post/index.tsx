@@ -1,6 +1,6 @@
 import { getPostBySlug } from '@/lib/actions/post.action';
+import { formatDate } from '@/utils/common';
 import Head from 'next/head';
-
 const Post = async ({slug}: {slug: string}) => {
   
   const data = await getPostBySlug(slug);
@@ -18,7 +18,7 @@ const Post = async ({slug}: {slug: string}) => {
       </Head>
       <div className="p-6 mb-6">
         <h1 className="text-3xl font-semibold mb-4">{post.title}</h1>
-        <p className="text-gray-600 text-sm mb-4">{new Date(post.createdAt).toLocaleDateString()}</p>
+        <p className="text-gray-600 text-sm mb-4">{formatDate(new Date(post.createdAt))}</p>
         <div dangerouslySetInnerHTML={{ __html: post.content }} className="text-gray-800"></div>
       </div>
     </>

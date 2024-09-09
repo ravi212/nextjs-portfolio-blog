@@ -4,20 +4,37 @@ const PostSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
+      require: true,
       trim: true,
     },
     slug: {
       type: String,
-      required: true,
+      require: true,
       unique: true,
       trim: true,
       lowercase: true,
     },
     content: {
       type: String,
-      required: true,
+      require: true
     },
+    imageUrl: {
+      type: String,
+      require: true
+    },
+    tags: {
+      type: [String],
+      require: true,
+      default: []
+    },
+    featured: {
+      type: Boolean,
+      default: false
+    },
+    pinned: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true,
