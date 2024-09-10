@@ -53,7 +53,7 @@ export const getAllPosts = async () => {
 
     try {
         await connectToDatabase();
-        const posts = await Post.find({}, '_id title slug content createdAt imageUrl tags featured pinned')
+        const posts = await Post.find({}, '_id title slug content createdAt imageUrl tags featured pinned category')
 
         if (posts) {
             return { success:'ok', posts }

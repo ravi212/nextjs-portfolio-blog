@@ -34,6 +34,11 @@ const PostSchema = new Schema(
     pinned: {
       type: Boolean,
       default: false
+    },
+    category:       {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Category',
+      required: true,
     }
   },
   {

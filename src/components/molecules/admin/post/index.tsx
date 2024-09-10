@@ -10,7 +10,7 @@ import "suneditor/dist/css/suneditor.min.css";
 import Spinner from "@/components/atoms/common/Spinner";
 import { upload } from "@/lib/actions/common.action";
 import Image from "next/image";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 const { Option } = Select;
 
 // Validation schema with Yup
@@ -28,16 +28,17 @@ const validationSchema = Yup.object({
     .required("Contents are required")
     .min(10, "Contents must be at least 10 characters long"),
   imageUrl: Yup.string().required("Image is required"),
+  category: Yup.string().required("Category is required"),
   tags: Yup.array().of(Yup.string()).required("Tags are required"),
 });
 
-const PostEdit = ({ postId }: { postId?: string }) => {
+const PostEdit = ({ postId, categories }: { postId?: string; categories: CategoryType[] }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageError, setImageError] = useState("");
   const [imageSuccess, setImageSuccess] = useState("");
   const [postError, setPostError] = useState("");
   const [postSuccess, setPostSuccess] = useState("");
-
+  const router = useRouter();
   // Initialize Formik with useFormik hook
   const formik = useFormik({
     initialValues: {
@@ -47,6 +48,7 @@ const PostEdit = ({ postId }: { postId?: string }) => {
       content: "",
       featured: false,
       pinned: false,
+      category: '',
       tags: [],
     },
     validationSchema,
@@ -60,7 +62,10 @@ const PostEdit = ({ postId }: { postId?: string }) => {
         if (res?.success) {
           setIsLoading(false);
           setPostSuccess("Post Updated SucccessFully!");
-          redirect("/admin");
+          setTimeout(() => {
+            router.replace(`/admin/posts/list`);
+          }, 200)
+          
         } else {
           setIsLoading(false);
           setPostError(res?.error);
@@ -70,7 +75,9 @@ const PostEdit = ({ postId }: { postId?: string }) => {
         if (res?.success) {
           setIsLoading(false);
           setPostSuccess("Post Added SucccessFully!");
-          redirect(`/admin/posts/list`);
+          setTimeout(() => {
+            router.replace(`/admin/posts/list`);
+          }, 200)
         } else {
           setIsLoading(false);
           setPostError(res?.error);
@@ -120,9 +127,14 @@ const PostEdit = ({ postId }: { postId?: string }) => {
     }
   };
 
-  // Handle change of Select component
+  // Handle change of tags select
   const handleSelectChange = (value) => {
     formik.setFieldValue("tags", value);
+  };
+
+  // Handle change of Select component
+  const handleCategoryChange = (value) => {
+    formik.setFieldValue("category", value);
   };
 
   return (
@@ -166,6 +178,33 @@ const PostEdit = ({ postId }: { postId?: string }) => {
         {formik.touched.slug && formik.errors.slug ? (
           <p className="text-red-500 text-base font-normal">
             {formik.errors.slug}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-lg font-normal" htmlFor="title">
+          Category
+        </label>
+
+        <Select
+          id="category"
+          placeholder="Select Category"
+          value={formik.values.category}
+          onChange={handleCategoryChange}
+          onBlur={formik.handleBlur}
+          size="large"
+        >
+          {categories?.map((item, index) => (
+            <Option key={index} value={item._id}>
+              {item.title}
+            </Option>
+          ))}
+        </Select>
+
+        {formik.touched.tags && formik.errors.tags ? (
+          <p className="text-red-500 text-base font-normal">
+            {formik.errors.tags}
           </p>
         ) : null}
       </div>

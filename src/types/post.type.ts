@@ -9,3 +9,10 @@ type PostType = {
     tags: string[];
     createdAt?: any;
 }
+
+type CategoryType = {
+    _id?: string;
+    title: string;
+    slug: string;
+    createdAt?: any;
+}
