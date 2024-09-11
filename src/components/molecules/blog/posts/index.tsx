@@ -11,13 +11,15 @@ const Posts = ({posts}: {posts: PostType[]}) => {
         <BlogPost
           key={post._id}
           title={post.title}
-          content={post.content}
-          date={formatDate(new Date(post.createdAt))}
+          textContent={post.textContent}
+          date={formatDate(new Date(post.updatedAt))}
           slug={post?.slug}
           imageUrl={post?.imageUrl}
           pinned={post?.pinned}
           featured={post?.featured}
           hashTags={post?.tags}
+          author={`${post.author.firstName} ${post.author.lastName}`}
+          category={post?.category?.title}
         />
       ))}
     </div>

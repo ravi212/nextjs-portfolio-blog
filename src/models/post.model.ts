@@ -14,27 +14,41 @@ const PostSchema = new Schema(
       trim: true,
       lowercase: true,
     },
-    content: {
+    textContent: {
       type: String,
-      require: true
+      require: true,
+    },
+    htmlContent: {
+      type: String,
+      require: true,
     },
     imageUrl: {
       type: String,
-      require: true
+      require: true,
     },
     tags: {
       type: [String],
       require: true,
-      default: []
+      default: [],
     },
     featured: {
       type: Boolean,
-      default: false
+      default: false,
     },
     pinned: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    category: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Category",
+      required: true,
+    },
+    author: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     timestamps: true,
