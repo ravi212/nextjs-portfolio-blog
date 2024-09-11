@@ -119,7 +119,7 @@ const UserEdit = ({ userId, closeModal }: { userId?: string, closeModal: () => v
   return (
     <form onSubmit={formik.handleSubmit} className="h-full gap-4 py-4 flex flex-col">
       <div className="flex flex-col gap-2">
-        <div>
+        <div className="flex flex-col gap-2">
         <label className="text-lg font-normal" htmlFor="firstName">
           First Name
         </label>
@@ -141,7 +141,7 @@ const UserEdit = ({ userId, closeModal }: { userId?: string, closeModal: () => v
             ) : null}
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2">
         <label className="text-lg font-normal" htmlFor="lastName">
           Last Name
         </label>

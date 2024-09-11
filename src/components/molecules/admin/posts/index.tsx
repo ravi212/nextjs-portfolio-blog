@@ -1,12 +1,11 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { Checkbox, Popconfirm, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
 import Link from 'next/link';
-import { deletePost, toggleFeatured, togglePinned } from '@/lib/actions/post.action';
+import { deletePost, getAllPosts, toggleFeatured, togglePinned } from '@/lib/actions/post.action';
 import { formatDate } from '@/utils/common';
-import { useRouter } from 'next/navigation';
-
+import { redirect } from 'next/navigation';
 interface DataType {
   _id: string;
   title: string;
@@ -17,23 +16,31 @@ interface DataType {
   createdAt: any;
 }
 
-const Posts = ({posts}: {posts: any}) => {
+const Posts = ({initialPosts}: {initialPosts: any}) => {
 
-  const router = useRouter();
+  const [posts, setPosts] = useState(initialPosts)
+
+  const getPosts = async () => {
+    const result: any = await getAllPosts();
+    let posts!: PostType;
+    if (result?.success) {
+      setPosts(JSON.parse(JSON.stringify(result?.posts)))
+    }
+  }
 
   const handleDelete = async (id: string) => {
     await deletePost(id);
-    router.replace(`/admin/post/list`)
+    getPosts()
   }
 
   const handlePinned = async (id: string) => {
     await togglePinned(id)
-    router.replace(`/admin/post/list`)
+    getPosts()
   }
 
   const handleFeatured = async (id: string) => {
     await toggleFeatured(id)
-    router.replace(`/admin/post/list`)
+    getPosts()
   }
 
   const columns: TableColumnsType<DataType> = [

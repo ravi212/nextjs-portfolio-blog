@@ -69,7 +69,7 @@ export const getAllPosts = async (categorySlug?: string | string[] | undefined) 
         const posts = await Post.find(filters, "_id title slug createdAt updatedAt pinned featured tags textContent imageUrl").populate("author").populate("category").exec();
         
         if (posts) {
-            return { success:'ok', posts }
+            return JSON.parse(JSON.stringify({ success:'ok', posts }))
         } 
     
         return {error: "Not Found!"}

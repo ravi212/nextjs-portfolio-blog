@@ -10,7 +10,7 @@ import "suneditor/dist/css/suneditor.min.css";
 import Spinner from "@/components/atoms/common/Spinner";
 import { upload } from "@/lib/actions/common.action";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 const { Option } = Select;
 
 // Validation schema with Yup
@@ -41,7 +41,8 @@ const PostEdit = ({ post, categories, authors }: { post?: any; categories: Categ
   const [imageSuccess, setImageSuccess] = useState("");
   const [postError, setPostError] = useState("");
   const [postSuccess, setPostSuccess] = useState("");
-  const router = useRouter();
+  const router= useRouter();
+
   // Initialize Formik with useFormik hook
   const formik = useFormik({
     initialValues: {
@@ -68,7 +69,7 @@ const PostEdit = ({ post, categories, authors }: { post?: any; categories: Categ
           setIsLoading(false);
           setPostSuccess("Post Updated SucccessFully!");
           setTimeout(() => {
-            router.replace(`/admin/post/list`);
+            router.push(`/admin/post/list`);
           }, 200)
           
         } else {
@@ -81,7 +82,7 @@ const PostEdit = ({ post, categories, authors }: { post?: any; categories: Categ
           setIsLoading(false);
           setPostSuccess("Post Added SucccessFully!");
           setTimeout(() => {
-            router.replace(`/admin/post/list`);
+            router.push(`/admin/post/list`);
           }, 200)
         } else {
           setIsLoading(false);

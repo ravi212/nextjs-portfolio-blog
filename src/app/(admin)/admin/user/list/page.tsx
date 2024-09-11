@@ -35,7 +35,7 @@ const Page = () => {
   return (
     <div>
       <div className='py-6 flex justify-between items-center'>
-        <h3 className="text-2xl font-medium">Categories</h3>
+        <h3 className="text-2xl font-medium">Users</h3>
         <span onClick={() => setOpenModal(!openModal)} className='bg-red-500 p-3 rounded-md text-white hover:text-white cursor-pointer'>
             Add New
         </span>
