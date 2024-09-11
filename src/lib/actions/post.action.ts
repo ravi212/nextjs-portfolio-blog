@@ -1,6 +1,7 @@
 "use server"
 
 import connectToDatabase from "@/config/db";
+import Category from "@/models/category.model";
 import Post from "@/models/post.model"
 
 // Create post
@@ -30,7 +31,7 @@ export const createPost = async (payload: PostType) => {
 }
 
 // edit post
-export const editPost = async (id: string, payload: PostType) => {
+export const editPost = async (id: string | undefined, payload: PostType) => {
 
     try {
 
@@ -49,12 +50,24 @@ export const editPost = async (id: string, payload: PostType) => {
 }
 
 // get list of posts
-export const getAllPosts = async () => {
+export const getAllPosts = async (categorySlug?: string ) => {
 
     try {
         await connectToDatabase();
-        const posts = await Post.find({}, '_id title slug content createdAt imageUrl tags featured pinned category')
+        let filters: any = {};    
+        
+        //category filters
+        
+        if (categorySlug) {
+            const category = await Category.findOne({slug: categorySlug});
 
+            filters = {...{category: category?._id}}
+        } else {
+            delete filters.category;
+        }
+
+        const posts = await Post.find(filters, "_id title slug createdAt updatedAt pinned featured tags textContent imageUrl").populate("author").populate("category").exec();
+        
         if (posts) {
             return { success:'ok', posts }
         } 
@@ -141,12 +154,13 @@ export const getPostById = async (_id: string | undefined) => {
 
 }
 
+
 // get post by slug
 export const getPostBySlug = async (slug: string) => {
     
     try {
 
-        const post = await Post.findOne({slug})
+        const post = await Post.findOne({slug}).populate("category").populate("author")
 
         if (post) {
             return {success: 'ok', post}

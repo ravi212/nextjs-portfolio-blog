@@ -22,7 +22,8 @@ export enum AdminMenuType {
     DRAWER = 'drawer',
 } 
 
-export enum UserType {
-    ADMIN = 'admin',
-    GUEST = 'guest',
+export enum UserRole {
+    ADMIN = 'Admin',
+    GUEST = 'Guest',
+    AUTHOR = 'Author',
 }

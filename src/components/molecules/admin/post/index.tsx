@@ -1,6 +1,6 @@
 "use client";
 import { createPost, editPost, getPostById } from "@/lib/actions/post.action";
-import { generateSlug } from "@/utils/common";
+import { generateSlug, htmlToPlainText } from "@/utils/common";
 import { Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import SunEditor from "suneditor-react";
@@ -24,7 +24,10 @@ const validationSchema = Yup.object({
       /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
       "Slug must be lowercase and can only contain letters, numbers, and hyphens"
     ),
-  content: Yup.string()
+  textContent: Yup.string()
+    .required("Contents are required")
+    .min(10, "Contents must be at least 10 characters long"),
+  htmlContent: Yup.string()
     .required("Contents are required")
     .min(10, "Contents must be at least 10 characters long"),
   imageUrl: Yup.string().required("Image is required"),
@@ -32,7 +35,7 @@ const validationSchema = Yup.object({
   tags: Yup.array().of(Yup.string()).required("Tags are required"),
 });
 
-const PostEdit = ({ postId, categories }: { postId?: string; categories: CategoryType[] }) => {
+const PostEdit = ({ post, categories, authors }: { post?: any; categories: CategoryType[], authors: UserType[] }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageError, setImageError] = useState("");
   const [imageSuccess, setImageSuccess] = useState("");
@@ -45,11 +48,13 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
       title: "",
       slug: "",
       imageUrl: "",
-      content: "",
+      textContent: "",
+      htmlContent: "",
       featured: false,
       pinned: false,
       category: '',
       tags: [],
+      author: ''
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -57,13 +62,13 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
       setPostError("");
       setIsLoading(true);
       let res;
-      if (postId) {
-        res = await editPost(postId, values);
+      if (post) {
+        res = await editPost(post._id, values);
         if (res?.success) {
           setIsLoading(false);
           setPostSuccess("Post Updated SucccessFully!");
           setTimeout(() => {
-            router.replace(`/admin/posts/list`);
+            router.replace(`/admin/post/list`);
           }, 200)
           
         } else {
@@ -76,7 +81,7 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
           setIsLoading(false);
           setPostSuccess("Post Added SucccessFully!");
           setTimeout(() => {
-            router.replace(`/admin/posts/list`);
+            router.replace(`/admin/post/list`);
           }, 200)
         } else {
           setIsLoading(false);
@@ -93,19 +98,11 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
   }, [formik.values]);
 
   useEffect(() => {
-    if (postId) {
-      getPostToEdit();
-    }
-  }, [postId]);
-
-  //get post by id when in edit mode
-  const getPostToEdit = async () => {
-    const result = await getPostById(postId);
-    if (result?.success) {
-      const post = result?.post;
+    if (post) {
       formik.setValues(post);
     }
-  };
+  }, [post]);
+
 
   const handleFileUpload = async (event) => {
     setImageError("");
@@ -136,6 +133,18 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
   const handleCategoryChange = (value) => {
     formik.setFieldValue("category", value);
   };
+
+  // Handle change of Select component
+  const handleAuthorChange = (value) => {
+    formik.setFieldValue("author", value);
+  };
+
+  const handleEditorChange = (value) => {
+    formik.setFieldValue("htmlContent", value)
+    const plainText = htmlToPlainText(value).substring(0, 300)
+    formik.setFieldValue("textContent", plainText)
+  }
+
 
   return (
     <form onSubmit={formik.handleSubmit} className="h-full gap-4 flex flex-col">
@@ -178,6 +187,34 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
         {formik.touched.slug && formik.errors.slug ? (
           <p className="text-red-500 text-base font-normal">
             {formik.errors.slug}
+          </p>
+        ) : null}
+      </div>
+
+
+      <div className="flex flex-col gap-2">
+        <label className="text-lg font-normal" htmlFor="author">
+          Author
+        </label>
+
+        <Select
+          id="author"
+          placeholder="Select Author"
+          value={formik.values.author}
+          onChange={handleAuthorChange}
+          onBlur={formik.handleBlur}
+          size="large"
+        >
+          {authors?.map((item, index) => (
+            <Option key={index} value={item._id}>
+              {`${item.firstName} ${item.lastName}`}
+            </Option>
+          ))}
+        </Select>
+
+        {formik.touched.author && formik.errors.author ? (
+          <p className="text-red-500 text-base font-normal">
+            {formik.errors.author}
           </p>
         ) : null}
       </div>
@@ -242,10 +279,10 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
           Content
         </label>
         <SunEditor
-          name="content"
-          onChange={(value) => formik.setFieldValue("content", value)}
+          name="htmlContent"
+          onChange={handleEditorChange}
           // onBlur={formik.handleBlur}
-          setContents={formik.values.content}
+          setContents={formik.values.htmlContent}
           setOptions={{
             buttonList: [
               ["undo", "redo"],
@@ -263,9 +300,9 @@ const PostEdit = ({ postId, categories }: { postId?: string; categories: Categor
           height="100%"
           placeholder="Enter post content here..."
         />
-        {formik.touched.content && formik.errors.content ? (
+        {formik.touched.htmlContent && formik.errors.htmlContent ? (
           <p className="text-red-500 text-base font-normal">
-            {formik.errors.content}
+            {formik.errors.htmlContent}
           </p>
         ) : null}
       </div>

@@ -8,10 +8,10 @@ const Page = async ({
   params: { slug: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) => {
-  
-  console.log(searchParams)
 
-  const data = await getAllPosts();
+  const category = searchParams?.category
+
+  const data = await getAllPosts(category);
   const posts: any = data?.posts;
 
   if (!posts) {

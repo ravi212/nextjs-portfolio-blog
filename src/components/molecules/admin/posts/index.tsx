@@ -5,6 +5,7 @@ import type { TableColumnsType } from 'antd';
 import Link from 'next/link';
 import { deletePost, toggleFeatured, togglePinned } from '@/lib/actions/post.action';
 import { formatDate } from '@/utils/common';
+import { useRouter } from 'next/navigation';
 
 interface DataType {
   _id: string;
@@ -16,21 +17,23 @@ interface DataType {
   createdAt: any;
 }
 
-const Posts = ({posts, reGetPosts}: {posts: any, reGetPosts: () => void}) => {
+const Posts = ({posts}: {posts: any}) => {
+
+  const router = useRouter();
 
   const handleDelete = async (id: string) => {
     await deletePost(id);
-    reGetPosts();
+    router.replace(`/admin/post/list`)
   }
 
   const handlePinned = async (id: string) => {
     await togglePinned(id)
-    reGetPosts();
+    router.replace(`/admin/post/list`)
   }
 
   const handleFeatured = async (id: string) => {
     await toggleFeatured(id)
-    reGetPosts();
+    router.replace(`/admin/post/list`)
   }
 
   const columns: TableColumnsType<DataType> = [
@@ -65,7 +68,7 @@ const Posts = ({posts, reGetPosts}: {posts: any, reGetPosts: () => void}) => {
       dataIndex: '',
       key: 'action',
       render: (row) => <div className='flex gap-4'>
-          <Link href={`/admin/posts/edit?id=${row._id}`} className='border rounded-md px-3 py-1 cursor-pointer shadow-md hover:text-black'>
+          <Link href={`/admin/post/edit?id=${row._id}`} className='border rounded-md px-3 py-1 cursor-pointer shadow-md hover:text-black'>
             edit
          </Link>
          <Popconfirm
