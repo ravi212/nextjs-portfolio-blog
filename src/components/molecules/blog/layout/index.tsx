@@ -24,6 +24,7 @@ const BgLayout = async ({ children, slug }) => {
         <div className="flex flex-row  px-4 py-6 gap-6 w-full mx-auto md:w-[90%] lg:w-[85%] xl:w-[80%]">
           <div className="w-[100%] container ">{children}</div>
           <aside className=" w-[30%] flex flex-col gap-3 p-3">
+            <Link href={`/blog`}>All</Link>
             {
               categories?.map((cat: CategoryType, index: number) => (
                 <Link key={index} href={`/blog?category=${cat.slug}`}>{cat.title}</Link>
