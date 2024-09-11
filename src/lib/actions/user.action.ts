@@ -104,7 +104,7 @@ export const getUserById = async (_id: string | undefined) => {
 export const getUsersByRole = async (role: string) => {
 
     try {
-        const users = await User.find({role})
+        const users = await User.find({role, isLocked: {$ne: true}})
 
         if (users) {
             return {success: 'ok', users}

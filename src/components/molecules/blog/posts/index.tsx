@@ -19,7 +19,7 @@ const Posts = ({posts}: {posts: PostType[]}) => {
           featured={post?.featured}
           hashTags={post?.tags}
           author={`${post.author.firstName} ${post.author.lastName}`}
-          category={post?.category?.title}
+          category={post?.category}
         />
       ))}
     </div>

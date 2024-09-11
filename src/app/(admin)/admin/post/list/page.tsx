@@ -7,9 +7,9 @@ const Page = async () => {
     const result: any = await getAllPosts();
     let posts!: PostType;
     if (result?.success) {
-      posts = JSON.parse(JSON.stringify(result?.posts))
+      posts = result?.posts;
     }
-    
+
   return (
     <div>
       <div className='py-6 flex justify-between items-center'>
@@ -18,7 +18,7 @@ const Page = async () => {
             Add New
         </Link>
       </div>
-      <Posts posts={posts} />
+      <Posts initialPosts={posts} />
     </div>
   )
 }
