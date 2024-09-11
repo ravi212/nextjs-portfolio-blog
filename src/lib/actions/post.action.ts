@@ -50,7 +50,7 @@ export const editPost = async (id: string | undefined, payload: PostType) => {
 }
 
 // get list of posts
-export const getAllPosts = async (categorySlug?: any) => {
+export const getAllPosts = async (categorySlug?: string | string[] | undefined) => {
 
     try {
         await connectToDatabase();
