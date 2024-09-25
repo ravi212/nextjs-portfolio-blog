@@ -36,6 +36,11 @@ type DrawerMenuProps = {
     breakPoint: number
 }
 
+type MessageType = {
+    name: string;
+    email: string;
+    message: string
+}
 
 //RESUME SECTIONS
 interface ResumeItems  {
