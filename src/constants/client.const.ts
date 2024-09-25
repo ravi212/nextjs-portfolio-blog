@@ -11,12 +11,12 @@ export const NAV_ITEMS = [
     {
         id: 1,
         title: '#my journey',
-        link: '/about'
+        link: '/journey'
     },
     {
         id: 3,
-        title: '#I can help you with',
-        link: '/projects'
+        title: '#I can help you with...',
+        link: '/skill'
     },
     // {
     //     id: 4,

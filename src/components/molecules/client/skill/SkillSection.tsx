@@ -1,9 +1,8 @@
 "use client"
-import { EXPERT_SECTION, EXPERTISE, PROJECTS, SKILLS } from '@/constants/client.const'
-import { Card } from 'antd'
+import { EXPERT_SECTION, SKILLS } from '@/constants/client.const'
 import React from 'react'
 
-const ProjectSection = () => {
+const SkillSection = () => {
   return (
     <div className="w-[90%] md:w-[100%] px-0 flex flex-wrap pb-10 flex-col lg:flex-row text-primaryTextColor gap-8">
         <h4 className='py-6 mt-3 text-2xl sm:text-3xl md:text-4xl font-medium text-primaryColor'>I can help you with...</h4>
@@ -66,4 +65,4 @@ const ProjectSection = () => {
   )
 }
 
-export default ProjectSection
+export default SkillSection

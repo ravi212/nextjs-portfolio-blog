@@ -13,25 +13,25 @@ export const ADMIN_NAV_ITEMS = [
         icon: SpaceDashboardIcon,
         isOpen: true
     },
-    {
-        id: 1,
-        title: 'Post',
-        link: `${base}/post/list`,
-        icon: TextSnippetIcon,
-        isOpen: true
-    },
-    {
-        id: 1,
-        title: 'Category',
-        link: `${base}/category/list`,
-        icon: CategoryIcon,
-        isOpen: false
-    },
-    {
-        id: 1,
-        title: 'User',
-        link: `${base}/user/list`,
-        icon: GroupIcon,
-        isOpen: false
-    },
+    // {
+    //     id: 1,
+    //     title: 'Post',
+    //     link: `${base}/post/list`,
+    //     icon: TextSnippetIcon,
+    //     isOpen: true
+    // },
+    // {
+    //     id: 1,
+    //     title: 'Category',
+    //     link: `${base}/category/list`,
+    //     icon: CategoryIcon,
+    //     isOpen: false
+    // },
+    // {
+    //     id: 1,
+    //     title: 'User',
+    //     link: `${base}/user/list`,
+    //     icon: GroupIcon,
+    //     isOpen: false
+    // },
 ]
