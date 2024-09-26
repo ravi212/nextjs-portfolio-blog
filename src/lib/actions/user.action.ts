@@ -169,7 +169,7 @@ export const logInUser = async (payload: any) => {
         }
 
         const user = await User.findOne({username})
-        console.log(user)
+
         if (user) {
         
             if (compareSync(password, user.password)) {
