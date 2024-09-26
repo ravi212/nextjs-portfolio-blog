@@ -2,6 +2,7 @@
 
 import connectToDatabase from "@/config/db";
 import Message from "@/models/message.model";
+import axios from 'axios'
 
 // Create message
 export const postMessage = async (payload: MessageType) => {
@@ -78,4 +79,20 @@ export const deleteMessage = async (_id: string) => {
         return {error: "Server Error!", err}
     }
 
+}
+
+export const verifyCaptcha = async (captchaCode) => {
+    let captchakey = process.env.CAPTCHA_SECRET_KEY;
+
+	const response = await axios.post(
+		`https://www.google.com/recaptcha/api/siteverify?secret=${captchakey}&response=${captchaCode}`
+	);
+
+	if (!response.data.success) {
+		// console.log("Response data from failed captcha request: ", response.data)
+		return {error: 'Verification failed! Retry'};
+	} 
+    
+    return {success: 'Verified Successfully!'};
+    
 }
