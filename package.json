@@ -16,6 +16,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/react-google-recaptcha": "^2.1.9",
     "antd": "^5.20.0",
+    "axios": "^1.7.7",
     "bcrypt-ts": "^5.0.2",
     "formik": "^2.4.6",
     "framer-motion": "^11.3.22",
