@@ -1,20 +1,31 @@
 "use client";
 import { formatDate } from "@/utils/common";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Popconfirm, Table } from "antd";
 import type { TableColumnsType } from "antd";
-import { deleteMessage } from "@/lib/actions/message.action";
+import { deleteMessage, getAllMessages } from "@/lib/actions/message.action";
 import ViewModal from "@/components/atoms/admin/message/ViewModal";
 const Messages = ({
   messages,
-  getMessages,
+  isAdmin
 }: {
   messages: MessageType[];
-  getMessages: () => void;
+  isAdmin?: boolean
 }) => {
  
   const [openModal, setOpenModal] = useState(false);
   const [viewData, setViewData] = useState(null)
+
+  const [messageList, setMessageList] = useState<MessageType[]>([]);
+
+  useEffect(() => {
+    setMessageList(messages)
+  }, [messages])
+
+  const getMessages = async () =>{
+    const res = (await getAllMessages()).messages;
+    setMessageList(res)
+  }
 
   const handleDelete = async (id: string) => {
     const res = await deleteMessage(id);
@@ -25,6 +36,31 @@ const Messages = ({
     setViewData(data);
     setOpenModal(true)
   } 
+
+  const adminColumns: TableColumnsType<any> = [
+    {
+      title: "Name",
+      dataIndex: "",
+      key: "name",
+      render: (row) => (
+        <div className="flex gap-4">
+          <p>{`${row.name}`}</p>
+        </div>
+      ),
+    },
+    { title: "Email", dataIndex: "email", key: "email" },
+    { title: "Message", dataIndex: "message", key: "message" },
+    {
+      title: "Created On",
+      dataIndex: "",
+      key: "createdAt",
+      render: (row) => (
+        <div className="flex gap-4">
+          <p>{formatDate(row.createdAt)}</p>
+        </div>
+      ),
+    },
+  ];
 
   const columns: TableColumnsType<any> = [
     {
@@ -79,7 +115,7 @@ const Messages = ({
 
   return (
     <>
-    <Table columns={columns} dataSource={messages} rowKey={(row) => row._id} />
+    <Table columns={isAdmin? adminColumns : columns} dataSource={messageList} rowKey={(row) => row._id} />
     <Modal title={'Message'} footer={null} open={openModal} onCancel={() => setOpenModal(!openModal)} >
         <ViewModal data={viewData} />
       </Modal>

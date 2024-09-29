@@ -49,14 +49,17 @@ export const editCategory = async (id: string, payload: CategoryType) => {
 }
 
 // get list of Categorys
-export const getAllCategories = async () => {
+export const getAllCategories = async (isAdmin: boolean = false) => {
 
     try {
         await connectToDatabase();
-        const categories = await Category.find({}, '_id title slug createdAt')
+
+        // const filters = isAdmin ? {} : { inActive: false }
+
+        const categories = await Category.find({}, '_id title parent slug inActive createdAt').populate('parent')
 
         if (categories) {
-            return { success:'ok', categories }
+            return JSON.parse(JSON.stringify({ success:'ok', categories }))
         } 
     
         return {error: "Not Found!"}
@@ -74,7 +77,7 @@ export const getCategoryById = async (_id: string | undefined) => {
         const category = await Category.findOne({_id})
 
         if (category) {
-            return {success: 'ok', category}
+            return JSON.parse(JSON.stringify({success: 'ok', category}))
         } 
     
         return {error: "Not Found!"}
@@ -93,9 +96,29 @@ export const getCategoryBySlug = async (slug: string) => {
         const category = await Category.findOne({slug})
 
         if (category) {
-            return {success: 'ok', category}
+            return JSON.parse(JSON.stringify({success: 'ok', category}))
         } 
     
+        return {error: "Not Found!"}
+
+    } catch (err) {
+        return {error: "Server Error!", err}
+    }
+
+}
+
+// Toggle active status checkbox to update on database
+export const toggleActive = async (_id: string | undefined) => {
+
+    try {
+        const categoryActive = await Category.findById(_id, "inActive");
+        const isActive = categoryActive?.inActive
+
+        const category = await Category.findOneAndUpdate({ _id }, {inActive: !isActive});
+        if (category) {
+            return JSON.parse(JSON.stringify({ success:'ok', message: "Updated Category!" }))
+        }
+
         return {error: "Not Found!"}
 
     } catch (err) {

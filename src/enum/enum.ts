@@ -27,3 +27,10 @@ export enum UserRole {
     GUEST = 'Guest',
     AUTHOR = 'Author',
 }
+
+export enum ProjectPlatform {
+    WEB = 'WEB',
+    IOS = 'IOS',
+    ANDROID = 'ANDROID',
+    DESKTOP = "DESKTOP"
+}

@@ -9,7 +9,7 @@ const NavIndicator = () => {
 
   return (
     <div
-      className={`items-center flex flex-col fixed  gap-6 right-8 md:right-14 
+      className={`items-center flex flex-col fixed  gap-6 right-7 md:right-10 
          h-[70%] justify-end bottom-0`}
     >
       {/* vertical navigation line */}

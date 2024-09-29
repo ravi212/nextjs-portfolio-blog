@@ -29,7 +29,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <main
-      className={`w-full flex flex-row gap-6 min-h-screen px-10 bg-background`}
+      className={`w-full flex flex-row gap-6 min-h-screen px-5 md:px-8 bg-background`}
     >
       <SideBar openDrawer={open} toggleDrawer={toggle} />
       

@@ -13,3 +13,20 @@ type AdminNavItems = {
     link: string,
     icon: any
 }
+
+type ProjectType = {
+    _id?: string;
+    title: string;
+    slug: string;
+    description: string;
+    technologies: [string];
+    coverImage: string;
+    isRecent?: boolean;
+    platform: [PlatformType];
+    createdAt?: any
+}
+
+type PlatformType = {
+    title: string;
+    link: string
+}

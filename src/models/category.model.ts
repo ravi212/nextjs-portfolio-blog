@@ -14,6 +14,11 @@ const CategorySchema = new Schema(
       trim: true,
       lowercase: true,
     },
+    parent: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Category",
+      default: null,
+    },
   },
   {
     timestamps: true,
