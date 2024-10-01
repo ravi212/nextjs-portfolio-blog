@@ -26,10 +26,23 @@ export const htmlToPlainText = (html: string) => {
 };
 
 export function formatDate(dateString: any) {
-  const date = new Date(dateString)
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const date = new Date(dateString);
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const monthName = months[date?.getMonth()];
-  const day = String(date?.getDate())?.padStart(2, '0');
+  const day = String(date?.getDate())?.padStart(2, "0");
   const year = date?.getFullYear();
 
   return `${day} ${monthName} ${year}`;

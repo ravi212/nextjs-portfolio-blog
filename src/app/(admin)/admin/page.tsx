@@ -1,23 +1,12 @@
-"use client"
-import Dashboard from '@/components/molecules/admin/dashboard'
-import { getAllMessages } from '@/lib/actions/message.action'
-import React, { useEffect, useState } from 'react'
+import Dashboard from "@/components/molecules/admin/dashboard";
+import { getAllMessages } from "@/lib/actions/message.action";
+import { revalidatePath } from "next/cache";
 
-const Page = () => {
-  const [messages, setMessages] = useState([]);
+const Page = async () => {
+  const messages = (await getAllMessages()).messages;
+  revalidatePath("(admin)/admin", "page");
 
-  useEffect(() => {
-    getMessages()
-  }, [])
+  return <Dashboard messages={messages} />;
+};
 
-  const getMessages = async () => {
-    const messages = (await getAllMessages()).messages;
-    setMessages(messages)
-  }
-  
-  return (
-    <Dashboard messages={messages} getMessages={getMessages}/>
-  )
-}
-
-export default Page
+export default Page;

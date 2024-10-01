@@ -6,9 +6,7 @@ import { MenuType } from "@/enum/enum";
 const NavItem = ({ title, link, type }: NavItemProps) => {
   const pathName = usePathname();
   return type == MenuType.SIDE ? (
-    <motion.span
-      className={`p-3 ${pathName == link ? "" : ""} text-center`}
-    >
+    <motion.span className={`p-3 ${pathName == link ? "" : ""} text-center`}>
       <Link
         className={`${
           pathName == link
@@ -21,9 +19,7 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
       </Link>
     </motion.span>
   ) : (
-    <motion.span
-      className={` p-2 ${pathName == link ? "" : ""}`}
-    >
+    <motion.span className={` p-2 ${pathName == link ? "" : ""}`}>
       <Link
         className={`${
           pathName == link

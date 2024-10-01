@@ -18,13 +18,8 @@ export const NAV_ITEMS = [
         title: '#I can help you with...',
         link: '/skill'
     },
-    // {
-    //     id: 4,
-    //     title: '#my way of working',
-    //     link: '/working'
-    // },
     {
-        id: 5,
+        id: 4,
         title: "#ping me",
         link: '/contact',
     }

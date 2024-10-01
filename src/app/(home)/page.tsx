@@ -1,9 +1,12 @@
 import HomeSection from "@/components/molecules/client/home";
+import { getAllProjects } from "@/lib/actions/project.action";
 
-export default function Page() {
+export default async function Page() {
+  const projects = (await getAllProjects())?.projects;
+
   return (
-      <section >
-        <HomeSection />
-      </section>
+    <section>
+      <HomeSection projects={projects} />
+    </section>
   );
 }

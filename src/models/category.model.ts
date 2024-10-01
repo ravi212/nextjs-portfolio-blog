@@ -14,12 +14,18 @@ const CategorySchema = new Schema(
       trim: true,
       lowercase: true,
     },
+    parent: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Category",
+      default: null,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Category = mongoose.models.Category || mongoose.model("Category", CategorySchema);
+const Category =
+  mongoose.models.Category || mongoose.model("Category", CategorySchema);
 
 export default Category;
