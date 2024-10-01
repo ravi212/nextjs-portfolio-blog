@@ -1,19 +1,22 @@
 import { ProjectPlatform } from "@/enum/enum";
 import mongoose, { Schema } from "mongoose";
 
-const PlatformSchema = new Schema(
-    {
-        title: {
-            type: String,
-            enum: [ProjectPlatform.WEB, ProjectPlatform.IOS, ProjectPlatform.ANDROID, ProjectPlatform.DESKTOP],
-            require: true
-        },
-        link: {
-            type: String,
-            require: true
-        } 
-    }
-)
+const PlatformSchema = new Schema({
+  title: {
+    type: String,
+    enum: [
+      ProjectPlatform.WEB,
+      ProjectPlatform.IOS,
+      ProjectPlatform.ANDROID,
+      ProjectPlatform.DESKTOP,
+    ],
+    require: true,
+  },
+  link: {
+    type: String,
+    require: true,
+  },
+});
 
 const ProjectSchema = new Schema(
   {
@@ -23,32 +26,40 @@ const ProjectSchema = new Schema(
       trim: true,
     },
     slug: {
-        type: String,
-        require: true,
-        unique: true,
-        trim: true,
-        lowercase: true,
+      type: String,
+      require: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
     description: {
-        type: String,
-        require: true,
-        trim: true,
+      type: String,
+      require: true,
+      trim: true,
     },
-    technologies : {
-        type: [String],
-        require: true
+    technologies: {
+      type: [String],
+      require: true,
     },
     coverImage: {
-        type: String,
-        require: true
+      type: String,
+      require: true,
     },
-    isRecent: {
-        type: Boolean,
-        default: false
+    recent: {
+      type: Boolean,
+      default: false,
+    },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+    github: {
+      type: String,
+      default: "",
     },
     platform: {
       type: [PlatformSchema],
-      require: true
+      require: true,
     },
   },
   {
@@ -56,6 +67,7 @@ const ProjectSchema = new Schema(
   }
 );
 
-const Project = mongoose.models.Project || mongoose.model("Project", ProjectSchema);
+const Project =
+  mongoose.models.Project || mongoose.model("Project", ProjectSchema);
 
 export default Project;

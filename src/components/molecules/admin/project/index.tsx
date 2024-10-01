@@ -1,6 +1,6 @@
 "use client";
 import { generateSlug } from "@/utils/common";
-import { Input, Select, Space } from "antd";
+import { Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import {
   ErrorMessage,
@@ -20,8 +20,8 @@ import {
 import { upload } from "@/lib/actions/common.action";
 import Image from "next/image";
 import TextArea from "antd/es/input/TextArea";
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/Add";
 const { Option } = Select;
 
 // Validation schema with Yup
@@ -76,9 +76,12 @@ const ProjectEdit = ({
       technologies: [],
       platform: [{ title: "", link: "" }],
       coverImage: "",
+      github: "",
     },
     validationSchema,
     onSubmit: async (values) => {
+      setImageError("");
+      setImageSuccess("");
       setProjectSuccess("");
       setProjectError("");
       setIsLoading(true);
@@ -164,9 +167,9 @@ const ProjectEdit = ({
   const handlePlatformChange = (value, index) => {
     const newPlatform = {
       title: value,
-      link: ''
-    }
-    formik.values.platform.splice(index, 1, newPlatform)
+      link: "",
+    };
+    formik.values.platform.splice(index, 1, newPlatform);
     formik.setFieldValue("platform", formik.values.platform);
   };
 
@@ -253,11 +256,24 @@ const ProjectEdit = ({
             {({ push, remove }) => (
               <>
                 {formik.values.platform.map((item, index) => (
-                  <div key={index} className="flex w-full gap-2 items-start justify-between">
+                  <div
+                    key={index}
+                    className="flex w-full gap-2 items-start justify-between"
+                  >
                     <div className="flex flex-col w-1/4 justify-center">
-                      <Field name={`platform.${index}.title`} className="w-full">
+                      <Field
+                        name={`platform.${index}.title`}
+                        className="w-full"
+                      >
                         {({ field }) => (
-                          <Select value={`platform.${index}.title`} {...field} id={`platform`} onChange={(value) => handlePlatformChange(value, index)}>
+                          <Select
+                            value={`platform.${index}.title`}
+                            {...field}
+                            id={`platform`}
+                            onChange={(value) =>
+                              handlePlatformChange(value, index)
+                            }
+                          >
                             <Option value="">Select Platform</Option>
                             {Platforms.map((platform, ind) => (
                               <Option key={ind} value={platform}>
@@ -281,10 +297,7 @@ const ProjectEdit = ({
                         placeholder={`Enter Link`}
                       >
                         {({ field }) => (
-                          <Input
-                            {...field}
-                            placeholder="Enter Link"
-                          />
+                          <Input {...field} placeholder="Enter Link" />
                         )}
                       </Field>
 
@@ -295,8 +308,11 @@ const ProjectEdit = ({
                       />
                     </div>
 
-
-                    <button type="button" className="text-red-500" onClick={() => remove(index)}>
+                    <button
+                      type="button"
+                      className="text-red-500"
+                      onClick={() => remove(index)}
+                    >
                       <DeleteIcon />
                     </button>
                   </div>
@@ -312,6 +328,27 @@ const ProjectEdit = ({
               </>
             )}
           </FieldArray>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-lg font-normal" htmlFor="github">
+            Github
+          </label>
+          <Input
+            id="github"
+            name="github"
+            type="text"
+            value={formik.values.github}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            size="large"
+            placeholder="https://"
+          />
+          {formik.touched.github && formik.errors.github ? (
+            <p className="text-red-500 text-base font-normal">
+              {formik.errors.github}
+            </p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-2">

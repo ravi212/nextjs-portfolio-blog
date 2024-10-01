@@ -1,6 +1,6 @@
-import ContactForm from '@/components/atoms/client/contact/ContactForm'
-import ContactInfo from '@/components/atoms/client/contact/ContactInfo'
-import React from 'react'
+import ContactForm from "@/components/atoms/client/contact/ContactForm";
+import ContactInfo from "@/components/atoms/client/contact/ContactInfo";
+import React from "react";
 
 const ContactSection = () => {
   return (
@@ -12,7 +12,7 @@ const ContactSection = () => {
         <ContactInfo />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactSection
+export default ContactSection;

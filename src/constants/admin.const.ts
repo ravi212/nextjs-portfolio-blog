@@ -1,7 +1,6 @@
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import CategoryIcon from '@mui/icons-material/Category';
-import GroupIcon from '@mui/icons-material/Group';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import { ProjectPlatform } from '@/enum/enum';
 

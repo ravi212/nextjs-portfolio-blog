@@ -56,22 +56,19 @@ const ContactForm = () => {
             setIsLoading(false);
             setMessageError(res?.error);
           }
-          setCaptchaCode(null)
+          setCaptchaCode(null);
         } else {
           setCaptchaStatus(false);
         }
       }
-
     },
   });
 
   const onReCAPTCHAChange = async (captchaCode) => {
-    
-    if(captchaCode){
+    if (captchaCode) {
       setCaptchaCode(captchaCode);
-      setCaptchaStatus(true)
+      setCaptchaStatus(true);
     }
-
   };
 
   const asyncScriptOnLoad = () => {
@@ -151,22 +148,28 @@ const ContactForm = () => {
             </p>
           ) : null}
         </div>
-        <div className="captcha" style={{transform:"scale(0.85) !important", transformOrigin:"0 0"}}>
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          size={"normal"}
-          //@ts-ignore
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-          onChange={onReCAPTCHAChange}
-          asyncScriptOnLoad={asyncScriptOnLoad}
-        />
+        <div
+          className="captcha"
+          style={{
+            transform: "scale(0.85) !important",
+            transformOrigin: "0 0",
+          }}
+        >
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            size={"normal"}
+            //@ts-ignore
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            onChange={onReCAPTCHAChange}
+            asyncScriptOnLoad={asyncScriptOnLoad}
+          />
         </div>
 
-          {!captchaStatus && captchaStatus!=undefined ? (
-            <p className="text-red-500 text-sm font-normal">
-              Verify you are not a robot!
-            </p>
-          ) : null}
+        {!captchaStatus && captchaStatus != undefined ? (
+          <p className="text-red-500 text-sm font-normal">
+            Verify you are not a robot!
+          </p>
+        ) : null}
         <div className="flex flex-col justify-end items-center gap-4 py-3">
           <button
             type="submit"

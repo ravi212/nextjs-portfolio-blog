@@ -3,7 +3,11 @@ import React from "react";
 import { Checkbox, Popconfirm, Table } from "antd";
 import type { TableColumnsType } from "antd";
 import { formatDate } from "@/utils/common";
-import { deleteProject, toggleRecent } from "@/lib/actions/project.action";
+import {
+  deleteProject,
+  toggleFeatured,
+  toggleRecent,
+} from "@/lib/actions/project.action";
 
 interface DataType {
   _id: string;
@@ -13,7 +17,9 @@ interface DataType {
   coverImage: string;
   technologies: string;
   platform: string;
-  isRecent: boolean;
+  recent: boolean;
+  featured: boolean;
+  github: string;
   createdAt: any;
 }
 
@@ -26,7 +32,6 @@ const Projects = ({
   reGetProjects: () => void;
   openEditModal: (id: string) => void;
 }) => {
-
   const handleDelete = async (id: string) => {
     await deleteProject(id);
     reGetProjects();
@@ -35,7 +40,12 @@ const Projects = ({
   const handleRecent = async (id: string) => {
     const res = await toggleRecent(id);
     reGetProjects();
-  }
+  };
+
+  const handleFeatured = async (id: string) => {
+    const res = await toggleFeatured(id);
+    reGetProjects();
+  };
 
   const columns: TableColumnsType<DataType> = [
     { title: "Title", dataIndex: "title", key: "title" },
@@ -51,13 +61,30 @@ const Projects = ({
       ),
     },
     {
-      title: 'Recent?',
-      dataIndex: '',
-      key: 'isRecent',
-      render: (row) => <div className='flex  gap-4'>
-        <Checkbox checked={row.isRecent} onChange={() => handleRecent(row._id)}>
-        </Checkbox> 
-      </div>,
+      title: "Recent?",
+      dataIndex: "",
+      key: "recent",
+      render: (row) => (
+        <div className="flex  gap-4">
+          <Checkbox
+            checked={row.recent}
+            onChange={() => handleRecent(row._id)}
+          ></Checkbox>
+        </div>
+      ),
+    },
+    {
+      title: "Featured?",
+      dataIndex: "",
+      key: "featured",
+      render: (row) => (
+        <div className="flex  gap-4">
+          <Checkbox
+            checked={row.featured}
+            onChange={() => handleFeatured(row._id)}
+          ></Checkbox>
+        </div>
+      ),
     },
     {
       title: "Action",
@@ -88,11 +115,7 @@ const Projects = ({
   ];
 
   return (
-    <Table
-      columns={columns}
-      dataSource={projects}
-      rowKey={(row) => row._id}
-    />
+    <Table columns={columns} dataSource={projects} rowKey={(row) => row._id} />
   );
 };
 

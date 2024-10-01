@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteMetaData.siteUrl),
   title: {
     template: ` ${siteMetaData.title} | %s `,
-    default: siteMetaData.title
+    default: siteMetaData.title,
   },
   description: siteMetaData.description,
   openGraph: {
@@ -18,11 +18,9 @@ export const metadata: Metadata = {
     description: siteMetaData.description,
     url: siteMetaData.siteUrl,
     siteName: siteMetaData.title,
-    images: [
-      siteMetaData.socialBanner
-    ],
-    locale: 'en_US',
-    type: 'website',
+    images: [siteMetaData.socialBanner],
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -31,14 +29,16 @@ export const metadata: Metadata = {
       index: true,
       follow: false,
       noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <ThemeProvider>

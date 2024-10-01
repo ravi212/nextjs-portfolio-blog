@@ -7,25 +7,24 @@ import { deleteMessage, getAllMessages } from "@/lib/actions/message.action";
 import ViewModal from "@/components/atoms/admin/message/ViewModal";
 const Messages = ({
   messages,
-  isAdmin
+  isAdmin,
 }: {
   messages: MessageType[];
-  isAdmin?: boolean
+  isAdmin?: boolean;
 }) => {
- 
   const [openModal, setOpenModal] = useState(false);
-  const [viewData, setViewData] = useState(null)
+  const [viewData, setViewData] = useState(null);
 
   const [messageList, setMessageList] = useState<MessageType[]>([]);
 
   useEffect(() => {
-    setMessageList(messages)
-  }, [messages])
+    setMessageList(messages);
+  }, [messages]);
 
-  const getMessages = async () =>{
+  const getMessages = async () => {
     const res = (await getAllMessages()).messages;
-    setMessageList(res)
-  }
+    setMessageList(res);
+  };
 
   const handleDelete = async (id: string) => {
     const res = await deleteMessage(id);
@@ -34,8 +33,8 @@ const Messages = ({
 
   const handleView = (data: any) => {
     setViewData(data);
-    setOpenModal(true)
-  } 
+    setOpenModal(true);
+  };
 
   const adminColumns: TableColumnsType<any> = [
     {
@@ -115,12 +114,20 @@ const Messages = ({
 
   return (
     <>
-    <Table columns={isAdmin? adminColumns : columns} dataSource={messageList} rowKey={(row) => row._id} />
-    <Modal title={'Message'} footer={null} open={openModal} onCancel={() => setOpenModal(!openModal)} >
+      <Table
+        columns={isAdmin ? adminColumns : columns}
+        dataSource={messageList}
+        rowKey={(row) => row._id}
+      />
+      <Modal
+        title={"Message"}
+        footer={null}
+        open={openModal}
+        onCancel={() => setOpenModal(!openModal)}
+      >
         <ViewModal data={viewData} />
       </Modal>
     </>
-    
   );
 };
 

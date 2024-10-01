@@ -99,7 +99,7 @@ const CategoryEdit = ({
 
   //get category by id when in edit mode
   const getcategoryToEdit = async () => {
-    formik.resetForm()
+    formik.resetForm();
     const result = await getCategoryById(categoryId);
     if (result?.success) {
       const category = result?.category;
@@ -161,7 +161,7 @@ const CategoryEdit = ({
       </div>
 
       <div className="flex flex-row pt-3 gap-2">
-      <Checkbox
+        <Checkbox
           id="slug"
           name="slug"
           type="text"
@@ -173,7 +173,6 @@ const CategoryEdit = ({
         <label className="text-lg font-normal" htmlFor="title">
           Self Parent?
         </label>
-
       </div>
 
       {!isSelfParent && (

@@ -56,7 +56,7 @@ export const getAllProjects = async (isAdmin: boolean = false) => {
 
         // const filters = isAdmin ? {} : { inActive: false }
 
-        const projects = await Project.find({}, '_id title description technologies coverImage platform slug isRecent createdAt')
+        const projects = await Project.find({}, '_id title description github technologies coverImage platform slug featured recent createdAt')
 
         if (projects) {
             return JSON.parse(JSON.stringify({ success:'ok', projects }))
@@ -107,13 +107,33 @@ export const getProjectBySlug = async (slug: string) => {
 
 }
 
+// Toggle featured status checkbox to update on database
+export const toggleFeatured = async (_id: string | undefined) => {
+
+    try {
+        const featuredProject = await Project.findById(_id, "featured");
+        const featured = featuredProject?.featured
+        const project = await Project.findOneAndUpdate({ _id }, {featured: !featured});
+
+        if (project) {
+            return JSON.parse(JSON.stringify({ success:'ok', message: "Updated Project!" }))
+        }
+
+        return {error: "Not Found!"}
+
+    } catch (err) {
+        return {error: "Server Error!", err}
+    }
+
+}
+
 // Toggle recent status checkbox to update on database
 export const toggleRecent = async (_id: string | undefined) => {
 
     try {
-        const recentProject = await Project.findById(_id, "isRecent");
-        const isRecent = recentProject?.isRecent
-        const project = await Project.findOneAndUpdate({ _id }, {isRecent: !isRecent});
+        const recentProject = await Project.findById(_id, "recent");
+        const recent = recentProject?.recent
+        const project = await Project.findOneAndUpdate({ _id }, {recent: !recent});
 
         if (project) {
             return JSON.parse(JSON.stringify({ success:'ok', message: "Updated Project!" }))
