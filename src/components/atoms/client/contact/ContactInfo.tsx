@@ -25,7 +25,7 @@ const ContactInfo = () => {
 
           <div>
             <h3 className="text-lg font-medium text-primaryColor">Phone</h3>
-            <p className="text-primaryColor">+91-9796259181</p>
+            <p className="text-primaryColor">+91-9055117296</p>
           </div>
         </div>
         <div className="flex flex-row gap-4 items-center">
