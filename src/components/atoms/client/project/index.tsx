@@ -24,12 +24,12 @@ const Project = ({ project }: { project: ProjectType }) => {
 
   return (
     <div className="bg-white rounded-lg mr-6 p-1">
-      <div className=" relative w-full min-h-[300px] overflow-hidden rounded-t-lg transition-all duration-150 ease-in-out ">
+      <div className=" relative w-full overflow-hidden rounded-t-lg transition-all duration-150 ease-in-out ">
         {/* overlay with opacity */}
         {/* <div className="w-full h-full absolute bg-opacity-90 z-10 inset-0 bg-gradient-to-t from-white "></div> */}
         <img
           alt="blog-img"
-          className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-100 cursor-pointer"
+          className="object-cover w-full h-full hover:scale-105 transition-transform duration-100 cursor-pointer"
           src={project?.coverImage}
         />
       </div>
