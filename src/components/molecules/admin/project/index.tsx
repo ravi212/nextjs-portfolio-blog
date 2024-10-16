@@ -17,7 +17,7 @@ import {
   editProject,
   getProjectById,
 } from "@/lib/actions/project.action";
-import { upload } from "@/lib/actions/common.action";
+import { uploadAsBase64 } from "@/lib/actions/common.action";
 import Image from "next/image";
 import TextArea from "antd/es/input/TextArea";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -129,10 +129,10 @@ const ProjectEdit = ({
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await upload(formData);
+      const response = await uploadAsBase64(formData);
 
       if (response.success) {
-        formik.setFieldValue("coverImage", response?.imageUrl);
+        formik.setFieldValue("coverImage", response?.image);
         setImageSuccess("Image Uploaded SuccessFully!");
       } else {
         setImageError("Error Uploading Image!");
