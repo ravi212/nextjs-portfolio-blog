@@ -3,10 +3,18 @@ import React from "react";
 import { Drawer } from "antd";
 import CloseIcon from "@mui/icons-material/Close";
 import { NAV_ITEMS } from "@/constants/client.const";
-import NavItem from "../../../atoms/client/layout/NavItem";
 import { MenuType, ScreenSizes } from "@/enum/enum";
+import { usePathname } from "next/navigation";
+
+interface DrawerMenuProps {
+  open: boolean;
+  onClose: () => void;
+  breakPoint: number;
+}
 
 const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
+  const pathname = usePathname();
+
   return (
     <Drawer
       placement={"left"}
@@ -16,29 +24,67 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
       closeIcon={false}
       mask={false}
       style={{ backgroundColor: "rgba(var(--primary-color))" }}
+      bodyStyle={{
+        padding: 0,
+        margin: 0,
+      }}
     >
-      <div className="flex flex-col justify-between items-center h-[100%]">
-        <div className="flex w-[100%] flex-row justify-end">
-          {/* <SocialIcons /> */}
-          {breakPoint < ScreenSizes.XSMALL ? (
+      <div className="flex flex-col justify-between items-center h-full">
+        {/* Close Icon */}
+        <div className="flex w-full justify-end">
+          {breakPoint < ScreenSizes.XSMALL && (
             <span onClick={onClose} className="cursor-pointer">
               <CloseIcon className="w-7 h-7 text-secondaryColor md:text-primaryColor hover:text-secondaryTextColor" />
             </span>
-          ) : (
-            <></>
           )}
         </div>
-        <nav className="flex flex-1 flex-col w-[90%] gap-5 py-20">
-          {NAV_ITEMS.map((item, index) => (
-            <NavItem
-              type={MenuType.SIDE}
-              key={index}
-              title={item.title}
-              link={item.link}
-            />
-          ))}
+
+        {/* Menu Items */}
+        <nav className="flex flex-1 flex-col w-[90%] gap-3 py-10">
+          {NAV_ITEMS.map((item, index) => {
+            const isActive = pathname === item.link;
+
+            return (
+              <a
+                key={index}
+                href={item.link}
+                className={`group relative flex items-center justify-between px-3 py-2 transition-all duration-200
+                  ${
+                    isActive
+                      ? "bg-red-50 !text-red-500 font-medium"
+                      : "light:text-primaryColor dark:text-secondaryColor"
+                  }`}
+              >
+                {/* Left: title */}
+                <span className="flex items-center gap-2">{item.title}</span>
+                {isActive && (
+                  <span className="ml-2 transform transition-transform duration-200 group-hover:translate-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-gray-400 dark:text-gray-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </span>
+                )}
+                {/* Right arrow */}
+
+                {/* Left indicator for active */}
+                {isActive && (
+                  <span className="absolute left-0 top-0 h-full w-1 rounded-r bg-red-500 dark:bg-red-400" />
+                )}
+              </a>
+            );
+          })}
         </nav>
-        {/* <div></div> */}
       </div>
     </Drawer>
   );

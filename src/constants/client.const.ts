@@ -5,22 +5,22 @@ import ProjectImageThree from '../../public/images/3.jpg'
 export const NAV_ITEMS = [
     {
         id: 0,
-        title: '#take me home',
+        title: 'Home',
         link: '/'
     },
     {
         id: 1,
-        title: '#my journey',
+        title: 'Journey',
         link: '/journey'
     },
     {
         id: 3,
-        title: '#I can help you with...',
+        title: 'Skills',
         link: '/skill'
     },
     {
         id: 4,
-        title: "#ping me",
+        title: "Contact",
         link: '/contact',
     }
 ]
