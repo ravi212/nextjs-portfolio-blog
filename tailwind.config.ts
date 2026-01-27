@@ -20,8 +20,6 @@ const config: Config = {
       sans: ['var(--font-poppins)']
     }
   },
-  plugins: [
-    
-  ],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
 export default config;

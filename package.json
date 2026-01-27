@@ -13,6 +13,7 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.7",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/mongoose": "^5.11.97",
     "@types/react-google-recaptcha": "^2.1.9",
     "antd": "^5.20.0",
