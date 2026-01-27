@@ -12,20 +12,18 @@ const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
   return (
     <>
       <div className="hidden lg:flex flex-row items-start justify-between pt-10 pb-5">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           <div onClick={() => router.push("/")}>
             <p className="text-3xl font-medium text-primaryColor">
               Ravi <span className="font-light">Raina.</span>
             </p>
             {/* <p className="text-2xl font-normal text-primaryColor">Raina.</p> */}
           </div>
-
           {/* Social Icons */}
           <div className={``}>
             <SocialIcons />
           </div>
         </div>
-
         <ThemeSwitch />
       </div>
 

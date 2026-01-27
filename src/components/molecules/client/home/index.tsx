@@ -17,10 +17,10 @@ const HomeSection = ({ projects }: { projects: ProjectType[] }) => {
       <h4 className="py-6 mt-3 text-xl sm:text-2xl md:text-3xl font-medium text-primaryColor">
         My Recent Work
       </h4>
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:flex-row gap-8 lg:gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:flex-row gap-8 lg:gap-4">
         {projects &&
           projects
-            .filter((project: ProjectType) => project?.recent)
+            .filter((project: ProjectType) => project?.recent).sort((a, b) => a.createdAt - b.createdAt)
             .map((project: ProjectType, index: number) => (
               <div key={index}>
                 <Project project={project} />

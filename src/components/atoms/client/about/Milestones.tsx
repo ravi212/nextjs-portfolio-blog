@@ -20,7 +20,7 @@ const Milestones = () => {
 
   return (
     <>
-      {journey.map((item, index) => (
+      {journey?.sort((a, b) => b.id - a.id)?.map((item, index) => (
         <div key={"jou" + index} className="flex gap-6 ">
           {/* journey checkpoint title for large screens*/}
           <div className="w-[20%] lg:w-[15%] lg:flex hidden flex-col justify-end">
@@ -79,7 +79,7 @@ const Milestones = () => {
                           </div>
                         </div>
                       ))}
-                  {ind == milestones.length - 1 &&
+                  {ele.id == 2 &&
                     ele.checkpointId == item.id && (
                       <>
                         {ele.isExpand ? (

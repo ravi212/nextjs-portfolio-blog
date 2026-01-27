@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
@@ -12,41 +11,40 @@ const Project = ({ project }: { project: ProjectType }) => {
   const renderIcon = (title) => {
     switch (title) {
       case ProjectPlatform.WEB:
-        return <LanguageIcon />;
+        return <LanguageIcon className="w-5 h-5"/>;
       case ProjectPlatform.DESKTOP:
-        return <ComputerIcon />;
+        return <ComputerIcon className="w-5 h-5"/>;
       case ProjectPlatform.ANDROID:
-        return <AndroidIcon />;
+        return <AndroidIcon className="w-5 h-5"/>;
       case ProjectPlatform.IOS:
-        return <AppleIcon />;
+        return <AppleIcon className="w-5 h-5"/>;
     }
   };
 
   return (
-    <div className="bg-white rounded-lg mr-6 p-1">
-      <div className=" relative w-full overflow-hidden rounded-t-lg transition-all duration-150 ease-in-out ">
-        {/* overlay with opacity */}
-        {/* <div className="w-full h-full absolute bg-opacity-90 z-10 inset-0 bg-gradient-to-t from-white "></div> */}
+    <div className="bg-white rounded-lg mr-6 p-1 h-[520px] flex flex-col">
+      {/* Image */}
+      <div className="relative w-full h-[200px] overflow-hidden rounded-t-lg">
         <img
           alt="blog-img"
-          className="object-cover w-full h-full hover:scale-105 transition-transform duration-100 cursor-pointer"
+          className="object-cover w-full h-full hover:scale-105 transition-transform duration-150 cursor-pointer"
           src={project?.coverImage}
         />
       </div>
 
-      <div className="py-6 px-4 flex  flex-col bg-secondaryColor justify-between shadow-xl rounded-b-lg  gap-4">
+      {/* Content */}
+      <div className="flex flex-col flex-1 py-6 px-4 bg-secondaryColor shadow-xl rounded-b-lg justify-between gap-4">
         <div>
           <h1 className="text-primaryColor text-lg font-semibold">
             {project?.title}
           </h1>
 
-          <p className="text-primaryColor text-base py-1 text-wrap">
-            {" "}
+          <p className="text-primaryColor text-base py-1 line-clamp-3">
             {project?.description}
           </p>
         </div>
 
-        <div className="left-4 z-20 flex flex-wrap gap-2 pb-3">
+        <div className="flex flex-wrap gap-2">
           {project?.technologies?.map((item, index) => (
             <span
               key={index}
@@ -57,13 +55,13 @@ const Project = ({ project }: { project: ProjectType }) => {
           ))}
         </div>
 
-        <div className="flex flex-wrap flex-row gap-2">
+        <div className="flex flex-wrap gap-2">
           {project?.platform?.map((item, index) => (
             <Link
               target="_blank"
               href={item?.link}
               key={index}
-              className="hover:scale-110 duration-100 capitalize transition-transform shadow-xl p-2 bg-primaryColor text-secondaryColor rounded-full text-sm"
+              className="hover:scale-110 transition-transform duration-100 shadow-xl p-2 bg-primaryColor text-secondaryColor rounded-md text-sm"
             >
               <div className="flex gap-1 items-center justify-center">
                 {renderIcon(item?.title)}
@@ -72,14 +70,14 @@ const Project = ({ project }: { project: ProjectType }) => {
             </Link>
           ))}
 
-          {project?.github?.length > 0 && (
+          {project?.github && (
             <Link
               target="_blank"
               href={project?.github}
-              className="hover:scale-110 duration-100 capitalize transition-transform shadow-xl p-2 bg-primaryColor text-secondaryColor rounded-full text-sm"
+              className="hover:scale-110 transition-transform duration-100 shadow-xl p-2 bg-primaryColor text-secondaryColor rounded-md text-sm"
             >
               <div className="flex gap-1 items-center justify-center">
-                <GitHubIcon />
+                <GitHubIcon className="w-5 h-5"/>
                 <span className="lowercase">github</span>
               </div>
             </Link>
@@ -89,5 +87,4 @@ const Project = ({ project }: { project: ProjectType }) => {
     </div>
   );
 };
-
 export default Project;
