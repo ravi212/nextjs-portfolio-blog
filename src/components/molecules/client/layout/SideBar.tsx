@@ -9,7 +9,7 @@ const SideBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-[20%] hidden lg:flex">
+    <div className="hidden lg:flex w-[260px] shrink-0">
       <aside className="sticky top-10 flex flex-col gap-1 px-2 h-fit w-full">
         <nav className="flex flex-col gap-1">
           {NAV_ITEMS.map((item, index) => {

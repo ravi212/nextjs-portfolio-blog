@@ -6,6 +6,14 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: "360px", // small phones
+      sm: "640px", // phones
+      md: "768px", // tablets
+      lg: "1024px", // laptops
+      xl: "1280px", // desktops
+      "2xl": "1536px", // large screens
+    },
     extend: {
       colors: {
         background: "rgba(var(--background-color))",
@@ -13,12 +21,12 @@ const config: Config = {
         secondaryColor: "rgba(var(--secondary-color))",
         primaryTextColor: "rgba(var(--primary-text-color))",
         secondaryTextColor: "rgba(var(--secondary-text-color))",
-        darkColor: "rgba(var(--dark-color))"
+        darkColor: "rgba(var(--dark-color))",
       },
     },
     fontFamily: {
-      sans: ['var(--font-poppins)']
-    }
+      sans: ["var(--font-poppins)"],
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

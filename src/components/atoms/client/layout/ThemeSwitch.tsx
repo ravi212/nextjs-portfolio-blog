@@ -12,8 +12,8 @@ const ThemeSwitch = () => {
     <div className='flex justify-center items-center'>
         {
            theme == 'dark' 
-           ? <LightModeSharpIcon className='text-primaryTextColor cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
-           : <NightsStaySharpIcon className='text-primaryTextColor cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
+           ? <LightModeSharpIcon fontSize="small" className='text-primaryTextColor cursor-pointer' onClick={() => switchThemeTo(Theme.LIGHT)} /> 
+           : <NightsStaySharpIcon fontSize="small" className='text-primaryTextColor cursor-pointer' onClick={() => switchThemeTo(Theme.DARK)} />
         }
     </div>
   )

@@ -18,28 +18,31 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
   return (
     <Drawer
       placement={"left"}
-      width={320}
+      width={260}
       onClose={onClose}
       open={open}
       closeIcon={false}
       mask={false}
-      style={{ backgroundColor: "rgba(var(--primary-color))" }}
+      maskClosable
+      getContainer={false}
+      style={{
+        backgroundColor: "rgba(var(--primary-color))",
+        left: 0,
+        top: 0,
+      }}
       styles={{
-        body: {
-          padding: 0,
-          margin: 0,
-        },
+        body: { padding: 0, margin: 0 },
       }}
     >
       <div className="flex flex-col justify-between items-center h-full">
         {/* Close Icon */}
-        <div className="flex w-full justify-end">
+        {/* <div className="flex w-full justify-end pt-4 pr-4">
           {breakPoint < ScreenSizes.XSMALL && (
             <span onClick={onClose} className="cursor-pointer">
               <CloseIcon className="w-7 h-7 text-secondaryColor md:text-primaryColor hover:text-secondaryTextColor" />
             </span>
           )}
-        </div>
+        </div> */}
 
         {/* Menu Items */}
         <nav className="flex flex-1 flex-col w-[90%] gap-3 py-10">

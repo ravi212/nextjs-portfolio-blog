@@ -32,7 +32,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     >
       <SideBar />
 
-      <div className={`flex flex-1 flex-col `}>
+      <div className={`flex flex-col `}>
         <Navbar openDrawer={open} toggleDrawer={toggle} />
         <hr></hr>
         <div className="flex flex-col flex-1">

@@ -11,13 +11,13 @@ const Project = ({ project }: { project: ProjectType }) => {
   const renderIcon = (title) => {
     switch (title) {
       case ProjectPlatform.WEB:
-        return <LanguageIcon className="w-5 h-5"/>;
+        return <LanguageIcon fontSize="small" className="w-5 h-5"/>;
       case ProjectPlatform.DESKTOP:
-        return <ComputerIcon className="w-5 h-5"/>;
+        return <ComputerIcon fontSize="small" className="w-5 h-5"/>;
       case ProjectPlatform.ANDROID:
-        return <AndroidIcon className="w-5 h-5"/>;
+        return <AndroidIcon fontSize="small" className="w-5 h-5"/>;
       case ProjectPlatform.IOS:
-        return <AppleIcon className="w-5 h-5"/>;
+        return <AppleIcon fontSize="small" className="w-5 h-5"/>;
     }
   };
 
@@ -77,7 +77,7 @@ const Project = ({ project }: { project: ProjectType }) => {
               className="hover:scale-110 transition-transform duration-100 shadow-xl px-2 py-1 bg-primaryColor text-secondaryColor rounded-sm text-sm"
             >
               <div className="flex gap-1 items-center justify-center">
-                <GitHubIcon className="w-3 h-3"/>
+                <GitHubIcon fontSize="small" className="w-3 h-3"/>
                 <span className="text-sm lowercase">github</span>
               </div>
             </Link>
