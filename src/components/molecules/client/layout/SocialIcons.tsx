@@ -5,14 +5,15 @@ import SocialItem from "../../../atoms/client/layout/SocialItem";
 
 const SocialIcons = () => {
   return (
-    <div className={`flex flex-row gap-4`}>
+    <div className={`flex flex-row items-center gap-3`}>
       {SOCIAL_ITEMS.map((item, index) => (
-        <SocialItem
-          key={index}
-          link={item.link}
-          type={item.type}
-          title={item.title}
-        />
+          <SocialItem
+            key={item.link}
+            link={item.link}
+            type={item.type}
+            title={item.title}
+            index={index}
+          />
       ))}
     </div>
   );

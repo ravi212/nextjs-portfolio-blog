@@ -34,11 +34,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
       <div className={`flex flex-1 flex-col `}>
         <Navbar openDrawer={open} toggleDrawer={toggle} />
+        <hr></hr>
         <div className="flex flex-col flex-1">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 1, delay: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.6, delay: 0.6 }}
           >
             {children}
           </motion.div>

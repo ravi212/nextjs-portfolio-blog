@@ -69,3 +69,7 @@ body * {
 
 }
 
+.captcha-scale {
+  transform: scale(0.85);
+  transform-origin: left;
+}

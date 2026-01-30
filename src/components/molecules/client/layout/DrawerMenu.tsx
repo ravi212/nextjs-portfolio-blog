@@ -24,9 +24,11 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
       closeIcon={false}
       mask={false}
       style={{ backgroundColor: "rgba(var(--primary-color))" }}
-      bodyStyle={{
-        padding: 0,
-        margin: 0,
+      styles={{
+        body: {
+          padding: 0,
+          margin: 0,
+        },
       }}
     >
       <div className="flex flex-col justify-between items-center h-full">
