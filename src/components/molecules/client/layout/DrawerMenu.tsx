@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
 import { Drawer } from "antd";
-import CloseIcon from "@mui/icons-material/Close";
 import { NAV_ITEMS } from "@/constants/client.const";
-import { MenuType, ScreenSizes } from "@/enum/enum";
 import { usePathname } from "next/navigation";
-
+import LaunchIcon from "@mui/icons-material/Launch";
 interface DrawerMenuProps {
   open: boolean;
   onClose: () => void;
@@ -89,7 +87,28 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
               </a>
             );
           })}
+
+                                                          <a
+        href={`${process.env.NEXT_PUBLIC_BLOG_URL}`}
+        target="_blank"
+        className="
+              
+                flex gap-2
+                px-3 py-2
+                text-sm
+                text-primaryColor
+                rounded
+                transition
+                light:text-primaryColor dark:text-secondaryColor
+                hover:text-secondaryTextColor
+                min-w-0 whitespace-nowrap
+              "
+      >
+        {/* <LaunchIcon fontSize="small" /> */}
+        <span className="inline">Blog</span>
+      </a>
         </nav>
+
       </div>
     </Drawer>
   );
