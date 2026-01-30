@@ -21,7 +21,7 @@ const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
             {/* <p className="text-2xl font-normal text-primaryColor">Raina.</p> */}
           </div>
         </div>
-        <div className={`flex flex-row items-center gap-12`}>
+        <div className={`flex items-center gap-4 md:gap-12 min-w-0`}>
           <SocialIcons />
           <Resume />
           <div className="flex gap-4">
@@ -44,7 +44,7 @@ const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
         </div>
       </div>
 
-      <div className="flex flex-row items-start justify-between gap-4 pt-10 pb-5 visible md:hidden">
+      <div className="flex-row items-start justify-between gap-4 pt-10 pb-5 flex md:hidden">
         <div className="flex flex-col gap-4">
           <div>
             <p className="text-3xl font-medium text-primaryColor">

@@ -10,15 +10,15 @@ const SocialItem = ({ link, type, index }: SocialItemProps) => {
     switch (type) {
       case "github":
         return (
-          <GitHubIcon className=" text-primaryColor hover:text-secondaryTextColor" />
+          <GitHubIcon fontSize="small" className=" text-primaryColor hover:text-secondaryTextColor" />
         );
       case "mail":
         return (
-          <EmailIcon className=" text-primaryColor hover:text-secondaryTextColor" />
+          <EmailIcon fontSize="small" className=" text-primaryColor hover:text-secondaryTextColor" />
         );
       case "linkedIn":
         return (
-          <LinkedInIcon className=" text-primaryColor hover:text-secondaryTextColor" />
+          <LinkedInIcon fontSize="small" className=" text-primaryColor hover:text-secondaryTextColor" />
         );
     }
   };

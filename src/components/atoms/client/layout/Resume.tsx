@@ -1,15 +1,26 @@
-"use client"
+"use client";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+
 export const Resume = () => {
   return (
     <button
-      onClick={() => {
-        window.open("resume/Ravi_Raina_Resume.pdf", "_blank");
-      }}
-      className="py-1 px-3 text-sm border border-gray-400 rounded-sm shadow-lg flex items-center gap-2 text-primaryColor hover:text-secondaryTextColor hover:shadow-md transition-all cursor-pointer"
+      onClick={() => window.open("resume/Ravi_Raina_Resume.pdf", "_blank")}
+      className="
+        flex items-center gap-1.5
+        px-2 py-1
+        text-xs md:text-sm
+        text-primaryColor
+        border border-gray-400/60
+        rounded
+        transition
+        hover:text-secondaryTextColor
+        hover:border-secondaryTextColor
+        hover:shadow-sm
+        min-w-0 whitespace-nowrap
+      "
     >
-      <CloudDownloadIcon className="" />
-      Resume
+      <CloudDownloadIcon fontSize="small" />
+      <span className="inline">Resume</span>
     </button>
   );
 };
