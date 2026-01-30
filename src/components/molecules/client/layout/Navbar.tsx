@@ -6,6 +6,7 @@ import { IoClose } from "react-icons/io5";
 import SocialIcons from "./SocialIcons";
 import { useRouter } from "next/navigation";
 import { Resume } from "@/components/atoms/client/layout/Resume";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
   const router = useRouter();
@@ -21,7 +22,26 @@ const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
             {/* <p className="text-2xl font-normal text-primaryColor">Raina.</p> */}
           </div>
         </div>
-        <div className={`flex items-center gap-4 md:gap-12 min-w-0`}>
+        <div className={`flex items-center gap-4 md:gap-10 min-w-0`}>
+                <a
+        href={`${process.env.NEXT_PUBLIC_BLOG_URL}`}
+        target="_blank"
+        className="
+              
+                flex items-center gap-1.5
+                px-3 py-2
+                text-xs md:text-sm
+                text-primaryColor
+                rounded
+                transition
+                
+                hover:text-secondaryTextColor
+                min-w-0 whitespace-nowrap
+              "
+      >
+        <LaunchIcon fontSize="small" />
+        <span className="inline">Blog</span>
+      </a>
           <SocialIcons />
           <Resume />
           <div className="flex gap-4">
@@ -46,7 +66,7 @@ const Navbar = ({ openDrawer, toggleDrawer }: NavBarProps) => {
 
       <div className="flex-row items-start justify-between gap-4 pt-10 pb-5 flex md:hidden">
         <div className="flex flex-col gap-4">
-          <div>
+          <div >
             <p className="text-3xl font-medium text-primaryColor">
               Ravi <span className="font-light bg-secondaryTextColor/40">Raina.</span>
             </p>
