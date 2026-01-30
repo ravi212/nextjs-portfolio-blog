@@ -4,7 +4,7 @@ import React from "react";
 
 const ContactSection = () => {
   return (
-    <div className="w-[90%] md:w-[100%] h-auto py-5 flex flex-col lg:flex-row text-primaryTextColor gap-16">
+    <div className="w-[90%] md:w-[100%] h-auto py-3 flex flex-col lg:flex-row text-primaryTextColor gap-16">
       <div className="flex-1">
         <ContactForm />
       </div>

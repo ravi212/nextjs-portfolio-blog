@@ -5,7 +5,7 @@ type ThemeProviderProps = {
 
 type ThemeContextProps = {
   theme: string;
-  switchThemeTo: (theme: string) => void;
+  switchThemeTo: (theme: 'light' | 'dark') => void;
 };
 
 // Navbar Props
@@ -25,6 +25,7 @@ type SocialItemProps = {
   title: string;
   link: string;
   type: string;
+  index: number;
 };
 
 // Drawer Menu Props

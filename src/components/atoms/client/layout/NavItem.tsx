@@ -19,7 +19,7 @@ const NavItem = ({ title, link, type }: NavItemProps) => {
       </Link>
     </motion.span>
   ) : (
-    <motion.span className={` p-2 ${pathName == link ? "" : ""}`}>
+    <motion.span className={`p-2 ${pathName == link ? "" : ""}`}>
       <Link
         className={`${
           pathName == link

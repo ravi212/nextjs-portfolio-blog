@@ -70,7 +70,7 @@ const Milestones = () => {
                                 {ele.description}
                               </p>
                               <p className="font-medium text-base py-2 text-primaryColor">
-                                {ele.title}
+                                <span className="underline">{ele.title}</span>
                               </p>
                               <p className="font-medium text-lg text-primaryColor">
                                 {ele.date}
@@ -117,7 +117,7 @@ const Milestones = () => {
               </p>
 
               <p className="text-lg font-medium text-primaryColor">
-                {item.title}
+                <span className=" bg-secondaryTextColor/40">{item.title}</span>
               </p>
             </div>
 

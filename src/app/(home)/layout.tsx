@@ -5,6 +5,7 @@ import Curtain from "@/components/molecules/client/layout/Curtain";
 import Footer from "@/components/molecules/client/layout/Footer";
 import { siteMetaData } from "@/constants/siteMetaData";
 import GoogleAnalytics from "@/utils/googleAnalytics";
+import { inter, poppins } from "@/lib/font";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetaData.siteUrl),
@@ -41,12 +42,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <ThemeProvider>
-        <Curtain />
-        {children}
-        <Footer />
-      </ThemeProvider>
-      <GoogleAnalytics />
+      <body
+        className={`${inter.className} ${poppins.className} flex-1 anim min-h-screen bg-background`}
+      >
+        <ThemeProvider>
+          <Curtain />
+          {children}
+          <Footer />
+        </ThemeProvider>
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

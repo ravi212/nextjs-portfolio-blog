@@ -76,8 +76,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-lg p-8 bg-white border shadow-2xl rounded-3xl gap-1">
-      <h2 className="text-3xl text-darkColor font-semibold mb-4">{`Let's Work Together`}</h2>
+    <div className="flex flex-col w-full max-w-lg p-6 bg-white border shadow-xl rounded-md gap-1">
 
       <form
         onSubmit={formik.handleSubmit}
@@ -96,7 +95,7 @@ const ContactForm = () => {
             onBlur={formik.handleBlur}
             required
             placeholder="Enter Your Name..."
-            className="mt-1 block w-full p-4 border text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+            className="mt-1 block w-full p-2 border text-gray-900 border-gray-300 rounded-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
           {formik.touched.name && formik.errors.name ? (
             <p className="text-red-500 text-sm font-normal">
@@ -118,7 +117,7 @@ const ContactForm = () => {
             onBlur={formik.handleBlur}
             required
             placeholder="Enter Your Email..."
-            className="mt-1 block w-full p-4 border text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+            className="mt-1 block w-full p-2 border text-gray-900 border-gray-300 rounded-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
           {formik.touched.email && formik.errors.email ? (
             <p className="text-red-500 text-sm font-normal">
@@ -140,7 +139,7 @@ const ContactForm = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             required
-            className="mt-1 block w-full p-4 border text-gray-900 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full p-2 border text-gray-900 border-gray-300 rounded-sm shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
           {formik.touched.message && formik.errors.message ? (
             <p className="text-red-500 text-sm font-normal">
@@ -148,22 +147,15 @@ const ContactForm = () => {
             </p>
           ) : null}
         </div>
-        <div
-          className="captcha"
-          style={{
-            transform: "scale(0.85) !important",
-            transformOrigin: "0 0",
-          }}
-        >
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            size={"normal"}
-            //@ts-ignore
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            onChange={onReCAPTCHAChange}
-            asyncScriptOnLoad={asyncScriptOnLoad}
-          />
-        </div>
+  <div className="captcha-scale">
+    <ReCAPTCHA
+      ref={recaptchaRef}
+      size="normal"
+      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+      onChange={onReCAPTCHAChange}
+      asyncScriptOnLoad={asyncScriptOnLoad}
+    />
+  </div>
 
         {!captchaStatus && captchaStatus != undefined ? (
           <p className="text-red-500 text-sm font-normal">
@@ -173,7 +165,7 @@ const ContactForm = () => {
         <div className="flex flex-col justify-end items-center gap-4 py-3">
           <button
             type="submit"
-            className="w-full px-4 py-4 bg-darkColor text-center text-white font-semibold rounded-md shadow-sm hover:bg-secondaryTextColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full p-2 bg-darkColor text-center text-white font-semibold rounded-sm shadow-sm hover:bg-secondaryTextColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             {isLoading && <Spinner />}
 
