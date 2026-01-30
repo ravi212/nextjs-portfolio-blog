@@ -32,10 +32,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
     >
       <SideBar />
 
-      <div className={`flex flex-col `}>
+      <div className={`flex flex-col w-full`}>
         <Navbar openDrawer={open} toggleDrawer={toggle} />
         <hr></hr>
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 ">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
