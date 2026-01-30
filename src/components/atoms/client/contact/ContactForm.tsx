@@ -76,7 +76,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-lg p-6 bg-white border shadow-xl rounded-md gap-1">
+    <div className="flex flex-col w-full max-w-lg p-4 sm:p-6 bg-white border shadow-md rounded-md gap-1 overflow-hidden">
 
       <form
         onSubmit={formik.handleSubmit}
