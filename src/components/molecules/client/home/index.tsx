@@ -6,7 +6,7 @@ import Link from "next/link";
 const HomeSection = ({ projects }: { projects: ProjectType[] }) => {
 
   return (
-    <div className="w-[100%] md:w-[90%] h-auto mx-0 my-8 flex flex-col text-primaryTextColor gap-4">
+    <div className="w-[92%] h-auto mx-0 my-8 flex flex-col text-primaryTextColor gap-4">
       {/* <h4 className="text-xl sm:text-2xl md:text-3xl text-primaryColor ">Hi I am a</h4> */}
       <h1 className="text-4xl sm:text-4xl md:text-6xl font-medium text-primaryColor">
         Software{" "}
