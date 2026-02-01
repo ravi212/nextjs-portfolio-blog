@@ -22,6 +22,7 @@ import Image from "next/image";
 import TextArea from "antd/es/input/TextArea";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import { getAllCategories } from "@/lib/actions/category.action";
 const { Option } = Select;
 
 // Validation schema with Yup
@@ -33,7 +34,7 @@ const validationSchema = Yup.object({
     .required("Slug is required")
     .matches(
       /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-      "Slug must be lowercase and can only contain letters, numbers, and hyphens"
+      "Slug must be lowercase and can only contain letters, numbers, and hyphens",
     ),
   description: Yup.string()
     .required("Description is required")
@@ -43,7 +44,7 @@ const validationSchema = Yup.object({
       Yup.object().shape({
         title: Yup.string().required("Title is required"),
         link: Yup.string().required("Link is required"),
-      })
+      }),
     )
     .required("Platform is required")
     .min(1, "Atleast one platform is required"),
@@ -52,6 +53,7 @@ const validationSchema = Yup.object({
     .required("Platform is required")
     .min(1, "Atleast one technlogogy is required"),
   coverImage: Yup.string().required("Cover image is required"),
+  category: Yup.string().required("Category is required"),
 });
 
 const ProjectEdit = ({
@@ -66,7 +68,7 @@ const ProjectEdit = ({
   const [imageSuccess, setImageSuccess] = useState("");
   const [projectError, setProjectError] = useState("");
   const [projectSuccess, setProjectSuccess] = useState("");
-
+  const [categories, setCategories] = useState<CategoryType[]>([]);
   // Initialize Formik with useFormik hook
   const formik = useFormik({
     initialValues: {
@@ -77,6 +79,7 @@ const ProjectEdit = ({
       platform: [{ title: "", link: "" }],
       coverImage: "",
       github: "",
+      category: "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -147,6 +150,21 @@ const ProjectEdit = ({
   }, [formik.values]);
 
   useEffect(() => {
+    async function getCategories() {
+      const {categories, success} = await getAllCategories();
+      if (!success) {
+        return;
+      }
+      if (categories?.length === 0) {
+        return;
+      }
+      setCategories(categories);
+    }
+
+    getCategories();
+  }, []);
+
+  useEffect(() => {
     if (projectId) {
       formik.resetForm();
       getProjectToEdit();
@@ -176,6 +194,10 @@ const ProjectEdit = ({
   // Handle change of Select component
   const handleTechnologyChange = (value) => {
     formik.setFieldValue("technologies", value);
+  };
+
+  const handleCategoryChange = (value) => {
+    formik.setFieldValue("category", value);
   };
 
   return (
@@ -227,6 +249,34 @@ const ProjectEdit = ({
           ) : null}
         </div>
 
+        <div className="flex flex-col gap-2">
+          <label className="text-lg font-normal" htmlFor="technologies">
+            Category
+          </label>
+
+          <Select
+            id="category"
+            placeholder="Select Category"
+            value={formik.values.category}
+            onChange={handleCategoryChange}
+            onBlur={formik.handleBlur}
+            size="large"
+          >
+            {categories &&
+              categories
+                ?.map((category, index) => (
+              <Option key={index} value={category._id}>
+                {`${category.title}`}
+              </Option>
+            ))}
+          </Select>
+
+          {formik.touched.category && formik.errors.category ? (
+            <p className="text-red-500 text-base font-normal">
+              {formik.errors.category}
+            </p>
+          ) : null}
+        </div>
         <div className="flex flex-col gap-2">
           <label className="text-lg font-normal" htmlFor="description">
             Description

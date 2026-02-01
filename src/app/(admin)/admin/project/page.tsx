@@ -3,26 +3,33 @@ import ProjectEdit from "@/components/molecules/admin/project";
 import Projects from "@/components/molecules/admin/projects";
 import { getAllProjects } from "@/lib/actions/project.action";
 import { Modal } from "antd";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Page = () => {
   const [projects, setProjects] = useState<PostType[]>([]);
   const [openModal, setOpenModal] = useState(false);
   const [editId, setEditId] = useState<any>(null);
+  const searchParams = useSearchParams();
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
     getProjects();
-  }, []);
+  }, [searchParams]);
 
   const getProjects = async () => {
-    const result = await getAllProjects();
+    const page = parseInt(searchParams.get("page") || "1");
+    const limit = parseInt(searchParams.get("pageSize") || "10");
+    const result = await getAllProjects(page, limit);
+
     if (result?.success) {
       setProjects(result?.projects);
       setOpenModal(false);
+      setTotalCount(result?.total);
       setEditId(null);
     }
   };
-
+  
   const handleOpenEditModal = (id: string) => {
     setEditId(id);
     setOpenModal(!openModal);
@@ -41,6 +48,7 @@ const Page = () => {
       </div>
       <Projects
         projects={projects}
+        totalCount={totalCount}
         reGetProjects={getProjects}
         openEditModal={(id: string) => handleOpenEditModal(id)}
       />

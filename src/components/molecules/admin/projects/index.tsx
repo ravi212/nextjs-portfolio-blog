@@ -8,6 +8,7 @@ import {
   toggleFeatured,
   toggleRecent,
 } from "@/lib/actions/project.action";
+import CustomPagination from "@/components/atoms/common/Pagination";
 
 interface DataType {
   _id: string;
@@ -21,16 +22,19 @@ interface DataType {
   featured: boolean;
   github: string;
   createdAt: any;
+  category: any;
 }
 
 const Projects = ({
   projects,
   reGetProjects,
   openEditModal,
+  totalCount,
 }: {
   projects: any[];
   reGetProjects: () => void;
   openEditModal: (id: string) => void;
+  totalCount: number;
 }) => {
   const handleDelete = async (id: string) => {
     await deleteProject(id);
@@ -51,12 +55,12 @@ const Projects = ({
     { title: "Title", dataIndex: "title", key: "title" },
     { title: "Slug", dataIndex: "slug", key: "slug" },
     {
-      title: "Created On",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (createdAt) => (
-        <div className="flex gap-4">
-          <p>{formatDate(createdAt)}</p>
+      title: "Category",
+      dataIndex: "",
+      key: "category",
+      render: (row) => (
+        <div className="flex  gap-4">
+          <p>{row?.category?.title}</p>
         </div>
       ),
     },
@@ -83,6 +87,16 @@ const Projects = ({
             checked={row.featured}
             onChange={() => handleFeatured(row._id)}
           ></Checkbox>
+        </div>
+      ),
+    },
+    {
+      title: "Created On",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      render: (createdAt) => (
+        <div className="flex gap-4">
+          <p>{formatDate(createdAt)}</p>
         </div>
       ),
     },
@@ -115,7 +129,16 @@ const Projects = ({
   ];
 
   return (
-    <Table columns={columns} dataSource={projects} rowKey={(row) => row._id} />
+    <div className="flex flex-col gap-4">
+      <Table
+        columns={columns}
+        dataSource={projects}
+        rowKey={(row) => row._id}
+        pagination={false}
+      />
+
+      <CustomPagination totalCount={totalCount} />
+    </div>
   );
 };
 
