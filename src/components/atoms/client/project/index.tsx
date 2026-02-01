@@ -14,7 +14,7 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 const Project = ({ project }: { project: ProjectType }) => {
   const [imageLoading, setImageLoading] = useState(true);
-
+  console.log(project);
   const renderIcon = (title: string) => {
     switch (title) {
       case ProjectPlatform.WEB:
@@ -166,7 +166,7 @@ const Project = ({ project }: { project: ProjectType }) => {
         >
           {/* Platform & GitHub Links */}
           <div className="flex flex-wrap gap-1.5">
-            {project?.platform?.slice(0, 1).map((item, index) => (
+            {project?.platform?.map((item, index) => (
               <motion.div key={index} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   target="_blank"
@@ -174,7 +174,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                   className="flex gap-1 items-center px-2.5 py-1.5 bg-primaryColor text-secondaryColor rounded-lg text-xs font-medium hover:bg-primaryColor/90 transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   {renderIcon(item?.title)}
-                  <span className="hidden xs:inline capitalize">{item.title}</span>
+                  <span className="hidden sm:inline">{item.title}</span>
                 </Link>
               </motion.div>
             ))}
@@ -187,6 +187,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                   className="flex gap-1 items-center px-2.5 py-1.5 bg-primaryColor text-secondaryColor rounded-lg text-xs font-medium hover:bg-primaryColor/90 transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   <GitHubIcon fontSize="small" className="w-3.5 h-3.5" />
+                  {/* <span className="hidden xs:inline capitalize">Github</span> */}
                 </Link>
               </motion.div>
             )}

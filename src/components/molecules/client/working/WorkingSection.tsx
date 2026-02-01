@@ -84,7 +84,7 @@ const WorkingSection = ({
           animate="visible"
           onClick={() => handleCategoryChange("all")}
           whileTap={{ scale: 0.98 }}
-          className={`relative px-3 md:px-4 py-2 rounded-md text-sm font-normal whitespace-nowrap transition-all duration-300 overflow-hidden group ${
+          className={`relative px-3 md:px-4 py-2 rounded-md text-sm font-normal whitespace-nowrap transition-all duration-300 group ${
             activeCategory === "all"
               ? "bg-secondaryTextColor text-secondaryColor shadow-lg"
               : "bg-gradient-to-r from-primaryColor/8 to-primaryColor/5 text-primaryColor hover:from-primaryColor/15 hover:to-primaryColor/10 border border-primaryColor/20 hover:border-primaryColor/40"
@@ -119,7 +119,7 @@ const WorkingSection = ({
               animate="visible"
               onClick={() => handleCategoryChange(category._id)}
               whileTap={{ scale: 0.98 }}
-              className={`relative px-3 md:px-4 py-2 rounded-md text-sm font-normal whitespace-nowrap transition-all duration-300 overflow-hidden group ${
+              className={`relative px-3 md:px-4 py-2 rounded-md text-sm font-normal whitespace-nowrap transition-all duration-300  group ${
                 activeCategory === category._id
                   ? "bg-secondaryTextColor text-secondaryColor shadow-lg"
                   : "bg-gradient-to-r from-primaryColor/8 to-primaryColor/5 text-primaryColor hover:from-primaryColor/15 hover:to-primaryColor/10 border border-primaryColor/20 hover:border-primaryColor/40"
