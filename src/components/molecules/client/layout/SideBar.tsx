@@ -13,7 +13,7 @@ const SideBar = () => {
       <aside className="sticky top-10 flex flex-col gap-1 px-2 h-fit w-full">
         <nav className="flex flex-col gap-1">
           {NAV_ITEMS.map((item, index) => {
-            const isActive = pathname === item.link;
+            const isActive = pathname.includes(item.link);
 
             return (
               <Link
