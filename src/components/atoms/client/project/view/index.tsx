@@ -54,7 +54,7 @@ const ProjectView = ({ project }: { project: ProjectType }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="group w-full flex flex-col md:flex-row gap-6 md:gap-8 items-stretch"
+      className="group w-[92%] flex flex-col md:flex-row gap-6 md:gap-8 items-stretch"
     >
       {/* Image Section - Left/Top */}
       <motion.div
@@ -173,7 +173,7 @@ const ProjectView = ({ project }: { project: ProjectType }) => {
                   className="flex gap-2 items-center px-3 py-2 bg-primaryColor text-secondaryColor rounded-md text-sm font-medium hover:bg-primaryColor/90 hover:shadow-lg transition-all duration-200 shadow-md"
                 >
                   <GitHubIcon fontSize="small" className="w-4 h-4" />
-                  <span className="hidden sm:inline">GitHub</span>
+                  <span className="hidden sm:inline">GITHUB</span>
                 </Link>
               </motion.div>
             )}
