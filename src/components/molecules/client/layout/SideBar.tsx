@@ -18,7 +18,7 @@ const SideBar = () => {
             return (
               <Link
                 key={index}
-                href={item.link}
+                href={`/${item.link}`}
                 className={`group relative flex items-center justify-between px-3 py-2 transition-all duration-200
                   ${
                     isActive
