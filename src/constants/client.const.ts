@@ -6,27 +6,27 @@ export const NAV_ITEMS = [
   {
     id: 0,
     title: "Home",
-    link: "",
+    link: "/",
   },
   {
     id: 1,
     title: "Journey",
-    link: "journey",
+    link: "/journey",
   },
   {
     id: 3,
     title: "Skills",
-    link: "skill",
+    link: "/skill",
   },
     {
     id: 4,
     title: "Projects",
-    link: "projects",
+    link: "/projects",
   },
   {
     id: 5,
     title: "Contact",
-    link: "contact",
+    link: "/contact",
   },
   
 ];

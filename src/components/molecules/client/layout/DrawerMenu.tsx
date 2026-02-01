@@ -45,12 +45,12 @@ const DrawerMenu = ({ open, onClose, breakPoint }: DrawerMenuProps) => {
         {/* Menu Items */}
         <nav className="flex flex-1 flex-col w-[90%] gap-3 py-10">
           {NAV_ITEMS.map((item, index) => {
-            const isActive = pathname.includes(item.link);
+            const isActive = item.link === "/" ? pathname === "/" : pathname.startsWith(item.link);
 
             return (
               <a
                 key={index}
-                href={`/${item.link}`}
+                href={`${item.link}`}
                 className={`group relative flex items-center justify-between px-3 py-2 transition-all duration-200
                   ${
                     isActive
