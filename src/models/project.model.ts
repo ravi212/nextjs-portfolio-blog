@@ -61,6 +61,11 @@ const ProjectSchema = new Schema(
       type: [PlatformSchema],
       require: true,
     },
+    category: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Category",
+      default: null,
+    }
   },
   {
     timestamps: true,

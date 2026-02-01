@@ -18,11 +18,17 @@ export const NAV_ITEMS = [
     title: "Skills",
     link: "/skill",
   },
-  {
+    {
     id: 4,
+    title: "Projects",
+    link: "/projects",
+  },
+  {
+    id: 5,
     title: "Contact",
     link: "/contact",
   },
+  
 ];
 
 export const EXPERT_SECTION = [

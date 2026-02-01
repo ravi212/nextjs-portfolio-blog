@@ -26,6 +26,7 @@ type ProjectType = {
   platform: [PlatformType];
   createdAt?: any;
   github: string;
+  category: any;
 };
 
 type PlatformType = {

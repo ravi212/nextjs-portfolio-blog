@@ -1,12 +1,8 @@
 import HomeSection from "@/components/molecules/client/home";
-import { getAllProjects } from "@/lib/actions/project.action";
-import { revalidatePath } from "next/cache";
+import { getRecentProjects } from "@/lib/actions/project.action";
 
 export default async function Page() {
-  const projects = (await getAllProjects())?.projects;
-  
-  revalidatePath('/(home)', 'page');
-
+  const projects = (await getRecentProjects())?.projects;
   return (
     <section>
       <HomeSection projects={projects} />
