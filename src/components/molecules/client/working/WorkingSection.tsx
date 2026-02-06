@@ -66,15 +66,14 @@ const WorkingSection = ({
         className="flex pt-6 mt-3 w-full gap-4 justify-between items-center"
       >
         <h4 className="text-xl sm:text-xl md:text-2xl font-medium text-primaryColor">
-          My Projects
+          My <span className="underline">Projects</span>
         </h4>
         <CustomPagination totalCount={totalCount} />
       </motion.div>
-
       {/* Tab Navigation */}
       <motion.div
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 scrollbar-hide"
+        className="flex items-center gap-2 md:gap-3 overflow-x-auto scrollbar-hide"
       >
         {/* All Tab */}
         <motion.button
